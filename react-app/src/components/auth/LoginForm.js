@@ -27,7 +27,7 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/home' />;
   }
 
   return (
@@ -57,6 +57,15 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit'>Login</button>
+        <button
+          className="submit-btn"
+          onClick={() => {
+            setPassword("password");
+            setEmail("demo@aa.io");
+          }}
+        >
+          Demo User
+        </button>
       </div>
     </form>
   );
