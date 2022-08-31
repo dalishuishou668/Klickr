@@ -16,7 +16,7 @@ export const getImageCommentsThunk = (imageId) =>async(dispatch) => {
 
     if(res.ok){
         const allcomments = await res.json()
-        console.log('thunk comments:', allcomments)
+        console.log('all image comments thunk ------>>>>>>>>>>:', allcomments)
         dispatch(getImageComments(allcomments))
         return res;
     }
