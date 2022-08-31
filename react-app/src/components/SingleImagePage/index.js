@@ -152,6 +152,7 @@ function SingleImagePage() {
     const [selectCommentId, setSelectCommentId] = useState('')
     const [selectComment, setSelectComment] = useState('')
     const [selectUserId, setSelectUserId] = useState('')
+    const [showComment, setShowComment] = useState(true)
     // const [showEditBtn, setShowEditBtn] = useState(false)
     const [comment1, setComment1] = useState('')
     const [errors2, setErrors2] = useState([])
@@ -174,6 +175,7 @@ function SingleImagePage() {
         await dispatch(editCommentThunk(payload1, imageId, selectCommentId))
         setComment1('')
         setShowEditComment(false)
+        setSelectCommentId('')
     }
 
     // const handleCommentSelect = async (e, commentUserId) => {
@@ -323,7 +325,15 @@ function SingleImagePage() {
 
                             <div className='pd-3-display-comment'>
                                 <div className='comment-1'>
-                                    <div className='comment-1-name'>{ele?.comment}</div>
+                                    <div className='comment-1-name'>
+                                        {
+                                            selectCommentId !== ele.id && (
+                                                <p>{ele?.comment} </p>
+                                            )
+                                        }
+                                        {/* {ele?.comment} */}
+                                    </div>
+
                                     <div className='comment-button'>
                                         {ele.userId === userId ? (
                                             <>
@@ -332,6 +342,7 @@ function SingleImagePage() {
                                                         setShowEditComment(true)
                                                         setSelectCommentId(ele?.id)
                                                         setComment1(ele?.comment)
+                                                        // setShowComment(false)
                                                     }}>
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </div>
