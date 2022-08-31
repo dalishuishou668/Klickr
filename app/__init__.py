@@ -10,7 +10,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.album_routes import album_routes
 from .api.image_routes import image_routes
-from .api.tag_routes import tag_routes
+# from .api.tag_routes import tag_routes
 
 from .seeds import seed_commands
 
