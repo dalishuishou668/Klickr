@@ -35,7 +35,7 @@ def get_single_image(id):
 def create_image():
     userId = request.json['userId']
     albumId = request.json['albumId']
-    tagId = request.json['tagId']
+    # tagId = request.json['tagId']
     content = request.json['content']
     description = request.json['description']
     imageUrl = request.json['imageUrl']
@@ -43,7 +43,7 @@ def create_image():
     newImage = Image(
         userId = userId,
         albumId = albumId,
-        tagId = tagId,
+        # tagId = tagId,
         content = content,
         description = description,
         imageUrl = imageUrl
