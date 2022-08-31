@@ -9,7 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import LandingPage from "./components/LandingPage";
-import MainPage from './components/MainPage';
+// import MainPage from './components/MainPage';
 import Upload from './components/Upload';
 import ExplorePage from './components/ExplorePage';
 import Search from './components/Search';
@@ -60,9 +60,9 @@ function App() {
         <ProtectedRoute path='/explore' exact={true} >
           <ExplorePage />
         </ProtectedRoute>
-        <ProtectedRoute path='/home' exact={true} >
+        {/* <ProtectedRoute path='/home' exact={true} >
           <MainPage />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/search' exact={true} >
           <Search />
         </ProtectedRoute>

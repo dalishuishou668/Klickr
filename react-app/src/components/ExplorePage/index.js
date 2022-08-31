@@ -35,7 +35,7 @@ function ExplorePage() {
 
     return (
         <div>
-            <h1>View all images in the database</h1>
+            <h1>Homepage: view all images in the database</h1>
             <div className='allImgsContainer'>
                 {ImageArr && ImageArr.map((image) => (
                     <div>

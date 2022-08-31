@@ -27,7 +27,7 @@ function YourPage() {
                     setShowUserAlbums(true)
                     setShowUserFaves(false)
                     setShowUserImages(false)
-                    setShowUserFollows(false)
+                    // setShowUserFollows(false)
 
                 }}
                 >Your Albums</button>
@@ -35,23 +35,23 @@ function YourPage() {
                     setShowUserImages(true)
                     setShowUserAlbums(false)
                     setShowUserFaves(false)
-                    setShowUserFollows(false)
+                    // setShowUserFollows(false)
                 }}
                 >Your Images</button>
                 <button onClick={() => {
                     setShowUserFaves(true)
                     setShowUserImages(false)
                     setShowUserAlbums(false)
-                    setShowUserFollows(false)
+                    // setShowUserFollows(false)
                 }}
                 >Your Favorites</button>
-                <button onClick={() => {
+                {/* <button onClick={() => {
                     setShowUserFollows(true)
                     setShowUserFaves(false)
                     setShowUserImages(false)
                     setShowUserAlbums(false)
                 }}
-                >Your Follows</button>
+                >Your Follows</button> */}
             </div>
             {/* <Navigation /> */}
             <div className='userProfileInfo'>
@@ -81,12 +81,12 @@ function YourPage() {
                     </div>
                 ) : (<></>)}
             </div>
-            <div className='yourFollows'>
+            {/* <div className='yourFollows'>
                 {showUserFollows ? (<div>
                     <UserFollowsPage />
                 </div>) : (<></>)}
 
-            </div>
+            </div> */}
 
         </div>
     )
