@@ -9,7 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import LandingPage from "./components/LandingPage";
-import MainPage from './components/MainPage';
+// import MainPage from './components/MainPage';
 import Upload from './components/Upload';
 import ExplorePage from './components/ExplorePage';
 import Search from './components/Search';
@@ -51,18 +51,18 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/explore' exact={true} >
           <ExplorePage />
         </ProtectedRoute>
-        <ProtectedRoute path='/home' exact={true} >
+        {/* <ProtectedRoute path='/home' exact={true} >
           <MainPage />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/search' exact={true} >
           <Search />
         </ProtectedRoute>
@@ -92,26 +92,7 @@ function App() {
         </ProtectedRoute> */}
       </Switch>
       )}
-      {/* <Switch>
-        <Route exact path='/'>
-          <LandingPage />
-        </Route>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/home' exact={true} >
-          <MainPage />
-        </ProtectedRoute>
-      </Switch> */}
+      
     </BrowserRouter>
   );
 }

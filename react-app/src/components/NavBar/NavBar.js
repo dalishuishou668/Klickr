@@ -49,19 +49,16 @@ const NavBar = ({ loaded }) => {
       <div>
         <nav>
           <ul>
-            <li>
+            {/* <li>
               <NavLink to='/home' exact={true} activeClassName='active'>
                 Home
               </NavLink>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <NavLink to='/users' exact={true} activeClassName='active'>
                 Users
               </NavLink>
-            </li>
-            <li>
-              <LogoutButton />
-            </li>
+            </li> */}
             <li>
               <NavLink to='/explore' exact={true} >
                 Explore
@@ -69,7 +66,7 @@ const NavBar = ({ loaded }) => {
             </li>
             <li>
               <NavLink to='/yourpage' exact={true} >
-                Yours
+                You
               </NavLink>
             </li>
             {/* <li>
@@ -107,6 +104,9 @@ const NavBar = ({ loaded }) => {
               <NavLink to='/upload' exact={true} >
                 Upload
               </NavLink>
+            </li>
+            <li>
+              <LogoutButton />
             </li>
           </ul>
         </nav>
