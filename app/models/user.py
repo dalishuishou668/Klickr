@@ -10,8 +10,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    profile_pic = db.Column(db.String(255), nullable=True, default="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-High-Quality-Image.png")
-
+    
 
     # Relationships
     images = db.relationship("Image", back_populates="user")

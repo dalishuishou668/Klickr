@@ -1,0 +1,7 @@
+.landingContainer{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.60)), url('./backgroundPic2.jpg');
+    background-size: cover;
+    background-position: center;
+}
