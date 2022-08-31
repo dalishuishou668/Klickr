@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import { NavLink, useHistory } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { createImageThunk } from '../../store/image';
-import { getAllTagsThunk } from '../../store/tag';
+// import { getAllTagsThunk } from '../../store/tag';
 import { getUserAlbumsThunk } from '../../store/album';
 
 function Upload() {
     const dispatch = useDispatch();
     const history = useHistory()
     const userId = useSelector(state => state?.session.user?.id);
-    const tags = useSelector(state => state?.tags)
-    const tagsArr = Object.values(tags)
+    // const tags = useSelector(state => state?.tags)
+    // const tagsArr = Object.values(tags)
 
 
     const albums = useSelector(state => state.albums)
@@ -21,15 +21,15 @@ function Upload() {
     const [content, setContent] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [description, setDescription] = useState('');
-    const [tagId, setTagId] = useState('');
+    // const [tagId, setTagId] = useState('');
     const [albumId, setAlbumId] = useState('');
     console.log('select albumId***', albumId)
-    console.log('select tagId-------', tagId)
+    // console.log('select tagId-------', tagId)
 
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
-        dispatch(getAllTagsThunk())
+        // dispatch(getAllTagsThunk())
         dispatch(getUserAlbumsThunk(userId))
     }, [dispatch])
 
@@ -39,23 +39,23 @@ function Upload() {
         const errors = [];
         if (content.length < 1) errors.push('Please provide valid values');
         if (description.length < 1) errors.push('Please provide valid description');
-        if (!tagId) errors.push('Please select a tag');
+        // if (!tagId) errors.push('Please select a tag');
         if (!albumId) errors.push('Please select an album');
         if (imageUrl.length < 10) {
             errors.push('Please provide valid url')
         }
         setErrors(errors);
-    }, [content, imageUrl, description, tagId, albumId])
+    }, [content, imageUrl, description, albumId])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = {
             userId,
             albumId,
-            tagId,
             content,
             description,
             imageUrl,
+             // tagId
         };
 
         const post = await dispatch(createImageThunk(payload))
@@ -97,7 +97,7 @@ function Upload() {
                                 onChange={(e) => setDescription(e.target.value)} />
                         </div>
                         <div className='tagDropdown'>
-                            <label for="tag-select">Choose a tag:</label>
+                            {/* <label for="tag-select">Choose a tag:</label>
                             <select
                                 onChange={(e) => setTagId(e.target.value)}
                                 value={tagId}
@@ -106,7 +106,7 @@ function Upload() {
                                 {tagsArr.map(tag =>
                                     <option value={tag.id} key={tag.id}>{tag.name}</option>
                                 )}
-                            </select>
+                            </select> */}
                         </div>
                         <div className='albumDropdown'>
                             <label for="album-select">Choose an album:</label>

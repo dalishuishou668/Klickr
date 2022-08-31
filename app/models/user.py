@@ -17,17 +17,9 @@ class User(db.Model, UserMixin):
     albums = db.relationship("Album", back_populates="user")
     comments = db.relationship("Comment", back_populates="user")
     favorites = db.relationship("Favorite", back_populates="user")
-    tags = db.relationship("Tag", back_populates="user")
+    # tags = db.relationship("Tag", back_populates="user")
 
-    follows = db.relationship("Follow", back_populates="user")
-
-    # user_followings = db.relationship("Follow", foreign_keys="Follow.followieId",
-    #                     back_populates="user", lazy="dynamic")
-    # user_followers = db.relationship("Follow", foreign_keys="Follow.followerId",
-    #                     back_populates="followie", lazy="dynamic")
-
-    # Payments = db.relationship('Payment', backref = 'payer', lazy = 'dynamic', foreign_keys = 'Payment.uidPayer')
-    # Received = db.realtionship('Payment', backref = 'Receiver', lazy = 'dynamic, foreign_keys = 'Payment.uidReceiver')
+    # follows = db.relationship("Follow", back_populates="user")
 
     @property
     def password(self):
