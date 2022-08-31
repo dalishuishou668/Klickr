@@ -336,8 +336,8 @@ function SingleImagePage() {
                                     </div>
 
                                     <div className='comment-button'>
-                                        {ele.userId === userId ? (
-                                            <>
+                                        {/* {ele.userId === userId ? ( */}
+                                            <div>
                                                 <div className='editCommentSymbol'
                                                     onClick={() => {
                                                         setShowEditComment(true)
@@ -352,8 +352,8 @@ function SingleImagePage() {
                                                 >
                                                     <i class="fa-solid fa-trash-can"></i>
                                                 </div>
-                                            </>
-                                        ) : ''}
+                                            </div>
+                                        {/* ) : ''} */}
                                     </div>
 
                                 </div>
@@ -370,7 +370,6 @@ function SingleImagePage() {
 
                                         </form>
                                     </div>) : (<>
-                                        {/* <p>{ele?.comment}</p> */}
                                     </>)}
                                 </div>
 
