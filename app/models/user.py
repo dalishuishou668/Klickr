@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    
+
 
     # Relationships
     images = db.relationship("Image", back_populates="user")
@@ -45,7 +45,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'profilePicture': self.profile_pic,
         }
 
     def to_dict_1(self):
@@ -53,7 +52,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'profilePicture': self.profile_pic,
             "images": [image.id for image in self.iamges],
             "albums": [album.id for album in self.albums],
             "comments": [comment.id for comment in self.comments],
