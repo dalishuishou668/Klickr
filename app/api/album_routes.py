@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, redirect
 from flask_login import login_required
-from app.models import db, Album, Image, Comment, User, Tag, Favorite, Follow
+from app.models import db, Album, Image, Comment, User, Favorite
 
 album_routes = Blueprint("album_routes", __name__)
 
