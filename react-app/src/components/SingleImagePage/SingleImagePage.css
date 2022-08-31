@@ -2,3 +2,25 @@
     width:300px;
     height: 300px;
 }
+
+.displayCommentsContainer2:hover .hover-comment-button{
+    background-color: #f8f9fa;
+    opacity: 1;
+
+}
+
+.pd-3-display-comment:hover .comment-button {
+    background-color: #f8f9fa;
+    opacity: 1;
+}
+
+.pd-3-display-comment:hover {
+    background-color: #f8f9fa;
+}
+
+.comment-button {
+    opacity: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
