@@ -36,7 +36,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(album_routes, url_prefix='/api/albums')
 app.register_blueprint(image_routes, url_prefix='/api/images')
-app.register_blueprint(tag_routes, url_prefix='/api/tags')
+# app.register_blueprint(tag_routes, url_prefix='/api/tags')
 db.init_app(app)
 Migrate(app, db)
 
@@ -76,6 +76,3 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
-
-
-
