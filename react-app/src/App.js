@@ -72,15 +72,15 @@ function App() {
         <ProtectedRoute path='/yourpage' exact={true} >
           <YourPage />
         </ProtectedRoute>
-        {/* <ProtectedRoute path='/your-albums' exact={true} >
+        <ProtectedRoute path='/your-albums' exact={true} >
           <UserAlbumsPage />
-        </ProtectedRoute> */}
+        </ProtectedRoute>
         <ProtectedRoute path='/albums/:albumId/images' exact={true} >
           <AlbumImagesPage />
         </ProtectedRoute>
-        {/* <ProtectedRoute path='/your-images' exact={true} >
+        <ProtectedRoute path='/your-images' exact={true} >
           <UserImagesPage />
-        </ProtectedRoute> */}
+        </ProtectedRoute>
         <ProtectedRoute path='/images/:imageId' exact={true} >
           <SingleImagePage />
         </ProtectedRoute>
@@ -117,4 +117,3 @@ function App() {
 }
 
 export default App;
-
