@@ -331,7 +331,7 @@ function SingleImagePage() {
                                                     onClick={() => {
                                                         setShowEditComment(true)
                                                         setSelectCommentId(ele?.id)
-                                                        setSelectComment(ele)
+                                                        setComment1(ele?.comment)
                                                     }}>
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </div>
