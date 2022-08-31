@@ -21,6 +21,8 @@ function SingleImagePage() {
     const usersArr = Object.values(allUsers)
     // console.log('userARR^^^^^^^^^^:', usersArr)
 
+
+
     // ------------- FAVE -----------------
     let favesArr;
     let currentfaves;
@@ -81,6 +83,8 @@ function SingleImagePage() {
         )
 
     }, [dispatch, imageId])
+
+    // ----------------------- comments ---------------------------
 
     const comments = useSelector(state => state?.comments)
     const commentsArr = Object.values(comments)
@@ -178,12 +182,7 @@ function SingleImagePage() {
         setSelectCommentId('')
     }
 
-    // const handleCommentSelect = async (e, commentUserId) => {
-    //     setSelectUserId(commentUserId)
-    //     if (userId === commentUserId) {
-    //         setShowEditBtn(true)
-    //     }
-    // }
+
 
     const getUsername = (userId) => {
         if (usersArr) {
@@ -321,6 +320,8 @@ function SingleImagePage() {
                     (
                         <div className='pd-3-display'>
                             <div className='userPicContainer'>
+                                <div><i class="fa-solid fa-user"></i></div>
+                                <p>{ele?.user?.username}</p>
                             </div>
 
                             <div className='pd-3-display-comment'>
@@ -377,18 +378,6 @@ function SingleImagePage() {
                         </div>
 
                     ))}
-
-
-
-                    {/* <div>
-                        {showEditBtn ? (<div>
-                            <button onClick={() => {
-                                setShowEditComment(true)
-                                // setSelectCommentId(ele?.id)
-                            }}>
-                                Edit comment</button>
-                        </div>) : (<></>)}
-                    </div> */}
 
                 </div>
 

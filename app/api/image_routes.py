@@ -85,13 +85,18 @@ def delete_image(id):
 @image_routes.route('/<int:id>/comments')
 @login_required
 def get_image_comments(id):
-    image = Image.query.get(id)
-    if image:
-        imageComments = image.to_dict_1()
-        # commentList = imageComments['comments']
-    return {"imageComments": imageComments['comments']}
 
-    # return {"imageComments": imageComments['comments'], 'eachComment': [comment.user.to_dict() for comment in commentList]}
+    comments = Comment.query.filter(Comment.imageId == id).all()
+    return {"imageComments": [comment.to_dict() for comment in comments]}
+    # image = Image.query.get(id)
+    # if comments:
+    #     imageComments = image.to_dict_1()
+        # commentList = imageComments['comments']
+
+    # return {"imageComments":[comment.to_dict() for comment in comments], 'eachComment': [comment.user.to_dict() for comment in comments]}
+
+    # return {"imageComments": imageComments['comments']}
+
     # return jsonify({"No comments"})
 
 
