@@ -318,25 +318,27 @@ function SingleImagePage() {
                 <div className='displayCommentsContainer1'>
                     {commentsArr && commentsArr.map(ele =>
                     (
-                        <div className='pd-3-display'>
+                        <div className='isplayCommentsContainer2'>
                             <div className='userPicContainer'>
                                 <div><i class="fa-solid fa-user"></i></div>
                                 <p>{ele?.user?.username}</p>
                             </div>
 
-                            <div className='pd-3-display-comment'>
-                                <div className='comment-1'>
-                                    <div className='comment-1-name'>
+                            <div className='display-comment1'>
+                                <div className='single-comment'>
+                                    <div className='single-comment-ele'>
                                         {
                                             selectCommentId !== ele.id && (
                                                 <p>{ele?.comment} </p>
                                             )
                                         }
-                                        {/* {ele?.comment} */}
+                                        {/* <p>{ele?.comment}</p> */}
+
+
                                     </div>
 
-                                    <div className='comment-button'>
-                                        {/* {ele.userId === userId ? ( */}
+                                    <div className='comment-select-button'>
+                                        {ele?.user?.id === userId ? (
                                             <div>
                                                 <div className='editCommentSymbol'
                                                     onClick={() => {
@@ -353,12 +355,12 @@ function SingleImagePage() {
                                                     <i class="fa-solid fa-trash-can"></i>
                                                 </div>
                                             </div>
-                                        {/* ) : ''} */}
+                                        ) : ''}
                                     </div>
 
                                 </div>
                                 <div className='comment-2'>
-                                    { ele.id === selectCommentId && showEditComment ? (<div>
+                                    {ele.id === selectCommentId && showEditComment ? (<div>
                                         <form onSubmit={handleEditComment}>
                                             <input
                                                 placeholder={selectComment}
