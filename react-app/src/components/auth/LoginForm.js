@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory, NavLink } from 'react-router-dom';
 import { login } from '../../store/session';
+import * as sessionActions from "../../store/session";
 import './LoginForm.css';
 
 const LoginForm = () => {
@@ -10,6 +11,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
 
 
   useEffect(() => {
@@ -47,6 +49,10 @@ const LoginForm = () => {
     return <Redirect to='/explore' />;
   }
 
+  const demologin = async () => {
+    await dispatch(sessionActions.login("demo@aa.io", "password"));
+    history.push('/explore');
+  }
 
 
 
@@ -78,7 +84,9 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit'>Login</button>
-        <button
+        <button onClick={demologin}>Demo User</button>
+        <button onClick={() => history.push('/')}>Back</button>
+        {/* <button
           className="submit-btn"
           onClick={() => {
             setPassword("password");
@@ -86,7 +94,7 @@ const LoginForm = () => {
           }}
         >
           Demo User
-        </button>
+        </button> */}
       </div>
     </form>
   );
