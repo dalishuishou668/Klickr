@@ -240,26 +240,26 @@ function SingleImagePage() {
         <div>
             <h1>single image page</h1>
             <div className='imgDisplayContainer'>
-                <div className='imgInfoContainer'>
-                    <div className='imgInfoContainer1'>
-                        <div className='imgContent1'>
-                            <h2 id='heading'>{image?.content}</h2>
-                        </div>
-                        <div className='imgInfoContainer2'>
-                            <img src={image?.imageUrl} alt={image?.title} className='image1'></img>
-                        </div>
-                        <div className='userBtnContainer'>
-                            {image?.userId === userId ? (
-                                <div className='imgBtnContainer'>
-                                    <div className='editImgSymbol' onClick={() => setShowEditForm(true)}><i class="fa-solid fa-pen-to-square"></i></div>
-                                    <div className='deleteImgSymbol' onClick={handleDeleteImage}><i class="fa-solid fa-trash-can"></i></div>
-                                </div>
-                            ) : ('')}
-                        </div>
+                {/* <div className='imgInfoContainer'> */}
+                <div className='imgInfoContainer1'>
+                    <div className='imgContent1'>
+                        <h2 id='heading'>{image?.content}</h2>
                     </div>
+                    <div className='imgInfoContainer2'>
+                        <img src={image?.imageUrl} alt={image?.title} className='image1'></img>
+                    </div>
+                    <div className='userBtnContainer'>
+                        {image?.userId === userId ? (
+                            <div className='imgBtnContainer'>
+                                <div className='editImgSymbol' onClick={() => setShowEditForm(true)}><i class="fa-solid fa-pen-to-square"></i></div>
+                                <div className='deleteImgSymbol' onClick={handleDeleteImage}><i class="fa-solid fa-trash-can"></i></div>
+                            </div>
+                        ) : ('')}
+                    </div>
+                </div>
 
 
-
+                <div className='imgInfoContainer'>
                     <div className='singleImgRight'>
                         <div className='favesContainer'>
                             <div className='totalFave'>
@@ -312,92 +312,108 @@ function SingleImagePage() {
 
                         </div>
                     </div>
-                    <p>{image?.description}</p>
-                    <p>posted by {getUsername(image?.userId)}</p>
-                </div>
-            </div>
+                    <div className='commentinfo2'>
+                        <div className='userPic1'>
+                            <img id='headPic' src='../pictures/user.png' alt='user_logo1' />
+                        </div>
+                        <div className='userPic1-2'>
+                            <h3>{getUsername(image?.userId)}</h3>
+                            <p>{image?.description}</p>
+                        </div>
+                    </div>
 
-            <div className='addComments'>
-                <form onSubmit={handleAddComment}>
-                    <input
-                        placeholder='add comments'
-                        type="text"
-                        value={comment}
-                        onChange={(e) => setComment(e.target.value)}
-                    >
-                    </input>
-                    <button type="submit" disabled={!!errors1.length}>confirm comments</button>
-                </form>
-            </div>
+                    <div className='addCommentsContainer'>
+                        <div className='userPic2'>
+                            <img id='headPic2' src='../pictures/phone.png' alt='user_logo1' />
+                        </div>
+                        <div className='addCommentForm1'>
+                            <form className='addCommentForm2' onSubmit={handleAddComment}>
+                                <textarea
+                                    className='addCommentInput'
+                                    placeholder='add comments'
+                                    type="text"
+                                    value={comment}
+                                    onChange={(e) => setComment(e.target.value)}
+                                />
+                                <button className='addCommentBtn' type="submit" disabled={!!errors1.length}>Save</button>
+                            </form>
 
-            <div className='imgCommentsContainer'>
-                <div className='displayCommentsContainer1'>
-                    {commentsArr && commentsArr.map(ele =>
-                    (
-                        <div className='isplayCommentsContainer2'>
-                            <div className='userPicContainer'>
-                                <div><i class="fa-solid fa-user"></i></div>
-                                <p>{ele?.user?.username}</p>
-                            </div>
-
-                            <div className='display-comment1'>
-                                <div className='single-comment'>
-                                    <div className='single-comment-ele'>
-                                        {
-                                            selectCommentId !== ele.id && (
-                                                <p>{ele?.comment} </p>
-                                            )
-                                        }
-                                        {/* <p>{ele?.comment}</p> */}
-
-
-                                    </div>
-
-                                    <div className='comment-select-button'>
-                                        {ele?.user?.id === userId ? (
-                                            <div>
-                                                <div className='editCommentSymbol'
-                                                    onClick={() => {
-                                                        setShowEditComment(true)
-                                                        setSelectCommentId(ele?.id)
-                                                        setComment1(ele?.comment)
-                                                        // setShowComment(false)
-                                                    }}>
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </div>
-                                                <div className='deleteCommentSymbol'
-                                                    onClick={(e) => handleDeleteComment(e, ele?.id)}
-                                                >
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </div>
-                                            </div>
-                                        ) : ''}
-                                    </div>
-
-                                </div>
-                                <div className='comment-2'>
-                                    {ele.id === selectCommentId && showEditComment ? (<div>
-                                        <form onSubmit={handleEditComment}>
-                                            <input
-                                                placeholder={selectComment}
-                                                type="text"
-                                                value={comment1}
-                                                onChange={(e) => setComment1(e.target.value)}
-                                            ></input>
-                                            <button type="submit" disabled={!!errors2.length}>Submit</button>
-
-                                        </form>
-                                    </div>) : (<>
-                                    </>)}
-                                </div>
-
-                            </div>
                         </div>
 
-                    ))}
+                    </div>
+
+                    <div className='imgCommentsContainer'>
+                        <div className='displayCommentsContainer1'>
+                            {commentsArr && commentsArr.map(ele =>
+                            (
+                                <div className='displayCommentsContainer2'>
+                                    <div className='userPicContainer'>
+                                        <div>
+                                            <img id='headPic3' src='../pictures/phone.png' alt='user_logo1' />
+                                        </div>
+                                        <p className='commentUsername'>{ele?.user?.username}</p>
+
+
+                                        <div className='display-comment1'>
+                                            <div className='single-comment'>
+                                                <div className='single-comment-ele'>
+                                                    {
+                                                        selectCommentId !== ele.id && (
+                                                            <p>{ele?.comment} </p>
+                                                        )
+                                                    }
+                                                    {/* <p>{ele?.comment}</p> */}
+
+
+                                                </div>
+
+                                                <div className='comment-select-button'>
+                                                    {ele?.user?.id === userId ? (
+                                                        <div>
+                                                            <div className='editCommentSymbol'
+                                                                onClick={() => {
+                                                                    setShowEditComment(true)
+                                                                    setSelectCommentId(ele?.id)
+                                                                    setComment1(ele?.comment)
+                                                                    // setShowComment(false)
+                                                                }}>
+                                                                <i class="fa-solid fa-pen-to-square"></i>
+                                                            </div>
+                                                            <div className='deleteCommentSymbol'
+                                                                onClick={(e) => handleDeleteComment(e, ele?.id)}
+                                                            >
+                                                                <i class="fa-solid fa-trash-can"></i>
+                                                            </div>
+                                                        </div>
+                                                    ) : ''}
+                                                </div>
+
+                                            </div>
+                                            <div className='comment-2'>
+                                                {ele.id === selectCommentId && showEditComment ? (<div>
+                                                    <form onSubmit={handleEditComment}>
+                                                        <input
+                                                            placeholder={selectComment}
+                                                            type="text"
+                                                            value={comment1}
+                                                            onChange={(e) => setComment1(e.target.value)}
+                                                        ></input>
+                                                        <button type="submit" disabled={!!errors2.length}>Submit</button>
+
+                                                    </form>
+                                                </div>) : (<>
+                                                </>)}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            ))}
+                        </div>
+                    </div>
 
                 </div>
-
 
 
             </div>
