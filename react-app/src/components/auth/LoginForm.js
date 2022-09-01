@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory, NavLink } from 'react-router-dom';
 import { login } from '../../store/session';
+import * as sessionActions from "../../store/session";
+import './LoginForm.css';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -9,6 +11,23 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
+
+
+  useEffect(() => {
+    let errors = [];
+    if (!(/[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}/.test(email))) {
+      errors.push('Please provide a valid email.')
+    }
+    if (password.length < 4) {
+      errors.push('Please provide a valid password.')
+    }
+    setErrors(errors);
+
+  }, [email, password])
+
+
+
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -30,11 +49,19 @@ const LoginForm = () => {
     return <Redirect to='/explore' />;
   }
 
+  const demologin = async () => {
+    await dispatch(sessionActions.login("demo@aa.io", "password"));
+    history.push('/explore');
+  }
+
+
+
+
   return (
     <form onSubmit={onLogin}>
-      <div>
+      <div className='loginErr'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div key={ind}>* {error}</div>
         ))}
       </div>
       <div>
@@ -57,7 +84,9 @@ const LoginForm = () => {
           onChange={updatePassword}
         />
         <button type='submit'>Login</button>
-        <button
+        <button onClick={demologin}>Demo User</button>
+        <button onClick={() => history.push('/')}>Back</button>
+        {/* <button
           className="submit-btn"
           onClick={() => {
             setPassword("password");
@@ -65,7 +94,7 @@ const LoginForm = () => {
           }}
         >
           Demo User
-        </button>
+        </button> */}
       </div>
     </form>
   );

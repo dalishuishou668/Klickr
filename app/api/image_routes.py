@@ -1,8 +1,25 @@
 from flask import Blueprint, jsonify, request, redirect
 from flask_login import login_required, current_user
+from app.forms import CreateImageForm, UpdateImageForm, CreateCommentForm, UpdateCommentForm
 from app.models import db, Album, Image, Comment, User, Favorite
 
 image_routes = Blueprint("image_routes", __name__)
+
+# ------------- validations ---------------------
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+            print('err msg backend ------->>>>>>>>>>>>')
+            print(errorMessages)
+    return errorMessages
+
+
+
 
 # Get all database images --- /localhost:3000/api/images
 @image_routes.route('/')
@@ -33,27 +50,41 @@ def get_single_image(id):
 @image_routes.route('/upload', methods=['POST'])
 @login_required
 def create_image():
-    userId = request.json['userId']
-    albumId = request.json['albumId']
-    # tagId = request.json['tagId']
-    content = request.json['content']
-    description = request.json['description']
-    imageUrl = request.json['imageUrl']
+    form = CreateImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        newImage = Image(
+            userId=form.data['userId'],
+            albumId=form.data['albumId'],
+            content=form.data['content'],
+            description=form.data['description'],
+            imageUrl=form.data['imageUrl'],
+        )
+        db.session.add(newImage)
+        db.session.commit()
+        return newImage.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    # userId = request.json['userId']
+    # albumId = request.json['albumId']
+    # # tagId = request.json['tagId']
+    # content = request.json['content']
+    # description = request.json['description']
+    # imageUrl = request.json['imageUrl']
 
-    newImage = Image(
-        userId = userId,
-        albumId = albumId,
-        # tagId = tagId,
-        content = content,
-        description = description,
-        imageUrl = imageUrl
-    )
-    print('!!!!!!!!!!!!!!!!!!!!!!!!!!')
-    print(newImage.to_dict())
+    # newImage = Image(
+    #     userId = userId,
+    #     albumId = albumId,
+    #     # tagId = tagId,
+    #     content = content,
+    #     description = description,
+    #     imageUrl = imageUrl
+    # )
+    # print('!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    # print(newImage.to_dict())
 
-    db.session.add(newImage)
-    db.session.commit()
-    return newImage.to_dict()
+    # db.session.add(newImage)
+    # db.session.commit()
+    # return newImage.to_dict()
 
 
 # Update an image --- /localhost:3000/api/images/:imageId/edit
@@ -67,6 +98,25 @@ def edit_image(id):
     targetImage.description = data['description']
     db.session.commit()
     return targetImage.to_dict()
+
+
+    # ------------- Not working ---------------------
+    # form = UpdateImageForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+
+    # if form.validate_on_submit():
+    #     targetImage = Image.query.get(id)
+    #     targetImage.userId=form.data['userId'],
+    #     targetImage.albumId=form.data['albumId'],
+    #     targetImage.content=form.data['content'],
+    #     targetImage.description=form.data['description'],
+    #     targetImage.imageUrl=form.data['imageUrl'],
+
+
+    #     db.session.commit()
+    #     print(form.data)
+    #     return targetImage.to_dict()
+    # return {'errors': "ERROR!!!!!!!"}, 401
 
 
 # Delete an image --- /localhost:3000/api/images/:imageId/delete
@@ -94,21 +144,9 @@ def get_image_comments(id):
         # commentList = imageComments['comments']
 
     # return {"imageComments":[comment.to_dict() for comment in comments], 'eachComment': [comment.user.to_dict() for comment in comments]}
-
     # return {"imageComments": imageComments['comments']}
-
     # return jsonify({"No comments"})
 
-
-
-
-# # GET A SINGLE COMMENT
-# # /localhost:3000/api/images/:imageId/comments/:commentId
-# @image_routes.route('/<int:imageId>/comments/<int:commentId>')
-# @login_required
-# def get_single_comment(imageId, commentId):
-#     comment = Comment.query.get(commentId)
-#     return comment.to_dict()
 
 
 # CREATE A COMMENT OF AN IMAGE
@@ -116,15 +154,28 @@ def get_image_comments(id):
 @image_routes.route('/<int:imageId>/comments/create', methods=["POST"])
 @login_required
 def create_comment(imageId):
-    # image = Image.query.get(imageId)
-    newComment = Comment(
-        userId = request.json['userId'],
-        imageId = request.json['imageId'],
-        comment = request.json['comment'],
-    )
-    db.session.add(newComment)
-    db.session.commit()
-    return newComment.to_dict()
+
+    # newComment = Comment(
+    #     userId = request.json['userId'],
+    #     imageId = request.json['imageId'],
+    #     comment = request.json['comment'],
+    # )
+    # db.session.add(newComment)
+    # db.session.commit()
+    # return newComment.to_dict()
+
+    form = CreateCommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        newComment = Comment(
+            userId=form.data['userId'],
+            imageId=form.data['imageId'],
+            comment=form.data['comment'],
+        )
+        db.session.add(newComment)
+        db.session.commit()
+        return newComment.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 
@@ -133,19 +184,26 @@ def create_comment(imageId):
 @image_routes.route('/<int:imageId>/comments/<int:commentId>/edit', methods=['PUT'])
 @login_required
 def update_comment(imageId, commentId):
-    targetComment = Comment.query.get(commentId)
-    data = request.json
-    print('data--------------------')
-    targetComment.comment = data['comment']
-    db.session.commit()
-    return targetComment.to_dict()
-    # comment1 = Comment.query.get(commentId)
-    # commentInfo = request.json['comment']
-    # comment1.comment = commentInfo
-    # # db.session.add(comment)
+    # targetComment = Comment.query.get(commentId)
+    # data = request.json
+    # print('data------------->>>>>>>>>')
+    # targetComment.comment = data['comment']
     # db.session.commit()
-    # return comment1.to_dict()
+    # return targetComment.to_dict()
 
+    #  --------------------------------------------
+    form = UpdateCommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        targetComment = Comment.query.get(commentId)
+        targetComment.userId=form.data['userId'],
+        targetComment.imageId=form.data['imageId'],
+        targetComment.comment=form.data['comment']
+        db.session.commit()
+        print(form.data)
+        return targetComment.to_dict()
+    return {'errors': "ERROR!!!!!!!"}, 401
 
 
 

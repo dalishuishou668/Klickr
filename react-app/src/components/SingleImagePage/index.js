@@ -105,10 +105,12 @@ function SingleImagePage() {
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
 
+    let regex1 = /[a-zA-Z0-9]/
+
     useEffect(() => {
         const errors = [];
-        if (content.length < 1) errors.push('Please provide valid values');
-        if (description.length < 1) errors.push('Please provide valid description');
+        if (content.length < 2 || !(regex1.test(content))) errors.push('Content must be ad least 2 characters');
+        if (description.length < 2 || !(regex1.test(description))) errors.push('Description must be ad least 2 characters');
         setErrors(errors);
     }, [content, description])
 
@@ -132,7 +134,7 @@ function SingleImagePage() {
 
     useEffect(() => {
         const errors1 = [];
-        if (comment.length < 1) errors1.push('Please provide valid comment');
+        if (comment.length < 2 || !(regex1.test(comment))) errors1.push('Comment must be ad least 2 characters');
 
         setErrors1(errors1);
     }, [comment])
@@ -163,7 +165,7 @@ function SingleImagePage() {
 
     useEffect(() => {
         const errors2 = [];
-        if (comment1.length < 1) errors2.push('Please provide valid comment');
+        if (comment1.length < 1 || !(regex1.test(comment1))) errors2.push('Comment must be ad least 2 characters');
         setErrors2(errors2);
     }, [comment1])
 
@@ -292,6 +294,13 @@ function SingleImagePage() {
                         <div className='editImgContainer'>
                             {showEditForm ? (<div>
                                 <form onSubmit={handleEditImage}>
+                                    <div>
+                                        <ul className="errors">
+                                            {errors.map(error => (
+                                                <li className='err' key={error}>* {error}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                     <input
                                         placeholder='edit content'
                                         type="text"
@@ -328,6 +337,13 @@ function SingleImagePage() {
                         </div>
                         <div className='addCommentForm1'>
                             <form className='addCommentForm2' onSubmit={handleAddComment}>
+                                <div>
+                                    <ul>
+                                        {errors1.map(error1 => (
+                                            <li className='err' key={error1}>* {error1}</li>
+                                        ))}
+                                    </ul>
+                                </div>
                                 <textarea
                                     className='addCommentInput'
                                     placeholder='add comments'
@@ -391,6 +407,13 @@ function SingleImagePage() {
                                                 <div className='comment-2'>
                                                     {ele.id === selectCommentId && showEditComment ? (<div>
                                                         <form onSubmit={handleEditComment}>
+                                                            <div>
+                                                                <ul className="errors">
+                                                                    {errors2.map(error => (
+                                                                        <li className='err' key={error}>* {error}</li>
+                                                                    ))}
+                                                                </ul>
+                                                            </div>
                                                             <input
                                                                 placeholder={selectComment}
                                                                 type="text"

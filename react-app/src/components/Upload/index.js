@@ -35,14 +35,16 @@ function Upload() {
 
 
 
+    let regexUrl = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|png)/;
+
     useEffect(() => {
         const errors = [];
-        if (content.length < 1) errors.push('Please provide valid values');
-        if (description.length < 1) errors.push('Please provide valid description');
+        if (content.length < 2) errors.push('Content must be ad least 2 characters');
+        if (description.length < 2) errors.push('Description must be ad least 2 characters');
         // if (!tagId) errors.push('Please select a tag');
         if (!albumId) errors.push('Please select an album');
-        if (imageUrl.length < 10) {
-            errors.push('Please provide valid url')
+        if (!regexUrl.test(imageUrl)) {
+            errors.push('Please provide imageurl starts with http and ends in jpg or png')
         }
         setErrors(errors);
     }, [content, imageUrl, description, albumId])
@@ -75,7 +77,7 @@ function Upload() {
                     <div>
                         <ul className="errors">
                             {errors.map(error => (
-                                <li key={error}>{error}</li>
+                                <li className='err' key={error}>* {error}</li>
                             ))}
                         </ul>
                     </div>
