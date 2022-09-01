@@ -248,6 +248,14 @@ function SingleImagePage() {
                         <div className='imgInfoContainer2'>
                             <img src={image?.imageUrl} alt={image?.title} className='image1'></img>
                         </div>
+                        <div className='userBtnContainer'>
+                            {image?.userId === userId ? (
+                                <div className='imgBtnContainer'>
+                                    <div className='editImgSymbol' onClick={() => setShowEditForm(true)}><i class="fa-solid fa-pen-to-square"></i></div>
+                                    <div className='deleteImgSymbol' onClick={handleDeleteImage}><i class="fa-solid fa-trash-can"></i></div>
+                                </div>
+                            ) : ('')}
+                        </div>
                     </div>
 
 
@@ -272,16 +280,15 @@ function SingleImagePage() {
                                 </div>)}
                             </div>
                         </div>
-                        <div className='userBtnContainer'>
+                        {/* <div className='userBtnContainer'>
                             {image?.userId === userId ? (
                                 <div>
-                                    {/* <button onClick={handleDeleteImage}>Delete image</button> */}
-                                    {/* <button onClick={() => setShowEditForm(true)}>Edit image</button> */}
                                     <div onClick={() => setShowEditForm(true)}><i class="fa-solid fa-pen-to-square"></i></div>
                                     <div onClick={handleDeleteImage}><i class="fa-solid fa-trash-can"></i></div>
                                 </div>
-                            ) : (<></>)}
-                        </div>
+                            ) : ('')}
+                        </div> */}
+
                         <div className='editImgContainer'>
                             {showEditForm ? (<div>
                                 <form onSubmit={handleEditImage}>

@@ -4,7 +4,7 @@
 }
 
 .imgInfoContainer1{
-    border: 3px blue solid;
+    /* border: 3px blue solid; */
     width:100%;
     height: 55vh;
     margin: 0;
@@ -15,7 +15,7 @@
 
 .imgInfoContainer2{
     height: 45vh;
-    border:3px red solid;
+    /* border:3px red solid; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,6 +33,24 @@
 .image1{
     height: 42vh;
     width: 50vw;
+}
+
+.userBtnContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    /* border:3px red solid; */
+    color:white;
+
+}
+
+.imgBtnContainer{
+    width:15%;
+    /* border: 3px blue solid; */
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 
