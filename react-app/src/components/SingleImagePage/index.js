@@ -241,8 +241,17 @@ function SingleImagePage() {
             <h1>single image page</h1>
             <div className='imgDisplayContainer'>
                 <div className='imgInfoContainer'>
-                    <p>{image?.content}</p>
-                    <img src={image?.imageUrl} alt='image' className='image1'></img>
+                    <div className='imgInfoContainer1'>
+                        <div className='imgContent'>
+                            <h2>{image?.content}</h2>
+                        </div>
+                        <div className='imgInfoContainer2'>
+                            <img src={image?.imageUrl} alt={image?.title} className='image1'></img>
+                        </div>
+                    </div>
+
+
+
                     <div className='singleImgRight'>
                         <div className='favesContainer'>
                             <div className='totalFave'>

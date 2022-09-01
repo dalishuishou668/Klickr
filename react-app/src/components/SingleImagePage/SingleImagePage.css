@@ -3,6 +3,52 @@
     height: 300px;
 }
 
+.imgInfoContainer1{
+    border: 3px blue solid;
+    width:100%;
+    height: 55vh;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+    background-color: #2b2d32;;
+}
+
+.imgInfoContainer2{
+    height: 45vh;
+    border:3px red solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+}
+
+.imgContent{
+    padding-top:20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+
+.image1{
+    height: 42vh;
+    width: 50vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .display-comment1:hover .comment-select-button {
     background-color: #f8f9fa;
     opacity: 1;
