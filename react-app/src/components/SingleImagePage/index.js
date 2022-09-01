@@ -242,8 +242,8 @@ function SingleImagePage() {
             <div className='imgDisplayContainer'>
                 <div className='imgInfoContainer'>
                     <div className='imgInfoContainer1'>
-                        <div className='imgContent'>
-                            <h2>{image?.content}</h2>
+                        <div className='imgContent1'>
+                            <h2 id='heading'>{image?.content}</h2>
                         </div>
                         <div className='imgInfoContainer2'>
                             <img src={image?.imageUrl} alt={image?.title} className='image1'></img>
@@ -276,7 +276,7 @@ function SingleImagePage() {
                                     <div onClick={addUserFaveSubmit}><i class="fa-regular fa-heart"></i></div>
                                 </div>) : (<div>
                                     <div onClick={deleteUserFaveSubmit}><i class="fa-solid fa-heart"></i></div>
-                                    <p>You already faved this</p>
+                                    {/* <p>You already faved this</p> */}
                                 </div>)}
                             </div>
                         </div>

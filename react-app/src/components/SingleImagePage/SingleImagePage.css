@@ -6,7 +6,7 @@
 .imgInfoContainer1{
     border:3px red solid;
     width:100%;
-    height: 55vh;
+    height: 56vh;
     margin: 0;
     padding: 0;
     /* overflow: hidden; */
@@ -22,13 +22,18 @@
     padding:10px;
 }
 
-.imgContent{
+.imgContent1{
     padding-top:20px;
     display:flex;
     justify-content: center;
     align-items: center;
     color:white;
 }
+
+h2#heading{
+    font-size: 30px;
+}
+
 
 .image1{
     height: 42vh;
@@ -63,17 +68,22 @@
 
 }
 
-/* .fa-pen-to-square{
-    border: green 2px solid;
-    height: 80%;
-    width:80%;
-} */
+.fa-pen-to-square, .fa-trash-can{
+    font-size: 23px;
+
+}
 
 .favesContainer{
     border:3px blue solid;
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.fa-heart{
+    margin:14px;
+    font-size: 23px;
+
 }
 
 
