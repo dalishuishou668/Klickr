@@ -42,12 +42,10 @@ function AlbumImagesPage() {
         await dispatch(editAlbumThunk(payload, albumId))
     }
 
-    const handleDeleteAlbum = async(e) => {
+    const handleDeleteAlbum = async (e) => {
         e.preventDefault()
-
         await dispatch(deleteAlbumThunk(albumId))
         history.push('/your-albums')
-
     }
 
 
@@ -55,8 +53,17 @@ function AlbumImagesPage() {
     useEffect(() => {
         dispatch(getUserAlbumsThunk(userId))
         dispatch(getSingleAlbumThunk(albumId))
-
     }, [dispatch])
+
+
+    useEffect(() => {
+        let errors = [];
+        if (title.length < 3) {
+          errors.push('Please provide title with at least 3 chracters.')
+        }
+        setErrors(errors);
+
+      }, [title])
 
 
     return (
@@ -75,6 +82,13 @@ function AlbumImagesPage() {
             <div className='editAlbumContainer'>
                 {showEditAlbum ? (<div>
                     <form onSubmit={handleEditAlbum} className='form'>
+                        <div>
+                            <ul className="errors">
+                                {errors.map(error => (
+                                    <li className='err' key={error}>* {error}</li>
+                                ))}
+                            </ul>
+                        </div>
                         <input
                             type="text"
                             placeholder="Title"

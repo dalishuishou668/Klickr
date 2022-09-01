@@ -3,6 +3,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getUserAlbumsThunk } from '../../store/album';
 import { createAlbumThunk } from '../../store/album';
+import './UserAlbumsPage.css'
 
 
 function UserAlbumsPage() {
@@ -36,6 +37,16 @@ function UserAlbumsPage() {
 
     }
 
+    useEffect(() => {
+        let errors = [];
+
+        if (title.length < 3) {
+          errors.push('Please provide title with at least 3 chracters.')
+        }
+        setErrors(errors);
+
+      }, [title])
+
 
     return (
         <div>
@@ -57,7 +68,7 @@ function UserAlbumsPage() {
                         <div>
                             <ul className="errors">
                                 {errors.map(error => (
-                                    <li key={error}>{error}</li>
+                                    <li className='err' key={error}>* {error}</li>
                                 ))}
                             </ul>
                         </div>

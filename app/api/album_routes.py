@@ -1,8 +1,24 @@
 from flask import Blueprint, jsonify, request, redirect
 from flask_login import login_required
 from app.models import db, Album, Image, Comment, User, Favorite
+from app.forms import CreateAlbumForm, UpdateAlbumForm
 
 album_routes = Blueprint("album_routes", __name__)
+
+# ------------- validations ---------------------
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+            print('err msg backend ------->>>>>>>>>>>>')
+            print(errorMessages)
+    return errorMessages
+
+
 
 
 # Get all user albums
@@ -21,17 +37,30 @@ def get_single_album(userId):
 @album_routes.route('/create', methods=['POST'])
 @login_required
 def create_album():
-    userId = request.json['userId']
-    title = request.json['title']
+    # userId = request.json['userId']
+    # title = request.json['title']
 
-    newAlbum = Album(
-        userId = userId,
-        title = title
-    )
+    # newAlbum = Album(
+    #     userId = userId,
+    #     title = title
+    # )
 
-    db.session.add(newAlbum)
-    db.session.commit()
-    return newAlbum.to_dict()
+    # db.session.add(newAlbum)
+    # db.session.commit()
+    # return newAlbum.to_dict()
+
+
+    form = CreateAlbumForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        newAlbum = Album(
+            userId=form.data['userId'],
+            title=form.data['title'],
+        )
+        db.session.add(newAlbum)
+        db.session.commit()
+        return newAlbum.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 #  Get all images of a single album
@@ -59,6 +88,23 @@ def edit_album(albumId):
     targetAlbum.title = data['title']
     db.session.commit()
     return targetAlbum.to_dict()
+
+
+    # ------------- Not working ---------------------
+    # form = UpdateAlbumForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+
+    # if form.validate_on_submit():
+    #     targetAlbum = Album.query.get(albumId)
+    #     targetAlbum.userId=form.data['userId'],
+    #     targetAlbum.albumId=form.data['title'],
+
+    #     db.session.commit()
+    #     print(form.data)
+    #     return targetAlbum.to_dict()
+    # return {'errors': "ERROR!!!!!!!"}, 401
+
+
 
 
 

@@ -14,6 +14,8 @@ def validation_errors_to_error_messages(validation_errors):
     for field in validation_errors:
         for error in validation_errors[field]:
             errorMessages.append(f'{field} : {error}')
+            print('err msg backend ------->>>>>>>>>>>>')
+            print(errorMessages)
     return errorMessages
 
 
@@ -97,6 +99,8 @@ def edit_image(id):
     db.session.commit()
     return targetImage.to_dict()
 
+
+    # ------------- Not working ---------------------
     # form = UpdateImageForm()
     # form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -104,7 +108,6 @@ def edit_image(id):
     #     targetImage = Image.query.get(id)
     #     targetImage.userId=form.data['userId'],
     #     targetImage.albumId=form.data['albumId'],
-    #     targetImage.tagId=form.data['tagId'],
     #     targetImage.content=form.data['content'],
     #     targetImage.description=form.data['description'],
     #     targetImage.imageUrl=form.data['imageUrl'],
