@@ -4,7 +4,7 @@
 }
 
 .imgInfoContainer1 {
-    border: 3px red solid;
+    /* border: 3px red solid; */
     width: 100%;
     height: 56vh;
     margin: 0;
@@ -77,7 +77,7 @@ h2#heading {
 }
 
 .favesContainer {
-    border: 3px blue solid;
+    /* border: 3px blue solid; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -97,14 +97,14 @@ h2#heading {
 
 .userPic1 {
     /* font-size: 23px; */
-    border: 3px blue solid;
+    /* border: 3px blue solid; */
     width: 36%;
 }
 
 #headPic {
     width: 12%;
     height: 50%;
-    border: 3px blue solid;
+    /* border: 3px blue solid; */
     margin-left: 60%;
     margin-top: 1rem;
     /* display:flex;
@@ -115,7 +115,7 @@ h2#heading {
 #headPic2 {
     width: 2.2rem;
     height: 2.5rem;
-    border: 3px red solid;
+    /* border: 3px red solid; */
     margin-top: 1.5rem;
     margin-left: 70%;
 }
@@ -123,11 +123,13 @@ h2#heading {
 #headPic3 {
     width: 2.2rem;
     height: 2.5rem;
+    margin-left: 80%;
+    margin-top: 1rem;
 
 }
 
 .userPic1-2 {
-    border: 3px blue solid;
+    /* border: 3px blue solid; */
     width: 70%;
     margin-left: 0;
 }
@@ -141,12 +143,12 @@ h2#heading {
 .userPic2 {
     width: 30%;
     height: 6rem;
-    border: 3px yellow solid;
+    /* border: 3px yellow solid; */
     margin-left: 0;
 }
 
 .addCommentForm1 {
-    border: 3px red solid;
+    /* border: 3px red solid; */
     justify-content: center;
     width: 70%;
     height: 18rem;
@@ -155,7 +157,7 @@ h2#heading {
 }
 
 .addCommentForm2 {
-    border: 3px purple solid;
+    /* border: 3px purple solid; */
     justify-content: center;
     height: 100%;
     display: flex;
@@ -177,13 +179,46 @@ h2#heading {
 }
 
 .imgInfoContainer {
-    border: 5px green solid;
+    /* border: 5px green solid; */
     background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 
 }
 
-.displayCommentsContainer2{
+/* .displayCommentsContainer2{
     border: 5px black solid;
+} */
+
+.allCommentContainer{
+    display:flex;
+    flex-direction: row;
+}
+
+.commentCardLeft{
+    /* border: 5px red solid; */
+    width:25%;
+}
+
+.commentCardRight{
+    /* border: 5px orange solid; */
+    width:70%;
+    /* margin-left:1.5rem; */
+}
+
+.commentUsername{
+    /* border: 5px orange solid; */
+    /* margin-bottom: 3rem; */
+}
+
+.editCommentSymbolContainer{
+    /* border: 3px purple solid; */
+    display:flex;
+    flex-direction: row;
+
+}
+
+.display-comment1{
+    /* border: 3px purple solid; */
+    height:43%
 }
 
 

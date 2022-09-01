@@ -347,68 +347,66 @@ function SingleImagePage() {
                             {commentsArr && commentsArr.map(ele =>
                             (
                                 <div className='displayCommentsContainer2'>
-                                    <div className='userPicContainer'>
-                                        <div>
+                                    <div className='allCommentContainer'>
+                                        <div className='commentCardLeft'>
                                             <img id='headPic3' src='../pictures/phone.png' alt='user_logo1' />
                                         </div>
-                                        <p className='commentUsername'>{ele?.user?.username}</p>
+                                        <div className='commentCardRight'>
+                                            <h4 className='commentUsername'>{ele?.user?.username}</h4>
+                                            <div className='display-comment1'>
+                                                <div className='single-comment'>
+                                                    <div className='single-comment-ele'>
+                                                        {
+                                                            selectCommentId !== ele.id && (
+                                                                <p>{ele?.comment} </p>
+                                                            )
+                                                        }
+                                                        {/* <p>{ele?.comment}</p> */}
 
 
-                                        <div className='display-comment1'>
-                                            <div className='single-comment'>
-                                                <div className='single-comment-ele'>
-                                                    {
-                                                        selectCommentId !== ele.id && (
-                                                            <p>{ele?.comment} </p>
-                                                        )
-                                                    }
-                                                    {/* <p>{ele?.comment}</p> */}
+                                                    </div>
 
+                                                    <div className='comment-select-button'>
+                                                        {ele?.user?.id === userId ? (
+                                                            <div className='editCommentSymbolContainer'>
+                                                                <div className='editCommentSymbol'
+                                                                    onClick={() => {
+                                                                        setShowEditComment(true)
+                                                                        setSelectCommentId(ele?.id)
+                                                                        setComment1(ele?.comment)
+                                                                        // setShowComment(false)
+                                                                    }}>
+                                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                                </div>
+                                                                <div className='deleteCommentSymbol'
+                                                                    onClick={(e) => handleDeleteComment(e, ele?.id)}
+                                                                >
+                                                                    <i class="fa-solid fa-trash-can"></i>
+                                                                </div>
+                                                            </div>
+                                                        ) : ''}
+                                                    </div>
 
                                                 </div>
+                                                <div className='comment-2'>
+                                                    {ele.id === selectCommentId && showEditComment ? (<div>
+                                                        <form onSubmit={handleEditComment}>
+                                                            <input
+                                                                placeholder={selectComment}
+                                                                type="text"
+                                                                value={comment1}
+                                                                onChange={(e) => setComment1(e.target.value)}
+                                                            ></input>
+                                                            <button type="submit" disabled={!!errors2.length}>Submit</button>
 
-                                                <div className='comment-select-button'>
-                                                    {ele?.user?.id === userId ? (
-                                                        <div>
-                                                            <div className='editCommentSymbol'
-                                                                onClick={() => {
-                                                                    setShowEditComment(true)
-                                                                    setSelectCommentId(ele?.id)
-                                                                    setComment1(ele?.comment)
-                                                                    // setShowComment(false)
-                                                                }}>
-                                                                <i class="fa-solid fa-pen-to-square"></i>
-                                                            </div>
-                                                            <div className='deleteCommentSymbol'
-                                                                onClick={(e) => handleDeleteComment(e, ele?.id)}
-                                                            >
-                                                                <i class="fa-solid fa-trash-can"></i>
-                                                            </div>
-                                                        </div>
-                                                    ) : ''}
+                                                        </form>
+                                                    </div>) : (<>
+                                                    </>)}
                                                 </div>
-
                                             </div>
-                                            <div className='comment-2'>
-                                                {ele.id === selectCommentId && showEditComment ? (<div>
-                                                    <form onSubmit={handleEditComment}>
-                                                        <input
-                                                            placeholder={selectComment}
-                                                            type="text"
-                                                            value={comment1}
-                                                            onChange={(e) => setComment1(e.target.value)}
-                                                        ></input>
-                                                        <button type="submit" disabled={!!errors2.length}>Submit</button>
-
-                                                    </form>
-                                                </div>) : (<>
-                                                </>)}
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
-
                             ))}
                         </div>
                     </div>
