@@ -314,7 +314,7 @@ function SingleImagePage() {
                     </div>
                     <div className='commentinfo2'>
                         <div className='userPic1'>
-                            <img id='headPic' src='../pictures/user.png' alt='user_logo1' />
+                            <img id='headPic' src='../../../../static/user.png' alt='user_logo1' />
                         </div>
                         <div className='userPic1-2'>
                             <h3>{getUsername(image?.userId)}</h3>
@@ -324,7 +324,7 @@ function SingleImagePage() {
 
                     <div className='addCommentsContainer'>
                         <div className='userPic2'>
-                            <img id='headPic2' src='../pictures/phone.png' alt='user_logo1' />
+                            <img id='headPic2' src='../../../static/phone.png' alt='user_logo1' />
                         </div>
                         <div className='addCommentForm1'>
                             <form className='addCommentForm2' onSubmit={handleAddComment}>
@@ -349,7 +349,7 @@ function SingleImagePage() {
                                 <div className='displayCommentsContainer2'>
                                     <div className='allCommentContainer'>
                                         <div className='commentCardLeft'>
-                                            <img id='headPic3' src='../pictures/phone.png' alt='user_logo1' />
+                                            <img id='headPic3' src='../static/phone.png' alt='user_logo1' />
                                         </div>
                                         <div className='commentCardRight'>
                                             <h4 className='commentUsername'>{ele?.user?.username}</h4>
