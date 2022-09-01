@@ -1,24 +1,246 @@
-.image1{
-    width:300px;
+.image1 {
+    width: 300px;
     height: 300px;
 }
 
-.displayCommentsContainer2:hover .hover-comment-button{
+.imgInfoContainer1 {
+    /* border: 3px red solid; */
+    width: 100%;
+    height: 56vh;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+    background-color: #2b2d32;
+    ;
+}
+
+.imgInfoContainer2 {
+    height: 45vh;
+    /* border:3px red solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.imgContent1 {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+h2#heading {
+    font-size: 30px;
+}
+
+
+.image1 {
+    height: 42vh;
+    width: 50vw;
+}
+
+.userBtnContainer {
+    /* height:8%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    /* border:3px yellow solid; */
+    color: white;
+
+}
+
+.imgBtnContainer {
+    width: 15%;
+    /* height:80%; */
+    /* border: 3px blue solid; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.editImgSymbol,
+.deleteImgSymbol {
+    cursor: pointer;
+    /* border: 3px pink solid; */
+    height: 80%;
+    width: 80%;
+
+}
+
+.fa-pen-to-square,
+.fa-trash-can {
+    font-size: 23px;
+
+}
+
+.favesContainer {
+    /* border: 3px blue solid; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.fa-heart {
+    margin: 14px;
+    font-size: 23px;
+
+}
+
+.commentinfo2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.userPic1 {
+    /* font-size: 23px; */
+    /* border: 3px blue solid; */
+    width: 36%;
+}
+
+#headPic {
+    width: 12%;
+    height: 50%;
+    /* border: 3px blue solid; */
+    margin-left: 60%;
+    margin-top: 1rem;
+    /* display:flex;
+    justify-content: flex-end;
+    align-content: center; */
+}
+
+#headPic2 {
+    width: 2.2rem;
+    height: 2.5rem;
+    /* border: 3px red solid; */
+    margin-top: 1.5rem;
+    margin-left: 70%;
+}
+
+#headPic3 {
+    width: 2.2rem;
+    height: 2.5rem;
+    margin-left: 80%;
+    margin-top: 1rem;
+
+}
+
+.userPic1-2 {
+    /* border: 3px blue solid; */
+    width: 70%;
+    margin-left: 0;
+}
+
+.addCommentsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.userPic2 {
+    width: 30%;
+    height: 6rem;
+    /* border: 3px yellow solid; */
+    margin-left: 0;
+}
+
+.addCommentForm1 {
+    /* border: 3px red solid; */
+    justify-content: center;
+    width: 70%;
+    height: 18rem;
+
+
+}
+
+.addCommentForm2 {
+    /* border: 3px purple solid; */
+    justify-content: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.addCommentInput {
+    border-radius: 1rem;
+    margin-top: 0;
+    width: 88%;
+    height: 70%
+}
+
+.addCommentBtn {
+    width: 10%;
+    margin-left: 39%;
+    margin-top: 1rem;
+}
+
+.imgInfoContainer {
+    /* border: 5px green solid; */
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+
+}
+
+/* .displayCommentsContainer2{
+    border: 5px black solid;
+} */
+
+.allCommentContainer{
+    display:flex;
+    flex-direction: row;
+}
+
+.commentCardLeft{
+    /* border: 5px red solid; */
+    width:25%;
+}
+
+.commentCardRight{
+    /* border: 5px orange solid; */
+    width:70%;
+    /* margin-left:1.5rem; */
+}
+
+.commentUsername{
+    /* border: 5px orange solid; */
+    /* margin-bottom: 3rem; */
+}
+
+.editCommentSymbolContainer{
+    /* border: 3px purple solid; */
+    display:flex;
+    flex-direction: row;
+
+}
+
+.display-comment1{
+    /* border: 3px purple solid; */
+    height:43%
+}
+
+
+
+
+
+
+
+
+
+
+
+.display-comment1:hover .comment-select-button {
     background-color: #f8f9fa;
     opacity: 1;
-
 }
 
-.pd-3-display-comment:hover .comment-button {
-    background-color: #f8f9fa;
-    opacity: 1;
-}
-
-.pd-3-display-comment:hover {
+.display-comment1:hover {
     background-color: #f8f9fa;
 }
 
-.comment-button {
+.comment-select-button {
     opacity: 0;
     display: flex;
     justify-content: flex-end;

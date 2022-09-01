@@ -55,7 +55,7 @@ function YourPage() {
             </div>
             {/* <Navigation /> */}
             <div className='userProfileInfo'>
-                <img src='../pictures/icons8-user-pic.png' alt='camera_logo' />
+                <img src='../pictures/icons8-user-pic.png' alt='user_logo' />
                 <p>{sessionUser?.username}</p>
                 <p>{sessionUser?.email}</p>
                 {/* <img src={sessionUser?.profile_pic} alt='image' className='singleImg'></img> */}
