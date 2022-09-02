@@ -38,13 +38,13 @@ function YourPage() {
                     // setShowUserFollows(false)
                 }}
                 >Your Images</button>
-                <button onClick={() => {
+                {/* <button onClick={() => {
                     setShowUserFaves(true)
                     setShowUserImages(false)
                     setShowUserAlbums(false)
                     // setShowUserFollows(false)
                 }}
-                >Your Favorites</button>
+                >Your Favorites</button> */}
                 {/* <button onClick={() => {
                     setShowUserFollows(true)
                     setShowUserFaves(false)

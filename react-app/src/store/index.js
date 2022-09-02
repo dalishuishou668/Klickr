@@ -7,7 +7,7 @@ import comments from './comment';
 import tags from './tag';
 import follows from './follow';
 import users from './user';
-import favorites from './favorite';
+// import favorites from './favorite';
 
 const rootReducer = combineReducers({
   session,
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   tags,
   follows,
   users,
-  favorites,
+  // favorites,
 });
 
 
