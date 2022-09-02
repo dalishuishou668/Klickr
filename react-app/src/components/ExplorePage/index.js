@@ -8,6 +8,7 @@ import './ExplorePage.css';
 
 function ExplorePage() {
 
+    const history = useHistory()
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state?.session?.user);
     const allDbImages = useSelector(state => state?.images)
@@ -39,12 +40,24 @@ function ExplorePage() {
             <div className='allImgsContainer'>
                 {ImageArr && ImageArr.map((image) => (
                     <div>
-                        <NavLink to={`/images/${image?.id}`}>
+                        <figure class="hover-img" onClick={() => history.push(`/images/${image?.id}`)}>
                             <img src={image?.imageUrl} alt='image' className='singleImg'></img>
-                            <p>{image?.content}</p>
-                            {/* <p>by {getUsername(image.userId)}</p> */}
-                        </NavLink>
-                        <p>by {getUsername(image?.userId)}</p>
+                            <figcaption>
+                                <p>{image?.content}</p>
+                                <p>by {getUsername(image?.userId)}</p>
+                            </figcaption>
+                        </figure>
+                        {/* <figure className='photo-display' onClick={() => history.push(`/images/${image?.id}`)}>
+                            <img src={image?.imageUrl} alt='image' className='singleImg'></img>
+                            <div className='photo-overlay'>
+                                <div className='photo-info'>
+                                    <p className='photo-title'>{image?.content}</p>
+                                    <p className='photo-username'>by {getUsername(image?.userId)}</p>
+                                </div>
+                            </div>
+                        </figure> */}
+
+
                     </div>
                 ))}
 
