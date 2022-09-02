@@ -10,7 +10,8 @@ function AlbumImagesPage() {
     const history = useHistory()
     const { albumId } = useParams();
     const dispatch = useDispatch()
-    const albums = useSelector(state => state?.albums?.test1?.images)
+    // const albums = useSelector(state => state?.albums?.test1?.images)
+    const albums = useSelector(state => state?.albums[albumId]?.images)
     const albumInfo = useSelector(state => state?.albums[albumId])
 
     console.log("***********albums**********:", albums)
@@ -117,7 +118,7 @@ function AlbumImagesPage() {
             <div>
                 {albums && albums.map((image) => (
                     <div>
-                        <NavLink to={`/images/${image.id}`}>
+                        <NavLink to={`/images/${image?.id}`}>
                             <img src={image?.imageUrl} alt='image' className='indiImg'></img>
                             <p>{image?.content}</p>
                         </NavLink>
