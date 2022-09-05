@@ -240,7 +240,7 @@ function SingleImagePage() {
 
     return (
         <div>
-            <h1>single image page</h1>
+            {/* <h1>single image page</h1> */}
             <div className='imgDisplayContainer'>
                 {/* <div className='imgInfoContainer'> */}
                 <div className='imgInfoContainer1'>
@@ -340,7 +340,7 @@ function SingleImagePage() {
                                     value={comment}
                                     onChange={(e) => setComment(e.target.value)}
                                 />
-                                <button className='addCommentBtn' type="submit" disabled={!!errors1.length}>Save</button>
+                                <button className='addCommentBtn' type="submit" disabled={!!errors1.length}>Add comment</button>
                             </form>
 
                         </div>
@@ -363,7 +363,7 @@ function SingleImagePage() {
                                                     <div className='single-comment-ele'>
                                                         {
                                                             selectCommentId !== ele.id && (
-                                                                <p>{ele?.comment} </p>
+                                                                <p>" {ele?.comment} "</p>
                                                             )
                                                         }
                                                         {/* <p>{ele?.comment}</p> */}
@@ -421,9 +421,11 @@ function SingleImagePage() {
                                 </div>
                             ))}
                         </div>
+
                     </div>
 
                 </div>
+
 
 
             </div>
