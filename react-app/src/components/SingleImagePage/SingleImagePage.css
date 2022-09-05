@@ -103,11 +103,11 @@ h2#heading {
 }
 
 #headPic {
-    width: 12%;
-    height: 50%;
+    width: 5rem;
+    height: 5rem;
     /* border: 3px blue solid; */
-    margin-left: 60%;
-    margin-top: 1rem;
+    margin-left: 58%;
+    margin-top: 1.3rem;
     /* display:flex;
     justify-content: flex-end;
     align-content: center; */
@@ -117,8 +117,8 @@ h2#heading {
     width: 2.2rem;
     height: 2.5rem;
     /* border: 3px red solid; */
-    margin-top: 1.5rem;
-    margin-left: 70%;
+    margin-top: 4rem;
+    margin-left: 67%;
 }
 
 #headPic3 {
