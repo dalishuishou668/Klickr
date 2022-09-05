@@ -3,6 +3,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getImagesThunk } from '../../store/image';
 import { getAllUsersThunk } from '../../store/user';
+import NavBar from '../NavBar/NavBar';
 import './ExplorePage.css';
 
 
@@ -35,8 +36,9 @@ function ExplorePage() {
     }
 
     return (
-        <div>
-            <h1>Homepage: view all images in the database</h1>
+        <div className='homepageContainer'>
+            <NavBar />
+            <h1>Explore</h1>
             <div className='allImgsContainer'>
                 {ImageArr && ImageArr.map((image) => (
                     <div>

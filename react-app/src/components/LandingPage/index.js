@@ -1,11 +1,24 @@
 import './LandingPage.css'
+import React from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
 
-function LandingPage(){
+
+function LandingPage() {
 
     return (
         <div className='landingContainer'>
-            <h1>This is landing page</h1>
-            <p>heroku test !!!</p>
+            <div className='landingText'>
+                <h1>Find your inspiration</h1>
+                <p>Join the Klickr community, home to tens of bilions of photos.</p>
+                <button className='startBtn'>
+                    <NavLink className='startLink' to='/login' exact={true}>
+                        Start Here
+                    </NavLink>
+                </button>
+
+            </div>
+
+
 
         </div>
     )

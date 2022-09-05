@@ -1,8 +1,61 @@
 .landingContainer{
+    /* border:blue solid 5px; */
     color:white;
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.60)), url('./backgroun-3.jpg');
     background-size: cover;
     background-position: center;
+}
+
+.landingText{
+    /* border:red solid 5px; */
+    width: 98%;
+    top: 45%;
+    position: absolute;
+    transform: translateY(-50%);
+    color: #fff;
+    text-align: center;
+}
+
+.landingText h1{
+    font-size: 50px;
+    margin-top: 80px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+.landingText p{
+    font-family: 'Roboto', sans-serif;
+    margin: 2rem;
+    font-size: 25px;
+    font-weight: 90;
+    line-height: 25px;
+}
+
+.startBtn{
+    border: 3px solid #7f57c0;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    cursor: pointer;
+    width: 256px;
+    height: 65px;
+    text-align: center;
+    margin: 1.5rem;
+    font-size: 22px;
+    border-radius: 24px;
+    background: transparent;
+
+}
+
+.startBtn:hover{
+    cursor: pointer;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(171,102,255,1) 0%, rgba(116,182,247,1) 90% );
+
+}
+.startLink{
+    color: #fff;
+    text-decoration: none;
 }
