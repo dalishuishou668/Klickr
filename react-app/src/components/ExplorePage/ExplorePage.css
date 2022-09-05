@@ -1,7 +1,31 @@
+.homepageContainer{
+  width: 100%;
+  height: 100vh;
+  /* border:plum 5px solid; */
+  background-color: #1A1A00;
+  color:white;
+
+
+  /* margin-top: 150px; */
+}
+
+.homepageContainer h1{
+  font-family: 'Roboto', sans-serif;
+  margin-top:0;
+  background-color: #1A1A00;
+  display: flex;
+  justify-content: center;
+  padding-top:2.5rem;
+  font-size: 38px;
+}
+
 .allImgsContainer{
+    /* border:blue solid 3px; */
+    background-color: #1A1A00;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .singleImg{
@@ -12,8 +36,8 @@
 }
 
 
-/* .hover-img {
-  background-color: #000;
+.hover-img {
+  background-color: #1A1A00;
   color: #fff;
   display: inline-block;
   margin: 8px;
@@ -32,9 +56,9 @@
 
 .hover-img:before,
 .hover-img:after {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-top: 32px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 32px solid rgba(0, 0, 0, 0.5);
+  background-color: #1A1A00;
+  border-top: 32px solid #1A1A00;
+  border-bottom: 32px solid #1A1A00;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -68,7 +92,7 @@
   opacity: 0;
   z-index: 2;
   transition-delay: 0.1s;
-  font-size: 24px;
+  font-size: 18px;
   font-family: sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
@@ -87,4 +111,8 @@
 
 .hover-img:hover figcaption {
   opacity: 1;
-} */
+}
+
+.searchNav{
+  border:blue 2px solid;
+}
