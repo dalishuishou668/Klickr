@@ -1,16 +1,40 @@
-.indiImg{
-    width:200px;
-    height: 200px;
+.indiImg {
+    width: 300px;
+    height: 300px;
+    margin: 15px;
     border: purple 2px solid;
 }
 
-.albumTitle1{
-    font-size: 30px;;
+.albumTitle1 {
+    font-size: 30px;
+    ;
     font-family: 'Roboto', sans-serif;
 }
 
-.albumTitle:hover{
+.albumTitle:hover {
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
-    background-image: radial-gradient( circle 1259px at 2.8% 48.8%,  rgba(255,243,110,1) 0%, rgba(30,204,214,1) 45.6%, rgba(5,54,154,1) 65.9% );
+    background-image: radial-gradient(circle 1259px at 2.8% 48.8%, rgba(255, 243, 110, 1) 0%, rgba(30, 204, 214, 1) 45.6%, rgba(5, 54, 154, 1) 65.9%);
 }
+
+.albumImgsContainer {
+    height: 100%;
+    width: 100%;
+    margin-top: 25px;
+    ;
+    border: green solid 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.circle img {
+    transition: 1s ease;
+}
+
+.circle img:hover {
+    border-radius: 50%;
+    transition: 1s ease;
+}
+

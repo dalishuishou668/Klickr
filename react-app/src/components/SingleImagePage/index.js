@@ -245,7 +245,7 @@ function SingleImagePage() {
                 {/* <div className='imgInfoContainer'> */}
                 <div className='imgInfoContainer1'>
                     <div className='imgContent1'>
-                        <h2 id='heading'>{image?.content}</h2>
+                        <h2 id='heading' className='heading-1'>{image?.content}</h2>
                     </div>
                     <div className='imgInfoContainer2'>
                         <img src={image?.imageUrl} alt={image?.title} className='image1'></img>

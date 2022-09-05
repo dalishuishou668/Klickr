@@ -93,6 +93,7 @@ function AlbumImagesPage() {
             {/* <h3>{albums[albumId]?.title}</h3> */}
             <button onClick={() => setShowEditAlbum(true)}>Edit album</button>
             <button onClick={handleDeleteAlbum}>Delete Album</button>
+            <button onClick={() => history.push('/yourpage')}>Back</button>
             <div className='editAlbumContainer'>
                 {showEditAlbum ? (<div>
                     <form onSubmit={handleEditAlbum} className='form'>
@@ -128,12 +129,12 @@ function AlbumImagesPage() {
                     ))}
                 </div>) : (<div>No images in the album</div>)}
             </div> */}
-            <div>
+            <div className='albumImgsContainer'>
                 {albums && albums.map((image) => (
                     <div>
-                        <NavLink to={`/images/${image?.id}`}>
+                        <NavLink class="circle" to={`/images/${image?.id}`}>
                             <img src={image?.imageUrl} alt='image' className='indiImg'></img>
-                            <p>{image?.content}</p>
+                            {/* <p>{image?.content}</p> */}
                         </NavLink>
 
                     </div>
