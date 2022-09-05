@@ -240,7 +240,7 @@ function SingleImagePage() {
 
     return (
         <div>
-            <h1>single image page</h1>
+            {/* <h1>single image page</h1> */}
             <div className='imgDisplayContainer'>
                 {/* <div className='imgInfoContainer'> */}
                 <div className='imgInfoContainer1'>
@@ -421,9 +421,11 @@ function SingleImagePage() {
                                 </div>
                             ))}
                         </div>
+                        
                     </div>
 
                 </div>
+
 
 
             </div>

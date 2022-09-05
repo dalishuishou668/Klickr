@@ -1,6 +1,7 @@
 .err {
     color: red;
     list-style-type: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 .singleAlbumpic {
