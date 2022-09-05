@@ -71,18 +71,57 @@ const SignUpForm = () => {
   }
 
   return (
-    <div>
-      <div>
-
-      </div>
-      <div>
-        <form onSubmit={onSignUp}>
+    <div className='loginPage'>
+      <div class='form2'>
+        <img id='loginLogo' src='../../../../static/Klickr-logos_black.png' alt='signup_logo' />
+        <h3 className='loginTitle'>Sign up to Klickr</h3>
+        <form onSubmit={onSignUp} className='login-form'>
           <div className='signupErr'>
             {errors.map((error, ind) => (
               <div key={ind}>* {error}</div>
             ))}
           </div>
-          <div>
+
+          <label class='inputLogin'>
+            {/* <i class="fa-regular fa-user"></i> */}
+            <input
+              type='text'
+              name='username'
+              onChange={updateUsername}
+              value={username}
+              placeholder='Username'
+            />
+          </label>
+          <label class='inputLogin'>
+            <input
+              type='text'
+              name='email'
+              onChange={updateEmail}
+              value={email}
+              placeholder='Email'
+            />
+          </label>
+          <label class='inputLogin'>
+            <input
+              type='password'
+              name='password'
+              onChange={updatePassword}
+              value={password}
+              placeholder='Password'
+            />
+          </label>
+          <label class='inputLogin'>
+            <input
+              type='password'
+              name='repeat_password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required={true}
+              placeholder='Confirm Password'
+            />
+          </label>
+
+          {/* <div>
             <label>User Name</label>
             <input
               type='text'
@@ -118,9 +157,10 @@ const SignUpForm = () => {
               value={repeatPassword}
               required={true}
             ></input>
-          </div>
-          <button type='submit'>Sign Up</button>
-          <button onClick={() => history.push('/')}>Back</button>
+          </div> */}
+          <button type='submit' className="btn-hover color-3">Sign Up</button>
+          <button className='btn-hover color-3' onClick={() => history.push('/')}>Back</button>
+          <NavLink className='loginLink' to='/login'>Already have an account? Log in here.</NavLink>
         </form>
       </div>
     </div>

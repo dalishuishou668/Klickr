@@ -58,35 +58,70 @@ const LoginForm = () => {
 
 
   return (
-    <form onSubmit={onLogin}>
-      <div className='loginErr'>
-        {errors.map((error, ind) => (
-          <div key={ind}>* {error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-        <button onClick={demologin}>Demo User</button>
-        <button onClick={() => history.push('/')}>Back</button>
-        {/* <button
+    <div className='loginPage'>
+      <div class='form1'>
+        <img id='loginLogo' src='../../../../static/Klickr-logos_black.png' alt='login_logo' />
+        <h3 className='loginTitle'>Log in to Klickr</h3>
+        <form onSubmit={onLogin} className='login-form'>
+          <div className='loginErr'>
+            {errors.map((error, ind) => (
+              <div key={ind}>* {error}</div>
+            ))}
+          </div>
+
+          <label class='inputLogin'>
+            {/* <i class="fa-regular fa-user"></i> */}
+            <input
+              name='email'
+              type='text'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+
+            />
+          </label>
+          <label class='inputLogin'>
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+            />
+          </label>
+
+
+          {/* <div>
+            <label htmlFor='email'>Email</label>
+            <input
+              name='email'
+              type='text'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+
+          <div>
+            <label htmlFor='password'>Password</label>
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+            />
+          </div> */}
+
+          <button type='submit' className="btn-hover color-3">Login</button>
+          <NavLink className='signupLink' to='/sign-up'>No account?  Create an account</NavLink>
+          <h3 className='loginh3'>-------------------------------- Or --------------------------------</h3>
+          <div>
+            <button className='btn-hover color-3' onClick={demologin}>Log in as Demo User</button>
+          </div>
+          <button className='btn-hover color-3' onClick={() => history.push('/')}>Back</button>
+
+          {/* <button
           className="submit-btn"
           onClick={() => {
             setPassword("password");
@@ -95,8 +130,16 @@ const LoginForm = () => {
         >
           Demo User
         </button> */}
+
+
+
+        </form>
+
       </div>
-    </form>
+
+
+    </div>
+
   );
 };
 
