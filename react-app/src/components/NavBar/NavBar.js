@@ -5,6 +5,8 @@ import LogoutButton from '../auth/LogoutButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getImagesThunk } from '../../store/image';
+import img from '../../pictures/logo_screenshot.png';
+// import {img2} from '../../pictures/logoutLogo.png'
 import './NavBar.css';
 
 const NavBar = ({ loaded }) => {
@@ -15,69 +17,63 @@ const NavBar = ({ loaded }) => {
   let sessionLink;
 
 
-  // SERACH IMAGE
-  const allDbImages = useSelector(state => state.images)
-  const ImagesArr = Object.values(allDbImages)
+  // // SERACH IMAGE
+  // const allDbImages = useSelector(state => state.images)
+  // const ImagesArr = Object.values(allDbImages)
 
-  const [resultImages, setResultImages] = useState([])
-  const [searchKeyword, setSearchkeyword] = useState('')
+  // const [resultImages, setResultImages] = useState([])
+  // const [searchKeyword, setSearchkeyword] = useState('')
 
-  useEffect(() => {
-    dispatch(getImagesThunk())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(getImagesThunk())
+  // }, [dispatch])
 
 
-  const handleUserSearch = (e) => {
-    const inputs = e.target.value;
-    setSearchkeyword(inputs)
+  // const handleUserSearch = (e) => {
+  //   const inputs = e.target.value;
+  //   setSearchkeyword(inputs)
 
-    const filteredImages = ImagesArr?.filter((image) => {
-      const content = image.content.toLowerCase().includes(inputs.toLowerCase());
-      return content
-    })
+  //   const filteredImages = ImagesArr?.filter((image) => {
+  //     const content = image.content.toLowerCase().includes(inputs.toLowerCase());
+  //     return content
+  //   })
 
-    if (inputs === '') {
-      setResultImages([])
-    } else {
-      setResultImages(filteredImages)
-    }
+  //   if (inputs === '') {
+  //     setResultImages([])
+  //   } else {
+  //     setResultImages(filteredImages)
+  //   }
 
-  }
+  // }
 
   if (sessionUser) {
     sessionLink = (
-      <div>
-        <nav>
-          <ul>
-            {/* <li>
-              <NavLink to='/home' exact={true} activeClassName='active'>
-                Home
-              </NavLink>
-            </li> */}
-            {/* <li>
-              <NavLink to='/users' exact={true} activeClassName='active'>
-                Users
-              </NavLink>
-            </li> */}
-            <li>
-              <NavLink to='/explore' exact={true} >
-                Explore
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/yourpage' exact={true} >
-                You
-              </NavLink>
-            </li>
-            {/* <li>
-              <NavLink to='/search' exact={true} >
-                Search
-              </NavLink>
-            </li> */}
-            <li>
+      // <div className='loginNav'>
+      <ul className='loginNav1'>
+        <div className='loginNav1-left'>
+          <li className='loginNav1-1'>
+          {/* <img src='../static/logoutLogo.png'  className='logoutLogo' alt='user_logo' /> */}
+            <img className="iconImg" src={img} alt="loading..." />
+
+          </li>
+          <li className='loginNav1-2'>
+            <NavLink className='loginNavlink2' to='/explore' exact={true} >
+              Explore
+            </NavLink>
+          </li>
+          <li className='loginNav1-2'>
+            <NavLink className='loginNavlink2' to='/yourpage' exact={true} >
+              You
+            </NavLink>
+          </li>
+
+        </div>
+
+        {/* <div className='loginNav1-center'>
+            <li className='loginNav1-2-search'>
               <form className='searchForm'>
                 <input
-                  className="search"
+                  className="searchNav"
                   placeholder="Search By Title"
                   value={searchKeyword}
                   onChange={handleUserSearch}
@@ -89,6 +85,7 @@ const NavBar = ({ loaded }) => {
                     {resultImages.map((image) => (
                       <div>
                         <NavLink
+
                           className="searchResult"
                           to={`/images/${image.id}`}
                         >
@@ -100,32 +97,47 @@ const NavBar = ({ loaded }) => {
                 )}
               </div>
             </li>
-            <li>
-              <NavLink to='/upload' exact={true} >
-                Upload
-              </NavLink>
-            </li>
-            <li>
-              <LogoutButton />
-            </li>
-          </ul>
-        </nav>
-      </div>
+          </div> */}
+
+        <div className='loginNav1-right'>
+          <li className='loginNav1-2'>
+            <NavLink className='loginNavlink2' to='/search' exact={true}>
+              Search
+            </NavLink>
+
+          </li>
+          <li className='loginNav1-2'>
+            <NavLink className='loginNavlink2' to='/upload' exact={true} >
+              Upload
+            </NavLink>
+          </li>
+          <li className='loginNav1-2'>
+            <LogoutButton />
+          </li>
+
+        </div>
+
+      </ul>
+      // </div>
     )
 
   } else {
     sessionLink = (
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to='/login' exact={true} activeClassName='active'>
+      <div className='logoutNav'>
+        <div className='logoutnav-left'>
+          <img src='../static/Klickr2-logos_white.png'  className='logoutLogo' alt='user_logo' />
+
+        </div>
+        <div className='logoutnav-right'>
+          <ul className='logoutnav-right1'>
+            <li className='logoutlink1'>
+              <NavLink className='logoutlink1-1' to='/login' exact={true} activeClassName='active'>
                 Login
               </NavLink>
             </li>
-            <li>
-              <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                Sign Up
+            <li className='logoutlink1'>
+              <NavLink className='logoutlink1-1' to='/sign-up' exact={true} activeClassName='active'>
+                Sign up
               </NavLink>
             </li>
             {/* <li className='session'>
@@ -134,7 +146,9 @@ const NavBar = ({ loaded }) => {
               </button>
             </li> */}
           </ul>
-        </nav>
+        </div>
+
+
       </div>
     )
 
@@ -143,45 +157,15 @@ const NavBar = ({ loaded }) => {
 
 
   return (
+
     <div className='headerBar'>
-      <div className='headerBarLeft'>
-
-      </div>
-      <div className='headerBarRight'>
-        <ul>
-          {loaded && sessionLink}
-        </ul>
-
-      </div>
-
+      {loaded && sessionLink}
     </div>
-    // <nav>
-    //   <ul>
-    //     <li>
-    //       <NavLink to='/home' exact={true} activeClassName='active'>
-    //         Home
-    //       </NavLink>
-    //     </li>
-    //     <li>
-    //       <NavLink to='/login' exact={true} activeClassName='active'>
-    //         Login
-    //       </NavLink>
-    //     </li>
-    //     <li>
-    //       <NavLink to='/sign-up' exact={true} activeClassName='active'>
-    //         Sign Up
-    //       </NavLink>
-    //     </li>
-    //     <li>
-    //       <NavLink to='/users' exact={true} activeClassName='active'>
-    //         Users
-    //       </NavLink>
-    //     </li>
-    //     <li>
-    //       <LogoutButton />
-    //     </li>
-    //   </ul>
-    // </nav>
+
+
+
+
+
   );
 }
 

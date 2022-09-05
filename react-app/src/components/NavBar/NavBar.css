@@ -1,0 +1,163 @@
+.logoutNav {
+    /* border: green 3px solid; */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+}
+
+.logoutLogo{
+    width: 160px;
+    height: 150px;
+    margin-top: 0;
+}
+
+
+
+.headerBar {
+
+    /* border: yellow 2px solid; */
+    /* background-color: #04001A; */
+    background-color: #1A1A00;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.601);
+
+    /* overflow: hidden;
+    height: 5%;
+    top: 0;
+    position: fixed; */
+
+
+}
+
+/* .loginNav{
+    border:green solid 3px;
+    overflow: hidden;
+    height: 10%;
+    top: 0;
+    position: fixed;
+} */
+
+.loginNav1{
+    background-color: #1A1A00;
+    width: 100%;
+    border: purple solid 3px;
+
+
+    /* overflow: hidden;
+    height: 5%;
+    top: 0;
+    position: fixed; */
+
+}
+
+.iconImg {
+    /* border:yellow 3px solid; */
+    width: 160px;
+    height: 90px;
+    margin-top: 0;
+
+}
+
+.logoutnav-right {
+    justify-content: space-between
+}
+
+.logoutnav-right1 {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+.logoutlink1 {
+    font-family: 'Quicksand', sans-serif;
+    padding-right: 18px;
+    cursor: pointer;
+}
+
+.logoutlink1-1 {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+
+
+
+
+/* .loginNav {
+    background-color: #1A1A00;
+} */
+
+.loginNav1 {
+    background-color: #1A1A00;
+    /* border:green solid 3px; */
+    height: 6rem;
+    ;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-between;
+
+}
+
+.loginNav1-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 3rem;
+
+    /* float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #f2f2f2; */
+}
+
+
+
+.loginNav1-1 {
+    /* border: red solid 2px; */
+    color: white;
+    cursor: pointer;
+    justify-content: center;
+    padding-top: 0;
+}
+
+.loginNav1-2 {
+    /* border: purple solid 2px; */
+    margin-left: 18px;
+    cursor: pointer;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+
+.loginNavlink2 {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-family: 'Quicksand', sans-serif;
+
+
+    /* float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; */
+
+}
+
+.loginNav1-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 3rem;
+}
