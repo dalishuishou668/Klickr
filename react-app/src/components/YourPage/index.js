@@ -5,6 +5,7 @@ import UserAlbumsPage from '../UserAlbumsPage';
 import UserImagesPage from '../UserImagesPage';
 import UserFollowsPage from '../UserFollowsPage';
 import UserFavesPage from '../UserFavesPage';
+import './YourPage.css';
 // import Navigation from "../Navigation";
 
 function YourPage() {
@@ -22,8 +23,22 @@ function YourPage() {
 
     return (
         <div className='yourPageContainer'>
+            <div className='userProfileInfo'>
+                <div className='userpagepic'>
+                    <img className='userlogopic' src='../static/icons8-user-pic.png' alt='user_logo' />
+                </div>
+
+                <div className='userpageinfo'>
+                    <p>{sessionUser?.username}</p>
+                    <p>{sessionUser?.email}</p>
+                </div>
+
+                {/* <img src={sessionUser?.profile_pic} alt='image' className='singleImg'></img> */}
+
+            </div>
             <div className='userProfileNavbar'>
-                <button onClick={() => {
+                <button className='userProfileBtn'
+                    onClick={() => {
                     setShowUserAlbums(true)
                     setShowUserFaves(false)
                     setShowUserImages(false)
@@ -31,7 +46,8 @@ function YourPage() {
 
                 }}
                 >Your Albums</button>
-                <button onClick={() => {
+                <button className='userProfileBtn'
+                    onClick={() => {
                     setShowUserImages(true)
                     setShowUserAlbums(false)
                     setShowUserFaves(false)
@@ -53,14 +69,8 @@ function YourPage() {
                 }}
                 >Your Follows</button> */}
             </div>
-            {/* <Navigation /> */}
-            <div className='userProfileInfo'>
-                <img src='../static/icons8-user-pic.png' alt='user_logo' />
-                <p>{sessionUser?.username}</p>
-                <p>{sessionUser?.email}</p>
-                {/* <img src={sessionUser?.profile_pic} alt='image' className='singleImg'></img> */}
 
-            </div>
+
 
             <div className='yourAlbums'>
                 {showUserAlbums ? (<div>

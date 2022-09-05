@@ -33,7 +33,8 @@ function UserAlbumsPage() {
             title,
         };
         await dispatch(createAlbumThunk(payload, userId))
-        history.push('/your-albums')
+        setTitle('')
+        // history.push('/your-albums')
 
     }
 
@@ -50,18 +51,8 @@ function UserAlbumsPage() {
 
     return (
         <div>
-            <h1>Albums Page</h1>
+            <h1>Your Albums</h1>
             <button onClick={() => setShowCreate(true)}>Create an album</button>
-            <div className='allUserImgsContainer'>
-                {userAlbumsArr && userAlbumsArr.map((album) => (
-                    <div>
-                        <NavLink to={`/albums/${album.id}/images`}>
-                            <p>{album.title}</p>
-                        </NavLink>
-                    </div>
-                ))}
-
-            </div>
             <div className='createAlbumFormContainer'>
                 {showCreate ? (<div>
                     <form onSubmit={handleCreateSubmit} className='form'>
@@ -80,10 +71,22 @@ function UserAlbumsPage() {
                             onChange={(e) => setTitle(e.target.value)}>
                         </input>
                         <button type="submit" disabled={!!errors.length}>Create Album</button>
+                        <button onClick={() => setShowCreate(false)}>Back</button>
                     </form>
                 </div>) : (<></>)}
 
             </div>
+            <div className='allUserAlbumsContainer'>
+                {userAlbumsArr && userAlbumsArr.map((album) => (
+                    <div className='singleAlbumlink1'>
+                        <NavLink className='singleAlbumlink' to={`/albums/${album.id}/images`}>
+                            <div className='singleAlbumpic'>{album.title}🌴</div>
+                        </NavLink>
+                    </div>
+                ))}
+
+            </div>
+
 
 
         </div>
@@ -92,3 +95,4 @@ function UserAlbumsPage() {
 }
 
 export default UserAlbumsPage;
+
