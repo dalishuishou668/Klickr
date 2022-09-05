@@ -7,6 +7,7 @@ import './AlbumImagesPage.css'
 
 function AlbumImagesPage() {
 
+
     const history = useHistory()
     const { albumId } = useParams();
     const dispatch = useDispatch()
@@ -60,19 +61,31 @@ function AlbumImagesPage() {
     useEffect(() => {
         let errors = [];
         if (title.length < 3) {
-          errors.push('Please provide title with at least 3 chracters.')
+            errors.push('Please provide title with at least 3 chracters.')
         }
         setErrors(errors);
 
-      }, [title])
+    }, [title])
 
 
     return (
         <div className='albumImgContainer'>
-            <h1>THIS is single album images page</h1>
+            <div className='userProfileInfo'>
+                <div className='userpagepic'>
+                    <img className='userlogopic' src='../../static/icons8-user-pic.png' alt='user_logo' />
+                </div>
+
+                <div className='userpageinfo'>
+                    <p>{sessionUser?.username}</p>
+                    <p>{sessionUser?.email}</p>
+                </div>
+
+                {/* <img src={sessionUser?.profile_pic} alt='image' className='singleImg'></img> */}
+
+            </div>
 
             <div>
-                {albumInfo && (<h3>{albumInfo?.title}</h3>)}
+                {albumInfo && (<h2 className='albumTitle1'>View all images in album: <span className='albumTitle'>{albumInfo?.title}</span></h2>)}
                 {/* {albums && (
                     <h3>{albums[0]?.title}</h3>
                 )} */}
