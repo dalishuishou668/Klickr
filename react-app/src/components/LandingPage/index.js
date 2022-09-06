@@ -1,6 +1,7 @@
 import './LandingPage.css'
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
+import Footer from '../Footer';
 
 
 function LandingPage() {
@@ -15,7 +16,9 @@ function LandingPage() {
                         Start Here
                     </NavLink>
                 </button>
-
+            </div>
+            <div className='footerOuterContainer'>
+                <Footer />
             </div>
 
 

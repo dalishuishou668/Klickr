@@ -16,13 +16,21 @@
     height: 100%;
 }
 
+
+
 .userpagepic{
-    border: green solid 5px;
+    border: red solid 5px;
     margin-top:125px;
     margin-left: 50px;;
     width:100px;
     height:100px;
 }
+
+/* .headPic_2{
+    border: blue solid 5px;
+    height:5rem;
+    width:5rem;
+} */
 
 .userlogopic{
     width:100%;

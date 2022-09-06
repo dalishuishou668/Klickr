@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { getImagesThunk } from '../../store/image';
 import { getAllUsersThunk } from '../../store/user';
 import NavBar from '../NavBar/NavBar';
+import Footer from '../Footer';
 import './ExplorePage.css';
 
 
@@ -65,6 +66,8 @@ function ExplorePage() {
 
             </div>
 
+
+            
 
         </div>
     )

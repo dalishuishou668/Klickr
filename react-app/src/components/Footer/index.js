@@ -13,8 +13,8 @@ function Footer() {
                 })}
 
             </div>
-            <div>
-                <div className='created'>Created by Qiaoyi Liu</div>
+            <div className='developerInfo'>
+                <div className='developerText'>Created by Qiaoyi Liu</div>
                 <a href='https://www.linkedin.com/in/qiaoyi-joyce-liu-623204241/' >
                     <i class="fa-brands fa-linkedin"></i>
                 </a>

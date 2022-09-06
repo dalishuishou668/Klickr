@@ -5,6 +5,7 @@ import UserAlbumsPage from '../UserAlbumsPage';
 import UserImagesPage from '../UserImagesPage';
 import UserFollowsPage from '../UserFollowsPage';
 import UserFavesPage from '../UserFavesPage';
+import Footer from '../Footer';
 import './YourPage.css';
 // import Navigation from "../Navigation";
 
@@ -25,7 +26,8 @@ function YourPage() {
         <div className='yourPageContainer'>
             <div className='userProfileInfo'>
                 <div className='userpagepic'>
-                    <img className='userlogopic' src='../static/icons8-user-pic.png' alt='user_logo' />
+                    <img className='userlogopic' src='../static/icons8-user3.png' alt='user_logo' />
+                    {/* <img className='userlogopic' src='../static/icons8-user-pic.png' alt='user_logo' /> */}
                 </div>
 
                 <div className='userpageinfo'>
@@ -39,20 +41,20 @@ function YourPage() {
             <div className='userProfileNavbar'>
                 <button className='userProfileBtn'
                     onClick={() => {
-                    setShowUserAlbums(true)
-                    setShowUserFaves(false)
-                    setShowUserImages(false)
-                    // setShowUserFollows(false)
+                        setShowUserAlbums(true)
+                        setShowUserFaves(false)
+                        setShowUserImages(false)
+                        // setShowUserFollows(false)
 
-                }}
+                    }}
                 >Your Albums</button>
                 <button className='userProfileBtn'
                     onClick={() => {
-                    setShowUserImages(true)
-                    setShowUserAlbums(false)
-                    setShowUserFaves(false)
-                    // setShowUserFollows(false)
-                }}
+                        setShowUserImages(true)
+                        setShowUserAlbums(false)
+                        setShowUserFaves(false)
+                        // setShowUserFollows(false)
+                    }}
                 >Your Images</button>
                 {/* <button onClick={() => {
                     setShowUserFaves(true)
@@ -97,6 +99,7 @@ function YourPage() {
                 </div>) : (<></>)}
 
             </div> */}
+
 
         </div>
     )
