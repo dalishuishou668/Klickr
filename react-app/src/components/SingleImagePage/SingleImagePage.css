@@ -57,7 +57,7 @@ h2#heading {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    border: 3px yellow solid;
+    /* border: 3px yellow solid; */
     color: white;
 
 }
@@ -65,7 +65,7 @@ h2#heading {
 .imgBtnContainer {
     width: 15%;
     /* height:80%; */
-    border: 3px blue solid;
+    /* border: 3px blue solid; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -107,7 +107,7 @@ h2#heading {
 
 .userPic1 {
     /* font-size: 23px; */
-    border: 3px blue solid;
+    /* border: 3px blue solid; */
     width: 36%;
 }
 
@@ -330,7 +330,7 @@ h2#heading {
     padding-bottom: 10rem;
     padding-right: 6rem;
     height: 100%;
-    border: 5px green solid;
+    /* border: 5px green solid; */
     background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 
 }
@@ -345,12 +345,12 @@ h2#heading {
 }
 
 .commentCardLeft {
-    border: 5px red solid;
+    /* border: 5px red solid; */
     width: 29%;
 }
 
 .commentCardRight {
-    border: 5px orange solid;
+    /* border: 5px orange solid; */
     width: 62%;
     height:12rem;
     /* margin-left:1.5rem; */
@@ -402,7 +402,7 @@ h2#heading {
 } */
 
 .comment-3{
-    border: 5px green solid;
+    /* border: 5px green solid; */
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -419,7 +419,7 @@ h2#heading {
 }
 
 .editcmmtInput{
-    border: 3px red solid;
+    /* border: 3px red solid; */
     width:100%;
 
     height: 3rem;;
