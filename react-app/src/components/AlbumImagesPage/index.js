@@ -91,12 +91,15 @@ function AlbumImagesPage() {
                 )} */}
             </div>
             {/* <h3>{albums[albumId]?.title}</h3> */}
-            <button onClick={() => setShowEditAlbum(true)}>Edit album</button>
-            <button onClick={handleDeleteAlbum}>Delete Album</button>
-            <button onClick={() => history.push('/yourpage')}>Back</button>
+            <div className='albumimgsBtnContainer'>
+                <button className='albumimgsBtn1' onClick={() => setShowEditAlbum(true)}>Edit album</button>
+                <button className='albumimgsBtn1' onClick={handleDeleteAlbum}>Delete Album</button>
+                <button className='albumimgsBtn1' onClick={() => history.push('/yourpage')}>Back</button>
+            </div>
+
             <div className='editAlbumContainer'>
                 {showEditAlbum ? (<div>
-                    <form onSubmit={handleEditAlbum} className='form'>
+                    <form onSubmit={handleEditAlbum} className='form3'>
                         <div>
                             <ul className="errors">
                                 {errors.map(error => (
@@ -105,12 +108,13 @@ function AlbumImagesPage() {
                             </ul>
                         </div>
                         <input
+                            className='edtialbumInput1'
                             type="text"
-                            placeholder="Title"
+                            placeholder="Update Title Here"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}>
                         </input>
-                        <button type="submit" disabled={!!errors.length}>Edit</button>
+                        <button className='edialbumConfirm' type="submit" disabled={!!errors.length}>SAVE</button>
                     </form>
                 </div>) : (<></>)}
 

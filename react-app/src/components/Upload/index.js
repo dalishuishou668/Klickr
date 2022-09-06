@@ -63,7 +63,7 @@ function Upload() {
         const post = await dispatch(createImageThunk(payload))
         // console.log('post:', post)
         // .then(() => dispatch(getUserImages(userId)))
-        if (post) history.push(`/your-images`)
+        if (post) history.push(`/explore`)
         // if (post) history.push('/')
     };
 
