@@ -38,21 +38,23 @@ function Upload() {
 
     let regexUrl = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|png)/;
     let regex1 = /\.(jpg|jpeg|png|gif)$/
+    const [image, setImage] = useState(null);
 
     useEffect(() => {
         const errors = [];
+        console.log('image name', image?.name)
         if (content.length < 2) errors.push('Content must be ad least 2 characters');
         if (description.length < 2) errors.push('Description must be ad least 2 characters');
         // if (!tagId) errors.push('Please select a tag');
         if (!albumId) errors.push('Please select an album');
-        if(!(regex1.test(image?.name))){
+        if (!(regex1.test(image?.name))) {
             errors.push("Please select a valid image file(e.g. png/jpg/jpeg)")
         }
         // if (!regexUrl.test(imageUrl)) {
         //     errors.push('Please provide imageurl starts with http and ends in jpg or png')
         // }
         setErrors(errors);
-    }, [content, description, albumId])
+    }, [content, description, albumId, image?.name])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -80,13 +82,14 @@ function Upload() {
 
     // ------------ aws ------------------------------
 
-    const [image, setImage] = useState(null);
+    // const [image, setImage] = useState(null);
 
     const updateImage = (e) => {
         const file = e.target.files[0];
         setImage(file);
         console.log('file---->>>>:', file)
     }
+
 
     return (
         <div>
