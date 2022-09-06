@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { createImageThunk } from '../../store/image';
 // import { getAllTagsThunk } from '../../store/tag';
 import { getUserAlbumsThunk } from '../../store/album';
+import './Upload.css';
 
 function Upload() {
     const dispatch = useDispatch();
