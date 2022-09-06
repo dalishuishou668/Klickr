@@ -84,13 +84,13 @@ function YourPage() {
                     </div>
                 ) : (<></>)}
             </div>
-            <div className='yourFaves'>
+            {/* <div className='yourFaves'>
                 {showUserFaves ? (
                     <div>
                         <UserFavesPage />
                     </div>
                 ) : (<></>)}
-            </div>
+            </div> */}
             {/* <div className='yourFollows'>
                 {showUserFollows ? (<div>
                     <UserFollowsPage />

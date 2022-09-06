@@ -215,7 +215,6 @@ h2#heading {
     color: white;
     height: 3.5rem;
     width: 8rem;
-    ;
     margin-left: 39%;
     margin-top: 1rem;
     border-radius: .8rem;
@@ -276,17 +275,17 @@ h2#heading {
     font-family: 'Roboto', sans-serif;
 }
 
-.displayCommentsContainer1 {
-    /* border:red 5px solid; */
-    /* overflow: hidden;
-    overflow-y: auto; */
+/* .displayCommentsContainer1 {
+    border:red 5px solid;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .imgCommentsContainer {
-    /* border:5px black solid; */
-    /* overflow: hidden;
-    overflow-y: auto; */
-}
+    border:5px black solid;
+    overflow: hidden;
+    overflow-y: auto;
+} */
 
 
 

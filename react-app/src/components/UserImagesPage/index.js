@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getUserImagesThunk } from '../../store/image';
+import './UserImagesPage.css'
 
 function UserImagesPage() {
 
@@ -20,8 +21,8 @@ function UserImagesPage() {
     }, [dispatch])
 
     return (
-        <div>
-            <h1>Images Page</h1>
+        <div >
+
             {/* <div className='allUserImgsContainer'>
                 {userImageArr && userImageArr.map((image) => (
                     <div>
@@ -32,17 +33,17 @@ function UserImagesPage() {
                     </div>
                 ))}
             </div> */}
-            <div>
-                {userImageArr ? (<div>
+            {/* <div> */}
+                {userImageArr ? (<div className='userimagesContainer'>
                     {userImageArr.map((image) => (
                     <div>
-                        <NavLink to={`/images/${image.id}`}>
-                            <img src={image.imageUrl} alt='image' className='singleImg'></img>
-                            <p>{image.content}</p>
+                        <NavLink class="circle" to={`/images/${image.id}`}>
+                            <img className='indiImg2' src={image.imageUrl} alt='image'></img>
+                            {/* <p>{image.content}</p> */}
                         </NavLink>
                     </div>))}
                 </div>) : (<div>Start create your images</div>)}
-            </div>
+            {/* </div> */}
         </div>
     )
 
