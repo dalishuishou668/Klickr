@@ -37,6 +37,7 @@ function Upload() {
 
 
     let regexUrl = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|png)/;
+    let regex1 = /\.(jpg|jpeg|png|gif)$/
 
     useEffect(() => {
         const errors = [];
@@ -44,11 +45,14 @@ function Upload() {
         if (description.length < 2) errors.push('Description must be ad least 2 characters');
         // if (!tagId) errors.push('Please select a tag');
         if (!albumId) errors.push('Please select an album');
-        if (!regexUrl.test(imageUrl)) {
-            errors.push('Please provide imageurl starts with http and ends in jpg or png')
+        if(!(regex1.test(image?.name))){
+            errors.push("Please select a valid image file(e.g. png/jpg/jpeg)")
         }
+        // if (!regexUrl.test(imageUrl)) {
+        //     errors.push('Please provide imageurl starts with http and ends in jpg or png')
+        // }
         setErrors(errors);
-    }, [content, imageUrl, description, albumId])
+    }, [content, description, albumId])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -57,16 +61,32 @@ function Upload() {
             albumId,
             content,
             description,
-            imageUrl,
+            imageUrl:image,
+            // image
              // tagId
         };
 
         const post = await dispatch(createImageThunk(payload))
         // console.log('post:', post)
         // .then(() => dispatch(getUserImages(userId)))
-        if (post) history.push(`/explore`)
+        if (post){
+            history.push(`/explore`)
+        } else{
+
+        }
         // if (post) history.push('/')
     };
+
+
+    // ------------ aws ------------------------------
+
+    const [image, setImage] = useState(null);
+
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        setImage(file);
+        console.log('file---->>>>:', file)
+    }
 
     return (
         <div>
@@ -126,12 +146,20 @@ function Upload() {
                         </div>
                         <div>
                             <input
+                                type="file"
+                                // accept="image/*"
+                                accept="image/png, image/jpeg, image/jpg"
+                                onChange={updateImage}
+                            />
+                        </div>
+                        {/* <div>
+                            <input
                                 className='uploadInput'
                                 type="text"
                                 placeholder="Image URL"
                                 value={imageUrl}
                                 onChange={(e) => setImageUrl(e.target.value)} />
-                        </div>
+                        </div> */}
                         <button className='uploadButton' type="submit" disabled={!!errors.length}>Create new photo</button>
                     </div>
                 </div>
