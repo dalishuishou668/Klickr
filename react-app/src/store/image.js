@@ -77,21 +77,62 @@ const createImage = (image) => {
     }
 }
 
-export const createImageThunk = (image) =>async(dispatch) => {
-    const res = await fetch('/api/images/upload',{
+// ---------- AWS ------------------------
+export const createImageThunk = (imageData) => async (dispatch) => {
+    console.log('image---->>',imageData)
+
+    const { userId, albumId, content, description, imageUrl, image } = imageData;
+    // console.log('image2--->', image)
+
+    const formData = new FormData();
+
+    formData.append("userId", userId);
+    formData.append("albumId", albumId);
+    formData.append("content", content);
+    formData.append("description", description);
+    formData.append("imageUrl", imageUrl);
+    // formData.append("image", image)
+    // console.log('>>>>>>>>>>>>>', Object.values(formData))
+
+    const res = await fetch('/api/images/upload', {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(image),
-      })
+        // headers: { "Content-Type": "application/json" },
+        body: formData
+    })
+    // console.log('...........', res.body)
 
-
-    if(res.ok){
+    if (res.ok) {
         const image = await res.json()
         console.log('create thunk:', image)
         dispatch(createImage(image))
         return res;
     }
 }
+
+
+
+
+
+
+
+
+
+
+// export const createImageThunk = (image) =>async(dispatch) => {
+//     const res = await fetch('/api/images/upload',{
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(image),
+//       })
+
+
+//     if(res.ok){
+//         const image = await res.json()
+//         console.log('create thunk:', image)
+//         dispatch(createImage(image))
+//         return res;
+//     }
+// }
 
 // EDIT AN IMAGE
 const EDIT_IMAGE = 'images/EDIT_IMAGE'

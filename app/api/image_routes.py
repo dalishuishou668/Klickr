@@ -2,6 +2,8 @@ from flask import Blueprint, jsonify, request, redirect
 from flask_login import login_required, current_user
 from app.forms import CreateImageForm, UpdateImageForm, CreateCommentForm, UpdateCommentForm
 from app.models import db, Album, Image, Comment, User, Favorite
+from app.awsS3 import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 
 image_routes = Blueprint("image_routes", __name__)
 
@@ -50,20 +52,70 @@ def get_single_image(id):
 @image_routes.route('/upload', methods=['POST'])
 @login_required
 def create_image():
+
     form = CreateImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        newImage = Image(
-            userId=form.data['userId'],
-            albumId=form.data['albumId'],
-            content=form.data['content'],
-            description=form.data['description'],
-            imageUrl=form.data['imageUrl'],
-        )
-        db.session.add(newImage)
+        # print('yoyoyoyoyoyoooyoo')
+        # print(request.files)
+        if 'imageUrl' not in request.files:
+            print('--------1111->>>>>>>>>>>>>>>>>>')
+            return {"errors": "image required"}, 400
+
+        image = request.files["imageUrl"]
+
+        if not allowed_file(image.filename):
+            print('------22222--->>>>>>>>>>>>>>>>>>')
+            return { "errors": "file type not permitted" }, 400
+
+        image.filename = get_unique_filename(image.filename)
+
+        upload = upload_file_to_s3(image)
+
+        if "url" not in upload:
+            print('--33333------->>>>>>>>>>>>>>>>>>')
+            return upload, 400
+
+        imageUrl = upload["url"]
+        # print(url)
+
+        new_image = Image(
+            imageUrl=imageUrl,
+            description=request.form.get('description'),
+            content=request.form.get('content'),
+            albumId=request.form.get('albumId'),
+            userId=current_user.id)
+
+        db.session.add(new_image)
         db.session.commit()
-        return newImage.to_dict()
+        return new_image.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+
+
+
+
+
+
+# -------- without aws upload 1 ------------------
+    # form = CreateImageForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+    # if form.validate_on_submit():
+    #     newImage = Image(
+    #         userId=form.data['userId'],
+    #         albumId=form.data['albumId'],
+    #         content=form.data['content'],
+    #         description=form.data['description'],
+    #         imageUrl=form.data['imageUrl'],
+    #     )
+    #     db.session.add(newImage)
+    #     db.session.commit()
+    #     return newImage.to_dict()
+    # return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+    # ------ 1 -2 ------------
     # userId = request.json['userId']
     # albumId = request.json['albumId']
     # # tagId = request.json['tagId']
