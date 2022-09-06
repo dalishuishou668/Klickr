@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { createImageThunk } from '../../store/image';
 // import { getAllTagsThunk } from '../../store/tag';
 import { getUserAlbumsThunk } from '../../store/album';
+import './Upload.css';
 
 function Upload() {
     const dispatch = useDispatch();
@@ -63,7 +64,7 @@ function Upload() {
         const post = await dispatch(createImageThunk(payload))
         // console.log('post:', post)
         // .then(() => dispatch(getUserImages(userId)))
-        if (post) history.push(`/your-images`)
+        if (post) history.push(`/explore`)
         // if (post) history.push('/')
     };
 

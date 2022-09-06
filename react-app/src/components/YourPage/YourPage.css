@@ -11,18 +11,26 @@
 }
 
 .yourPageContainer {
-    border: red solid 5px;
+    border: green solid 5px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
+
+
 .userpagepic{
-    border: green solid 5px;
+    border: red solid 5px;
     margin-top:125px;
     margin-left: 50px;;
     width:100px;
     height:100px;
 }
+
+/* .headPic_2{
+    border: blue solid 5px;
+    height:5rem;
+    width:5rem;
+} */
 
 .userlogopic{
     width:100%;
@@ -50,10 +58,10 @@
 .userProfileBtn{
     border:none;
     margin-top:6px;
-    border-radius: 18px;;
+    border-radius: 25px;;
     color:white;
     font-size: 16px;;
-    width:10rem;
+    width:15rem;
     height:3.3rem;
     cursor: pointer;
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(171,102,255,1) 0%, rgba(116,182,247,1) 90% );

@@ -23,7 +23,7 @@
     /* background-color: #04001A; */
     background-color: #1A1A00;
     width: 100%;
-    background: rgba(0, 0, 0, 0.601);
+    background: rgba(0, 0, 0, 0.60);
 
     /* overflow: hidden;
     height: 5%;
@@ -144,7 +144,7 @@
     text-decoration: none;
     cursor: pointer;
     font-size: 22px;
-    amily: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 
 
     /* float: left;

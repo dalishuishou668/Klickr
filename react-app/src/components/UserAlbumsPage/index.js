@@ -42,19 +42,19 @@ function UserAlbumsPage() {
         let errors = [];
 
         if (title.length < 3) {
-          errors.push('Please provide title with at least 3 chracters.')
+            errors.push('Please provide title with at least 3 chracters.')
         }
         setErrors(errors);
 
-      }, [title])
+    }, [title])
 
 
     return (
         <div>
-            <h1>Your Albums</h1>
-            <button onClick={() => setShowCreate(true)}>Create an album</button>
+            <h1>View all your albums:</h1>
+            <button className='createAlbumBtn' onClick={() => setShowCreate(true)}>+ New album</button>
             <div className='createAlbumFormContainer'>
-                {showCreate ? (<div>
+                {showCreate ? (
                     <form onSubmit={handleCreateSubmit} className='form'>
                         <div>
                             <ul className="errors">
@@ -63,17 +63,20 @@ function UserAlbumsPage() {
                                 ))}
                             </ul>
                         </div>
-                        <input
-                            className='createAlbumInput'
-                            type="text"
-                            placeholder="Title"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}>
-                        </input>
-                        <button type="submit" disabled={!!errors.length}>Create Album</button>
-                        <button onClick={() => setShowCreate(false)}>Back</button>
+                        <div>
+                            <input
+                                className='createAlbumInput'
+                                type="text"
+                                placeholder="Enter Title Here"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}>
+                            </input>
+                            <button className='createAlbumBtn1' type="submit" disabled={!!errors.length}>Save</button>
+                            <button className='createAlbumBtn1' onClick={() => setShowCreate(false)}>Back</button>
+                        </div>
+
                     </form>
-                </div>) : (<></>)}
+                ) : (<></>)}
 
             </div>
             <div className='allUserAlbumsContainer'>
@@ -95,4 +98,3 @@ function UserAlbumsPage() {
 }
 
 export default UserAlbumsPage;
-

@@ -245,7 +245,7 @@ function SingleImagePage() {
                 {/* <div className='imgInfoContainer'> */}
                 <div className='imgInfoContainer1'>
                     <div className='imgContent1'>
-                        <h2 id='heading'>{image?.content}</h2>
+                        <h2 id='heading' className='heading-1'>{image?.content}</h2>
                     </div>
                     <div className='imgInfoContainer2'>
                         <img src={image?.imageUrl} alt={image?.title} className='image1'></img>
@@ -282,7 +282,7 @@ function SingleImagePage() {
 
                         <div className='editImgContainer'>
                             {showEditForm ? (<div>
-                                <form onSubmit={handleEditImage}>
+                                <form className='editImgForm' onSubmit={handleEditImage}>
                                     <div>
                                         <ul className="errors">
                                             {errors.map(error => (
@@ -290,19 +290,33 @@ function SingleImagePage() {
                                             ))}
                                         </ul>
                                     </div>
-                                    <input
-                                        placeholder='edit content'
-                                        type="text"
-                                        value={content}
-                                        onChange={(e) => setContent(e.target.value)}
-                                    ></input>
-                                    <input
-                                        placeholder='edit description'
-                                        type="text"
-                                        value={description}
-                                        onChange={(e) => setDescription(e.target.value)}
-                                    ></input>
-                                    <button type="submit" disabled={!!errors.length}>Edit</button>
+                                    <div>
+                                        <label className='contentlabel'>Content</label>
+                                        <input
+                                            className='editimgcontent'
+                                            placeholder='Update content here'
+                                            type="text"
+                                            value={content}
+                                            onChange={(e) => setContent(e.target.value)}
+                                        ></input>
+                                    </div>
+                                    <div className='editimgdescription2'>
+                                        <label className='descriptionlabel'>Description</label>
+                                        <textarea
+                                            className='editimgDescription'
+                                            placeholder='Update description here'
+                                            type="text"
+                                            value={description}
+                                            onChange={(e) => setDescription(e.target.value)}
+                                        ></textarea>
+                                    </div>
+
+
+                                    <div className='editImgBtnContainer'>
+                                        <button className='editImgBtn3' type="submit" disabled={!!errors.length}>Confirm</button>
+                                        <button className='editImgBtn3' onClick={() => setShowEditForm(false)}>Back</button>
+                                    </div>
+
                                 </form>
                             </div>) : (
                                 <div></div>
@@ -312,7 +326,8 @@ function SingleImagePage() {
                     </div>
                     <div className='commentinfo2'>
                         <div className='userPic1'>
-                            <img id='headPic' src='../../../../static/user.png' alt='user_logo1' />
+                            <img className='userPic1-3' src='../static/icons8-user3.png' alt='user_logo' />
+                            {/* <img id='headPic' src='../../../../static/user.png' alt='user_logo1' /> */}
                         </div>
                         <div className='userPic1-2'>
                             <h3>{getUsername(image?.userId)}</h3>
@@ -335,7 +350,7 @@ function SingleImagePage() {
                                 </div>
                                 <textarea
                                     className='addCommentInput'
-                                    placeholder='add comments'
+                                    placeholder='Add comments here'
                                     type="text"
                                     value={comment}
                                     onChange={(e) => setComment(e.target.value)}
@@ -395,7 +410,7 @@ function SingleImagePage() {
                                                 </div>
                                                 <div className='comment-2'>
                                                     {ele.id === selectCommentId && showEditComment ? (<div>
-                                                        <form onSubmit={handleEditComment}>
+                                                        <form className='comment-3' onSubmit={handleEditComment}>
                                                             <div>
                                                                 <ul className="errors">
                                                                     {errors2.map(error => (
@@ -403,13 +418,14 @@ function SingleImagePage() {
                                                                     ))}
                                                                 </ul>
                                                             </div>
-                                                            <input
+                                                            <textarea
+                                                                className='editcmmtInput'
                                                                 placeholder={selectComment}
                                                                 type="text"
                                                                 value={comment1}
                                                                 onChange={(e) => setComment1(e.target.value)}
-                                                            ></input>
-                                                            <button type="submit" disabled={!!errors2.length}>Submit</button>
+                                                            ></textarea>
+                                                            <button className='edticommentBtn-2' type="submit" disabled={!!errors2.length}>Save</button>
 
                                                         </form>
                                                     </div>) : (<>
