@@ -93,7 +93,7 @@ function SingleImagePage() {
         e.preventDefault()
 
         await dispatch(deleteImageThunk(imageId))
-        history.push('/your-images')
+        history.push('/yourpage')
     }
 
     // edit image
@@ -432,7 +432,7 @@ function SingleImagePage() {
                                                                     onChange={(e) => setComment1(e.target.value)}
                                                                 ></textarea>
                                                                 <button className='edticommentBtn-2' type="submit" disabled={!!errors2.length}>Save</button>
-
+                                                                {/* <button className='edticommentBtn-2' onClick={() => history.push(`/images/${imageId}`)}>Back</button> */}
                                                             </form>
                                                         </div>) : (<>
                                                         </>)}
