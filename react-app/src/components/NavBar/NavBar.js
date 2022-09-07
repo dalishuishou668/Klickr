@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { getImagesThunk } from '../../store/image';
 import img from '../../pictures/logo_screenshot.png';
 // import {img2} from '../../pictures/logoutLogo.png'
-import UploadModal from '../UploadModal';
+import UploadModal from '../Upload';
 import './NavBar.css';
 
 const NavBar = ({ loaded }) => {
@@ -109,10 +109,10 @@ const NavBar = ({ loaded }) => {
 
           </li>
           <li className='loginNav1-2'>
-            <UploadModal />
-            {/* <NavLink className='loginNavlink2' to='/upload' exact={true} >
+            {/* <UploadModal /> */}
+            <NavLink className='loginNavlink2' to='/upload' exact={true} >
               Upload
-            </NavLink> */}
+            </NavLink>
           </li>
           <li className='loginNav1-2'>
             <LogoutButton />

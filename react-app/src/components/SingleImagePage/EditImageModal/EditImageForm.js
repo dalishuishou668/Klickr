@@ -19,8 +19,8 @@ function EditImageForm({ imageId, setShowModal }) {
 
     useEffect(() => {
         const errors = [];
-        if (content.length < 2 || !(regex1.test(content))) errors.push('Content must be ad least 2 characters');
-        if (description.length < 2 || !(regex1.test(description))) errors.push('Description must be ad least 2 characters');
+        if (content.length < 2 || !(regex1.test(content))) errors.push('Content: content must be at least 2 characters');
+        if (description.length < 2 || !(regex1.test(description))) errors.push('Description: description must be at least 2 characters');
         setErrors(errors);
     }, [content, description])
 
