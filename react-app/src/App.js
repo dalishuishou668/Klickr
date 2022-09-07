@@ -10,7 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import LandingPage from "./components/LandingPage";
 // import MainPage from './components/MainPage';
-import Upload from './components/Upload';
+import Upload from './components/UploadModal';
 import ExplorePage from './components/ExplorePage';
 import Search from './components/Search';
 import YourPage from './components/YourPage';
@@ -66,9 +66,9 @@ function App() {
         <ProtectedRoute path='/search' exact={true} >
           <Search />
         </ProtectedRoute>
-        <ProtectedRoute path='/upload' exact={true} >
+        {/* <ProtectedRoute path='/upload' exact={true} >
           <Upload />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/yourpage' exact={true} >
           <YourPage />
         </ProtectedRoute>
@@ -92,7 +92,7 @@ function App() {
         </ProtectedRoute> */}
       </Switch>
       )}
-      
+
     </BrowserRouter>
   );
 }

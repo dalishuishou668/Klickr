@@ -7,7 +7,7 @@ import { createImageThunk } from '../../store/image';
 import { getUserAlbumsThunk } from '../../store/album';
 import './Upload.css';
 
-function Upload() {
+function UploadImageForm() {
     const dispatch = useDispatch();
     const history = useHistory()
     const userId = useSelector(state => state?.session.user?.id);
@@ -169,4 +169,4 @@ function Upload() {
 }
 
 
-export default Upload;
+export default UploadImageForm;

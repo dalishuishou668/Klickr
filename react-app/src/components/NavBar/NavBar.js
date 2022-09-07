@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { getImagesThunk } from '../../store/image';
 import img from '../../pictures/logo_screenshot.png';
 // import {img2} from '../../pictures/logoutLogo.png'
+import UploadModal from '../UploadModal';
 import './NavBar.css';
 
 const NavBar = ({ loaded }) => {
@@ -52,7 +53,7 @@ const NavBar = ({ loaded }) => {
       <ul className='loginNav1'>
         <div className='loginNav1-left'>
           <li className='loginNav1-1'>
-          {/* <img src='../static/logoutLogo.png'  className='logoutLogo' alt='user_logo' /> */}
+            {/* <img src='../static/logoutLogo.png'  className='logoutLogo' alt='user_logo' /> */}
             <img className="iconImg" src={img} alt="loading..." />
 
           </li>
@@ -102,14 +103,16 @@ const NavBar = ({ loaded }) => {
         <div className='loginNav1-right'>
           <li className='loginNav1-2'>
             <NavLink className='loginNavlink2' to='/search' exact={true}>
-              Search
+              {/* Search */}
+              <i class="fa-solid fa-magnifying-glass"></i>
             </NavLink>
 
           </li>
           <li className='loginNav1-2'>
-            <NavLink className='loginNavlink2' to='/upload' exact={true} >
+            <UploadModal />
+            {/* <NavLink className='loginNavlink2' to='/upload' exact={true} >
               Upload
-            </NavLink>
+            </NavLink> */}
           </li>
           <li className='loginNav1-2'>
             <LogoutButton />
@@ -125,7 +128,7 @@ const NavBar = ({ loaded }) => {
     sessionLink = (
       <div className='logoutNav'>
         <div className='logoutnav-left'>
-          <img src='../static/Klickr2-logos_white.png'  className='logoutLogo' alt='user_logo' />
+          <img src='../static/Klickr2-logos_white.png' className='logoutLogo' alt='user_logo' />
 
         </div>
         <div className='logoutnav-right'>
