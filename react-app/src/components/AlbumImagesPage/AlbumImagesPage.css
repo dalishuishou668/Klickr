@@ -21,8 +21,7 @@
     height: 100%;
     width: 100%;
     margin-top: 25px;
-    ;
-    border: green solid 5px;
+    /* border: green solid 5px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -55,14 +54,14 @@
 }
 
 .albumimgsBtnContainer{
-    border:green 3px solid;
+    /* border:green 3px solid; */
     display:flex;
     flex-direction: row;
     justify-content: center;
 }
 
 .editAlbumContainer{
-    border:blue 3px solid;
+    /* border:blue 3px solid; */
     display:flex;
     flex-direction: row;
     justify-content: center;

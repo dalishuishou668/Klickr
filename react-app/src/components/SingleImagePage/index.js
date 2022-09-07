@@ -8,6 +8,7 @@ import { getImageCommentsThunk, addCommentThunk, editCommentThunk, deleteComment
 import { getImageFavesThunk, getUserFavesThunk, addUserFaveThunk, deleteFaveThunk } from '../../store/favorite';
 import Fave from './Fave';
 import './SingleImagePage.css';
+import EditImageModal from './EditImageModal/EditImageModal';
 
 function SingleImagePage() {
     const history = useHistory();
@@ -19,6 +20,8 @@ function SingleImagePage() {
 
     const allUsers = useSelector(state => state.users)
     const usersArr = Object.values(allUsers)
+
+    let regex1 = /[a-zA-Z0-9]/
     // console.log('userARR^^^^^^^^^^:', usersArr)
 
 
@@ -61,12 +64,7 @@ function SingleImagePage() {
 
     // }
 
-    // fave solution2 ---------------------
 
-
-
-
-    // ------------------------------------
 
 
 
@@ -95,38 +93,38 @@ function SingleImagePage() {
         e.preventDefault()
 
         await dispatch(deleteImageThunk(imageId))
-        history.push('/your-images')
+        history.push('/yourpage')
     }
 
     // edit image
 
     const [showEditForm, setShowEditForm] = useState(false)
-    const [content, setContent] = useState('');
-    const [description, setDescription] = useState('');
-    const [errors, setErrors] = useState([]);
+    // const [content, setContent] = useState('');
+    // const [description, setDescription] = useState('');
+    // const [errors, setErrors] = useState([]);
 
-    let regex1 = /[a-zA-Z0-9]/
+    // let regex1 = /[a-zA-Z0-9]/
 
-    useEffect(() => {
-        const errors = [];
-        if (content.length < 2 || !(regex1.test(content))) errors.push('Content must be ad least 2 characters');
-        if (description.length < 2 || !(regex1.test(description))) errors.push('Description must be ad least 2 characters');
-        setErrors(errors);
-    }, [content, description])
+    // useEffect(() => {
+    //     const errors = [];
+    //     if (content.length < 2 || !(regex1.test(content))) errors.push('Content must be ad least 2 characters');
+    //     if (description.length < 2 || !(regex1.test(description))) errors.push('Description must be ad least 2 characters');
+    //     setErrors(errors);
+    // }, [content, description])
 
-    const handleEditImage = async (e) => {
-        e.preventDefault()
+    // const handleEditImage = async (e) => {
+    //     e.preventDefault()
 
-        const payload = {
-            content,
-            description
-        };
+    //     const payload = {
+    //         content,
+    //         description
+    //     };
 
-        await dispatch(editImageThunk(payload, imageId))
-        // history.push('/your-images')
-        setContent('')
-        setDescription('')
-    }
+    //     await dispatch(editImageThunk(payload, imageId))
+    //     // history.push('/your-images')
+    //     setContent('')
+    //     setDescription('')
+    // }
 
     // add comment
     const [comment, setComment] = useState('')
@@ -134,7 +132,7 @@ function SingleImagePage() {
 
     useEffect(() => {
         const errors1 = [];
-        if (comment.length < 2 || !(regex1.test(comment))) errors1.push('Comment must be ad least 2 characters');
+        if (comment.length < 2 || !(regex1.test(comment))) errors1.push('Comment: comment must be ad least 2 characters');
 
         setErrors1(errors1);
     }, [comment])
@@ -165,7 +163,7 @@ function SingleImagePage() {
 
     useEffect(() => {
         const errors2 = [];
-        if (comment1.length < 1 || !(regex1.test(comment1))) errors2.push('Comment must be ad least 2 characters');
+        if (comment1.length < 1 || !(regex1.test(comment1))) errors2.push('Comment: comment must be ad least 2 characters');
         setErrors2(errors2);
     }, [comment1])
 
@@ -243,7 +241,9 @@ function SingleImagePage() {
             {/* <h1>single image page</h1> */}
             <div className='imgDisplayContainer'>
                 {/* <div className='imgInfoContainer'> */}
+
                 <div className='imgInfoContainer1'>
+                    <h3 className='backtoexplore' onClick={() => history.push('/explore')}><i className="fa-solid fa-arrow-left"></i> Back to explore</h3>
                     <div className='imgContent1'>
                         <h2 id='heading' className='heading-1'>{image?.content}</h2>
                     </div>
@@ -253,7 +253,8 @@ function SingleImagePage() {
                     <div className='userBtnContainer'>
                         {image?.userId === userId ? (
                             <div className='imgBtnContainer'>
-                                <div className='editImgSymbol' onClick={() => setShowEditForm(true)}><i class="fa-solid fa-pen-to-square"></i></div>
+                                <EditImageModal imageId={imageId} />
+                                {/* <div className='editImgSymbol' onClick={() => setShowEditForm(true)}><i class="fa-solid fa-pen-to-square"></i></div> */}
                                 <div className='deleteImgSymbol' onClick={handleDeleteImage}><i class="fa-solid fa-trash-can"></i></div>
                             </div>
                         ) : ('')}
@@ -279,8 +280,11 @@ function SingleImagePage() {
                             </div>
                         </div> */}
 
+                        {/* <div>
+                        {showEditForm ? (<EditImageModal imageId={imageId} setShowEditForm={setShowEditForm}/>):('')}
+                        </div> */}
 
-                        <div className='editImgContainer'>
+                        {/* <div className='editImgContainer'>
                             {showEditForm ? (<div>
                                 <form className='editImgForm' onSubmit={handleEditImage}>
                                     <div>
@@ -320,138 +324,146 @@ function SingleImagePage() {
                                 </form>
                             </div>) : (
                                 <div></div>
-                            )}
-
-                        </div>
-                    </div>
-                    <div className='commentinfo2'>
-                        <div className='userPic1'>
-                            <img className='userPic1-3' src='../static/icons8-user3.png' alt='user_logo' />
-                            {/* <img id='headPic' src='../../../../static/user.png' alt='user_logo1' /> */}
-                        </div>
-                        <div className='userPic1-2'>
-                            <h3>{getUsername(image?.userId)}</h3>
-                            <p>{image?.description}</p>
-                        </div>
-                    </div>
-
-                    <div className='addCommentsContainer'>
-                        <div className='userPic2'>
-                            <img id='headPic2' src='../../../static/phone.png' alt='user_logo1' />
-                        </div>
-                        <div className='addCommentForm1'>
-                            <form className='addCommentForm2' onSubmit={handleAddComment}>
-                                <div>
-                                    <ul>
-                                        {errors1.map(error1 => (
-                                            <li className='err' key={error1}>* {error1}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                <textarea
-                                    className='addCommentInput'
-                                    placeholder='Add comments here'
-                                    type="text"
-                                    value={comment}
-                                    onChange={(e) => setComment(e.target.value)}
-                                />
-                                <button className='addCommentBtn' type="submit" disabled={!!errors1.length}>Add comment</button>
-                            </form>
-
-                        </div>
+                            )} */}
 
                     </div>
+                </div>
+                <div className='singleimghalf'>
+                    <div className='singleimghalf-1'>
+                        <div className='commentinfo2'>
+                            <div className='userPic1'>
+                                <img className='userPic1-3' src='../static/icons8-user3.png' alt='user_logo' />
+                                {/* <img id='headPic' src='../../../../static/user.png' alt='user_logo1' /> */}
+                            </div>
+                            <div className='userPic1-2'>
+                                <h3>{getUsername(image?.userId)}</h3>
+                                <p>{image?.description}</p>
+                            </div>
+                        </div>
 
-                    <div className='imgCommentsContainer'>
-                        <div className='displayCommentsContainer1'>
-                            {commentsArr && commentsArr.map(ele =>
-                            (
-                                <div className='displayCommentsContainer2'>
-                                    <div className='allCommentContainer'>
-                                        <div className='commentCardLeft'>
-                                            <img id='headPic3' src='../static/phone.png' alt='user_logo1' />
-                                        </div>
-                                        <div className='commentCardRight'>
-                                            <h4 className='commentUsername'>{ele?.user?.username}</h4>
-                                            <div className='display-comment1'>
-                                                <div className='single-comment'>
-                                                    <div className='single-comment-ele'>
-                                                        {
-                                                            selectCommentId !== ele.id && (
-                                                                <p>" {ele?.comment} "</p>
-                                                            )
-                                                        }
-                                                        {/* <p>{ele?.comment}</p> */}
+                        <div className='addCommentsContainer'>
+                            <div className='userPic2'>
+                                <img id='headPic2' src='../../../static/phone.png' alt='user_logo1' />
+                            </div>
+                            <div className='addCommentForm1'>
+                                <form className='addCommentForm2' onSubmit={handleAddComment}>
+                                    <div>
+                                        <ul>
+                                            {errors1.map(error1 => (
+                                                <li className='err' key={error1}>* {error1}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                    <textarea
+                                        className='addCommentInput'
+                                        placeholder='Add comments here'
+                                        type="text"
+                                        value={comment}
+                                        onChange={(e) => setComment(e.target.value)}
+                                    />
+                                    <button className='addCommentBtn' type="submit" disabled={!!errors1.length}>Add comment</button>
+                                </form>
 
+                            </div>
+
+                        </div>
+
+                        <div className='imgCommentsContainer'>
+                            <div className='displayCommentsContainer1'>
+                                {commentsArr && commentsArr.map(ele =>
+                                (
+                                    <div className='displayCommentsContainer2'>
+                                        <div className='allCommentContainer'>
+                                            <div className='commentCardLeft'>
+                                                <img id='headPic3' src='../static/phone.png' alt='user_logo1' />
+                                            </div>
+                                            <div className='commentCardRight'>
+                                                <h4 className='commentUsername'>{ele?.user?.username}</h4>
+                                                <div className='display-comment1'>
+                                                    <div className='single-comment'>
+                                                        <div className='single-comment-ele'>
+                                                            {
+                                                                selectCommentId !== ele.id && (
+                                                                    <p>" {ele?.comment} "</p>
+                                                                )
+                                                            }
+                                                            {/* <p>{ele?.comment}</p> */}
+
+
+                                                        </div>
+
+                                                        <div className='comment-select-button'>
+                                                            {ele?.user?.id === userId ? (
+                                                                <div className='editCommentSymbolContainer'>
+                                                                    <div className='editCommentSymbol'
+                                                                        onClick={() => {
+                                                                            setShowEditComment(true)
+                                                                            setSelectCommentId(ele?.id)
+                                                                            setComment1(ele?.comment)
+                                                                            // setShowComment(false)
+                                                                        }}>
+                                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                                    </div>
+                                                                    <div className='deleteCommentSymbol'
+                                                                        onClick={(e) => handleDeleteComment(e, ele?.id)}
+                                                                    >
+                                                                        <i class="fa-solid fa-trash-can"></i>
+                                                                    </div>
+                                                                </div>
+                                                            ) : ''}
+                                                        </div>
 
                                                     </div>
-
-                                                    <div className='comment-select-button'>
-                                                        {ele?.user?.id === userId ? (
-                                                            <div className='editCommentSymbolContainer'>
-                                                                <div className='editCommentSymbol'
-                                                                    onClick={() => {
-                                                                        setShowEditComment(true)
-                                                                        setSelectCommentId(ele?.id)
-                                                                        setComment1(ele?.comment)
-                                                                        // setShowComment(false)
-                                                                    }}>
-                                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                    <div className='comment-2'>
+                                                        {ele.id === selectCommentId && showEditComment ? (<div>
+                                                            <form className='comment-3' onSubmit={handleEditComment}>
+                                                                <div>
+                                                                    <ul className="errors">
+                                                                        {errors2.map(error => (
+                                                                            <li className='err' key={error}>* {error}</li>
+                                                                        ))}
+                                                                    </ul>
                                                                 </div>
-                                                                <div className='deleteCommentSymbol'
-                                                                    onClick={(e) => handleDeleteComment(e, ele?.id)}
-                                                                >
-                                                                    <i class="fa-solid fa-trash-can"></i>
-                                                                </div>
-                                                            </div>
-                                                        ) : ''}
+                                                                <textarea
+                                                                    className='editcmmtInput'
+                                                                    placeholder={selectComment}
+                                                                    type="text"
+                                                                    value={comment1}
+                                                                    onChange={(e) => setComment1(e.target.value)}
+                                                                ></textarea>
+                                                                <button className='edticommentBtn-2' type="submit" disabled={!!errors2.length}>Save</button>
+                                                                {/* <button className='edticommentBtn-2' onClick={() => history.push(`/images/${imageId}`)}>Back</button> */}
+                                                            </form>
+                                                        </div>) : (<>
+                                                        </>)}
                                                     </div>
-
-                                                </div>
-                                                <div className='comment-2'>
-                                                    {ele.id === selectCommentId && showEditComment ? (<div>
-                                                        <form className='comment-3' onSubmit={handleEditComment}>
-                                                            <div>
-                                                                <ul className="errors">
-                                                                    {errors2.map(error => (
-                                                                        <li className='err' key={error}>* {error}</li>
-                                                                    ))}
-                                                                </ul>
-                                                            </div>
-                                                            <textarea
-                                                                className='editcmmtInput'
-                                                                placeholder={selectComment}
-                                                                type="text"
-                                                                value={comment1}
-                                                                onChange={(e) => setComment1(e.target.value)}
-                                                            ></textarea>
-                                                            <button className='edticommentBtn-2' type="submit" disabled={!!errors2.length}>Save</button>
-
-                                                        </form>
-                                                    </div>) : (<>
-                                                    </>)}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
+
                         </div>
 
                     </div>
 
-                </div>
 
+                </div>
 
 
             </div>
 
 
 
-
-
-
         </div>
+
+
+
+
+
+
+
     )
 }
 

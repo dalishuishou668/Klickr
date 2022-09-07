@@ -21,16 +21,16 @@ const SignUpForm = () => {
   useEffect(() => {
     let errors = [];
     if (username.length < 3) {
-      errors.push('Username must be longer than 3 characters.')
+      errors.push('Username: username must be longer than 3 characters.')
     }
     if (!(/[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}/.test(email))) {
-      errors.push('Email must be in the format like example@gmail.com.')
+      errors.push('Email: email must be in the format like example@gmail.com.')
     }
     if (password.length < 4) {
-      errors.push('Password must be at least 4 charaters or more.')
+      errors.push('Password: password must be at least 4 charaters or more.')
     }
     if (password !== repeatPassword) {
-      errors.push('Repeat password must be the same as the password field.')
+      errors.push('Confirm password: repeat password must be the same as the password field.')
     }
     setErrors(errors);
 
@@ -82,6 +82,7 @@ const SignUpForm = () => {
             ))}
           </div>
 
+          <div className='loginlabel'>Username:</div>
           <label class='inputLogin'>
             {/* <i class="fa-regular fa-user"></i> */}
             <input
@@ -92,6 +93,7 @@ const SignUpForm = () => {
               placeholder='Username'
             />
           </label>
+          <div className='loginlabel'>Email:</div>
           <label class='inputLogin'>
             <input
               type='text'
@@ -101,6 +103,7 @@ const SignUpForm = () => {
               placeholder='Email'
             />
           </label>
+          <div className='loginlabel'>Password:</div>
           <label class='inputLogin'>
             <input
               type='password'
@@ -110,6 +113,7 @@ const SignUpForm = () => {
               placeholder='Password'
             />
           </label>
+          <div className='loginlabel'>Confirm password:</div>
           <label class='inputLogin'>
             <input
               type='password'

@@ -92,7 +92,7 @@ function App() {
         </ProtectedRoute> */}
       </Switch>
       )}
-      
+
     </BrowserRouter>
   );
 }

@@ -16,7 +16,7 @@ function YourPage() {
     const sessionUser = useSelector(state => state?.session?.user);
     const userId = sessionUser.id
 
-    const [showUserAlbums, setShowUserAlbums] = useState(false)
+    const [showUserAlbums, setShowUserAlbums] = useState(true)
     const [showUserImages, setShowUserImages] = useState(false)
     const [showUserFollows, setShowUserFollows] = useState(false)
     const [showUserFaves, setShowUserFaves] = useState(false)

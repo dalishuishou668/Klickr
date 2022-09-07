@@ -1,3 +1,45 @@
+
+
+// import React, { useState } from 'react';
+// import { Modal } from '../../context/Modal'
+// import UploadImageForm from './UploadImageForm';
+// import './Upload.css'
+
+
+// function UploadModal() {
+//   const [showModal, setShowModal] = useState(false);
+
+//   return (
+//     <>
+//     <button className='uploadBtn1' onClick={() => setShowModal(true)}><i class="fa-solid fa-arrow-up"></i></button>
+
+//       {showModal &&
+//         (<Modal onClose={() => setShowModal(false)}>
+//           <UploadImageForm closeModal={() => setShowModal(false)} />
+//         </Modal>
+//         )}
+//     </>
+//   );
+// }
+
+// export default UploadModal;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from "react";
 import { NavLink, useHistory } from 'react-router-dom';
@@ -43,12 +85,12 @@ function Upload() {
     useEffect(() => {
         const errors = [];
         console.log('image name', image?.name)
-        if (content.length < 2) errors.push('Content must be ad least 2 characters');
-        if (description.length < 2) errors.push('Description must be ad least 2 characters');
+        if (content.length < 2 || content.length > 60) errors.push('Content: content must be ad least 2 characters and less than 60 characters');
+        if (description.length < 2) errors.push('Description: description must be ad least 2 characters');
         // if (!tagId) errors.push('Please select a tag');
-        if (!albumId) errors.push('Please select an album');
+        if (!albumId) errors.push('Album: album must be selected');
         if (!(regex1.test(image?.name))) {
-            errors.push("Please select a valid image file(e.g. png/jpg/jpeg)")
+            errors.push("File: please select a valid image file(e.g. png/jpg/jpeg)")
         }
         // if (!regexUrl.test(imageUrl)) {
         //     errors.push('Please provide imageurl starts with http and ends in jpg or png')
@@ -63,15 +105,15 @@ function Upload() {
             albumId,
             content,
             description,
-            imageUrl:image,
+            imageUrl: image,
             // image
-             // tagId
+            // tagId
         };
 
         const post = await dispatch(createImageThunk(payload))
         // console.log('post:', post)
         // .then(() => dispatch(getUserImages(userId)))
-        if (post)history.push(`/explore`)
+        if (post) history.push(`/explore`)
 
         // if (post) history.push('/')
     };
@@ -89,38 +131,40 @@ function Upload() {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div className='uploadForm'>
-                    <div className='title'>
-                        <h3> Upload a new photo </h3>
+
+        <form onSubmit={handleSubmit} className='uploadimgContainer'>
+            <div className='uploadForm'>
+
+                <h3 className='uploadTitle'> Upload a new photo </h3>
+
+                <div>
+                    <ul className="errors">
+                        {errors.map(error => (
+                            <li className='err' key={error}>* {error}</li>
+                        ))}
+                    </ul>
+                </div>
+                <div className='uploadForm1'>
+                    <div>
+                        <label>Content: </label>
+                        <input
+                            className='uploadInput'
+                            type="text"
+                            placeholder="Content"
+                            value={content}
+                            onChange={(e) => setContent(e.target.value)} />
                     </div>
                     <div>
-                        <ul className="errors">
-                            {errors.map(error => (
-                                <li className='err' key={error}>* {error}</li>
-                            ))}
-                        </ul>
+                        <label>Description: </label>
+                        <input
+                            className='uploadInput'
+                            type="text"
+                            placeholder="Description"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)} />
                     </div>
-                    <div className='uploadForm'>
-                        <div>
-                            <input
-                                className='uploadInput'
-                                type="text"
-                                placeholder="Content"
-                                value={content}
-                                onChange={(e) => setContent(e.target.value)} />
-                        </div>
-                        <div>
-                            <input
-                                className='uploadInput'
-                                type="text"
-                                placeholder="Description"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)} />
-                        </div>
-                        <div className='tagDropdown'>
-                            {/* <label for="tag-select">Choose a tag:</label>
+                    <div className='tagDropdown'>
+                        {/* <label for="tag-select">Choose a tag:</label>
                             <select
                                 onChange={(e) => setTagId(e.target.value)}
                                 value={tagId}
@@ -130,29 +174,31 @@ function Upload() {
                                     <option value={tag.id} key={tag.id}>{tag.name}</option>
                                 )}
                             </select> */}
-                        </div>
-                        <div className='albumDropdown'>
-                            <label for="album-select">Choose an album:</label>
-                            <select
-                                onChange={(e) => setAlbumId(e.target.value)}
-                                value={albumId}
-                            >
-                                <option value="">--Please choose an option--</option>
-                                {albumsArr.map(album =>
-                                    <option value={album.id} key={album.id}>{album.title}</option>
-                                )}
-                            </select>
+                    </div>
+                    <div className='albumDropdown'>
+                        <label for="album-select">Choose an album:</label>
+                        <select
+                            className='uploadInput'
+                            onChange={(e) => setAlbumId(e.target.value)}
+                            value={albumId}
+                        >
+                            <option className='uploadInput1' value="">--Please choose an option--</option>
+                            {albumsArr.map(album =>
+                                <option className='uploadInput1' value={album.id} key={album.id}>{album.title}</option>
+                            )}
+                        </select>
 
-                        </div>
-                        <div>
-                            <input
-                                type="file"
-                                // accept="image/*"
-                                accept="image/png, image/jpeg, image/jpg"
-                                onChange={updateImage}
-                            />
-                        </div>
-                        {/* <div>
+                    </div>
+                    <div>
+                        <input
+                            className='uploadInput'
+                            type="file"
+                            // accept="image/*"
+                            accept="image/png, image/jpeg, image/jpg"
+                            onChange={updateImage}
+                        />
+                    </div>
+                    {/* <div>
                             <input
                                 className='uploadInput'
                                 type="text"
@@ -160,12 +206,11 @@ function Upload() {
                                 value={imageUrl}
                                 onChange={(e) => setImageUrl(e.target.value)} />
                         </div> */}
-                        <button className='uploadButton' type="submit" disabled={!!errors.length}>Create new photo</button>
-                    </div>
+                    <button className='uploadButton' type="submit" disabled={!!errors.length}>Create new photo</button>
                 </div>
-            </form>
-        </div>
-    )
+            </div>
+        </form>)
+
 }
 
 

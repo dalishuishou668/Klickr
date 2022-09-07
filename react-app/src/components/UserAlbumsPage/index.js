@@ -3,6 +3,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getUserAlbumsThunk } from '../../store/album';
 import { createAlbumThunk } from '../../store/album';
+import CreateAlbumModal from './CreateAlbumModal/CreateAlbumModal';
 import './UserAlbumsPage.css'
 
 
@@ -26,35 +27,35 @@ function UserAlbumsPage() {
         dispatch(getUserAlbumsThunk(userId))
     }, [dispatch])
 
-    const handleCreateSubmit = async (e) => {
-        e.preventDefault()
-        const payload = {
-            userId,
-            title,
-        };
-        await dispatch(createAlbumThunk(payload, userId))
-        setTitle('')
-        // history.push('/your-albums')
+    // const handleCreateSubmit = async (e) => {
+    //     e.preventDefault()
+    //     const payload = {
+    //         userId,
+    //         title,
+    //     };
+    //     await dispatch(createAlbumThunk(payload, userId))
+    //     setTitle('')
 
-    }
+    // }
 
-    useEffect(() => {
-        let errors = [];
+    // useEffect(() => {
+    //     let errors = [];
 
-        if (title.length < 3) {
-            errors.push('Please provide title with at least 3 chracters.')
-        }
-        setErrors(errors);
+    //     if (title.length < 3) {
+    //         errors.push('Please provide title with at least 3 chracters.')
+    //     }
+    //     setErrors(errors);
 
-    }, [title])
+    // }, [title])
 
 
     return (
         <div>
             <h1>View all your albums:</h1>
-            <button className='createAlbumBtn' onClick={() => setShowCreate(true)}>+ New album</button>
+            <CreateAlbumModal />
+            {/* <button className='createAlbumBtn' onClick={() => setShowCreate(true)}>+ New album</button> */}
             <div className='createAlbumFormContainer'>
-                {showCreate ? (
+                {/* {showCreate ? (
                     <form onSubmit={handleCreateSubmit} className='form'>
                         <div>
                             <ul className="errors">
@@ -76,7 +77,7 @@ function UserAlbumsPage() {
                         </div>
 
                     </form>
-                ) : (<></>)}
+                ) : (<></>)} */}
 
             </div>
             <div className='allUserAlbumsContainer'>

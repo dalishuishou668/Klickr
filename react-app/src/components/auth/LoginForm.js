@@ -17,10 +17,10 @@ const LoginForm = () => {
   useEffect(() => {
     let errors = [];
     if (!(/[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}/.test(email))) {
-      errors.push('Please provide a valid email.')
+      errors.push('Email: please provide a valid email.')
     }
     if (password.length < 4) {
-      errors.push('Please provide a valid password.')
+      errors.push('Password: please provide a valid password.')
     }
     setErrors(errors);
 
@@ -69,7 +69,9 @@ const LoginForm = () => {
             ))}
           </div>
 
+          <div className='loginlabel'>Email:</div>
           <label class='inputLogin'>
+
             {/* <i class="fa-regular fa-user"></i> */}
             <input
               name='email'
@@ -80,6 +82,7 @@ const LoginForm = () => {
 
             />
           </label>
+          <div className='loginlabel'>Password:</div>
           <label class='inputLogin'>
             <input
               name='password'

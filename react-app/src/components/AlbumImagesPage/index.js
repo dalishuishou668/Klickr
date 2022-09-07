@@ -47,7 +47,7 @@ function AlbumImagesPage() {
     const handleDeleteAlbum = async (e) => {
         e.preventDefault()
         await dispatch(deleteAlbumThunk(albumId))
-        history.push('/your-albums')
+        history.push('/yourpage')
     }
 
 
@@ -72,7 +72,8 @@ function AlbumImagesPage() {
         <div className='albumImgContainer'>
             <div className='userProfileInfo'>
                 <div className='userpagepic'>
-                    <img className='userlogopic' src='../../static/icons8-user-pic.png' alt='user_logo' />
+                <img className='userlogopic' src='../../../../static/icons8-user3.png' alt='user_logo' />
+                    {/* <img className='userlogopic' src='../../static/icons8-user-pic.png' alt='user_logo' /> */}
                 </div>
 
                 <div className='userpageinfo'>
