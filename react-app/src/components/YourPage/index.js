@@ -16,8 +16,8 @@ function YourPage() {
     const sessionUser = useSelector(state => state?.session?.user);
     const userId = sessionUser.id
 
-    const [showUserAlbums, setShowUserAlbums] = useState(true)
-    const [showUserImages, setShowUserImages] = useState(false)
+    const [showUserAlbums, setShowUserAlbums] = useState(false)
+    const [showUserImages, setShowUserImages] = useState(true)
     const [showUserFollows, setShowUserFollows] = useState(false)
     const [showUserFaves, setShowUserFaves] = useState(false)
 
@@ -41,6 +41,15 @@ function YourPage() {
             <div className='userProfileNavbar'>
                 <button className='userProfileBtn'
                     onClick={() => {
+                        setShowUserImages(true)
+                        setShowUserAlbums(false)
+                        setShowUserFaves(false)
+                        // setShowUserFollows(false)
+                    }}
+                >Your Images</button>
+                <button className='userProfileBtn'
+                
+                    onClick={() => {
                         setShowUserAlbums(true)
                         setShowUserFaves(false)
                         setShowUserImages(false)
@@ -48,14 +57,7 @@ function YourPage() {
 
                     }}
                 >Your Albums</button>
-                <button className='userProfileBtn'
-                    onClick={() => {
-                        setShowUserImages(true)
-                        setShowUserAlbums(false)
-                        setShowUserFaves(false)
-                        // setShowUserFollows(false)
-                    }}
-                >Your Images</button>
+
                 {/* <button onClick={() => {
                     setShowUserFaves(true)
                     setShowUserImages(false)

@@ -1,5 +1,5 @@
 .userimagesContainer{
-    border:blue solid 5px;
+    /* border:blue solid 5px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
