@@ -14,7 +14,7 @@ function EditImageModal({imageId}) {
 
       {showModal &&
         (<Modal onClose={() => setShowModal(false)}>
-          <EditImageForm closeModal={() => setShowModal(false)} imageId={imageId}/>
+          <EditImageForm closeModal={() => setShowModal(false)} imageId={imageId} setShowModal={setShowModal}/>
         </Modal>
         )}
     </>

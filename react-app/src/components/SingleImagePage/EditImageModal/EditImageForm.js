@@ -4,7 +4,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { editImageThunk } from '../../../store/image';
 
 
-function EditImageForm({ imageId, setShowEditForm }) {
+function EditImageForm({ imageId, setShowModal }) {
 
     console.log('**********imageId prop:', imageId)
 
@@ -35,6 +35,7 @@ function EditImageForm({ imageId, setShowEditForm }) {
         await dispatch(editImageThunk(payload, imageId))
         setContent('')
         setDescription('')
+        setShowModal(false)
     }
 
 
