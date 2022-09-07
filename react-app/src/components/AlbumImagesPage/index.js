@@ -47,7 +47,7 @@ function AlbumImagesPage() {
     const handleDeleteAlbum = async (e) => {
         e.preventDefault()
         await dispatch(deleteAlbumThunk(albumId))
-        history.push('/your-albums')
+        history.push('/yourpage')
     }
 
 
