@@ -48,7 +48,7 @@ function CreateAlbumForm({ setShowModal }) {
                     ))}
                 </ul>
             </div>
-            <div>
+            <div className='createAlbumFrom2'>
                 <input
                     className='createAlbumInput'
                     type="text"

@@ -72,7 +72,8 @@ function AlbumImagesPage() {
         <div className='albumImgContainer'>
             <div className='userProfileInfo'>
                 <div className='userpagepic'>
-                    <img className='userlogopic' src='../../static/icons8-user-pic.png' alt='user_logo' />
+                <img className='userlogopic' src='../../../../static/icons8-user3.png' alt='user_logo' />
+                    {/* <img className='userlogopic' src='../../static/icons8-user-pic.png' alt='user_logo' /> */}
                 </div>
 
                 <div className='userpageinfo'>
