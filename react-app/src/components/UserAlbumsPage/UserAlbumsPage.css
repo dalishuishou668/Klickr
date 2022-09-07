@@ -121,3 +121,7 @@
     align-items: center;
     margin-bottom:15px;
 }
+
+h2#viewAlbums{
+    font-family: 'Roboto', sans-serif;
+}

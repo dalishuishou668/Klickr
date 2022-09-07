@@ -1,22 +1,22 @@
 .landingContainer{
     /* border:blue solid 5px; */
     color:white;
-    width: 100%;
-    height: 100vh;
     display:flex;
     flex-direction: column;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.60)), url('./backgroun-3.jpg');
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0.1, 0.72), rgba(0, 0, 0, 0.58)), url('./backgroun-3.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .landingText{
     /* border:red solid 5px; */
+    color:white;
     width: 98%;
     top: 45%;
     position: absolute;
     transform: translateY(-50%);
-    color: #fff;
     text-align: center;
 }
 
@@ -37,10 +37,10 @@
 }
 
 .startBtn{
-    border: 3px solid #7f57c0;
+    border: 3px solid #7367F0;
     position: relative;
     overflow: hidden;
-    color: #fff;
+    color: white;
     cursor: pointer;
     width: 256px;
     height: 65px;

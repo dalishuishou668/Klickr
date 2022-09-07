@@ -51,7 +51,7 @@ function UserAlbumsPage() {
 
     return (
         <div>
-            <h1>View all your albums:</h1>
+            <h2 id='viewAlbums'>View all your albums:</h2>
             <CreateAlbumModal />
             {/* <button className='createAlbumBtn' onClick={() => setShowCreate(true)}>+ New album</button> */}
             <div className='createAlbumFormContainer'>
