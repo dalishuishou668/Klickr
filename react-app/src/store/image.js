@@ -112,12 +112,6 @@ export const createImageThunk = (imageData) => async (dispatch) => {
 
 
 
-
-
-
-
-
-
 // export const createImageThunk = (image) =>async(dispatch) => {
 //     const res = await fetch('/api/images/upload',{
 //         method: "POST",
@@ -134,6 +128,9 @@ export const createImageThunk = (imageData) => async (dispatch) => {
 //     }
 // }
 
+
+
+
 // EDIT AN IMAGE
 const EDIT_IMAGE = 'images/EDIT_IMAGE'
 
@@ -145,7 +142,8 @@ const editImage = (image) => {
 }
 
 export const editImageThunk = (payload, imageId) =>async(dispatch) => {
-    console.log('in the edit thunk^^^^^^^^^^^^^^^^')
+    console.log('in the edit thunk^^^^^^^^^^^^^^^^', imageId)
+    console.log('thunk payload edit img:', payload)
     const res = await fetch(`/api/images/${imageId}/edit`,{
         method: "PUT",
         headers: {
