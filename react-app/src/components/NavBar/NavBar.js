@@ -67,6 +67,11 @@ const NavBar = ({ loaded }) => {
               You
             </NavLink>
           </li>
+          <li className='loginNav1-2'>
+            <NavLink className='loginNavlink2' to='/about' exact={true} >
+              About
+            </NavLink>
+          </li>
 
         </div>
 

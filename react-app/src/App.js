@@ -20,6 +20,7 @@ import UserFavesPage from './components/UserFavesPage';
 import UserFollowsPage from './components/UserFollowsPage';
 import SingleImagePage from './components/SingleImagePage';
 import AlbumImagesPage from './components/AlbumImagesPage';
+import About from './components/About';
 
 
 function App() {
@@ -83,6 +84,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/images/:imageId' exact={true} >
           <SingleImagePage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/about' exact={true} >
+          <About />
         </ProtectedRoute>
         {/* <ProtectedRoute path='/your-faves' exact={true} >
           <UserFavesPage />
