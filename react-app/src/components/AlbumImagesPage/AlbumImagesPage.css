@@ -7,15 +7,14 @@
 
 .albumTitle1 {
     font-size: 30px;
-    ;
+
     font-family: 'Roboto', sans-serif;
 }
 
-.albumTitle:hover {
+/* .albumTitle:hover {
     font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-    background-image: radial-gradient(circle 1259px at 2.8% 48.8%, rgba(255, 243, 110, 1) 0%, rgba(30, 204, 214, 1) 45.6%, rgba(5, 54, 154, 1) 65.9%);
-}
+
+} */
 
 .albumImgsContainer {
     height: 100%;
@@ -69,7 +68,7 @@
 }
 
 .form3{
-    border:black 3px solid;
+    /* border:black 3px solid; */
     font-size: 18px;;
 }
 
