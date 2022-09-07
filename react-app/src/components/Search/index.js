@@ -44,31 +44,42 @@ function Search() {
     return (
         <div className='searchDiv'>
             <div className='search-bar'>
-                <img className="searchImg" src={img} alt="loading..." />
-                <h1 className='searchText'>Searching ...</h1>
-                <div className='searchUserinput'>
-                    <input
-                        className="searchword"
-                        placeholder="Search By Title"
-                        value={searchKeyword}
-                        onChange={handleUserSearch}
-                    />
-                </div>
-                {ImagesArr && resultImages.length !== 0 && (
-                    <div className='searchresultContainer'>
-                        {resultImages.map((image) => (
-                            <div>
-                                <NavLink
+                <div className='searchUpper'>
+                    <img className="searchImg" src={img} alt="loading..." />
+                    <h1 className='searchText'>Searching ...</h1>
 
-                                    className="searchResult"
-                                    to={`/images/${image.id}`}
-                                >
-                                    {image.content}
-                                </NavLink>
-                            </div>
-                        ))}
+                </div>
+
+                <div className='testSearchDiv'>
+                    <div className='searchUserinput'>
+                        <input
+                            className="searchword"
+                            placeholder="Search By Image Content (e.g. island)"
+                            value={searchKeyword}
+                            onChange={handleUserSearch}
+                        />
                     </div>
-                )}
+                    <div className='searchUserinput1'>
+                        {ImagesArr && resultImages.length !== 0 && (
+                            <div className='searchresultContainer'>
+                                {resultImages.map((image) => (
+                                    <div>
+                                        <NavLink
+
+                                            className="searchResult"
+                                            to={`/images/${image.id}`}
+                                        >
+                                            {image.content}
+                                        </NavLink>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
