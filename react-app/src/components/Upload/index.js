@@ -1,4 +1,3 @@
-
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from "react";
 import { NavLink, useHistory } from 'react-router-dom';
@@ -9,26 +8,25 @@ import { getUserAlbumsThunk } from '../../store/album';
 import './Upload.css';
 
 function Upload() {
+
     const dispatch = useDispatch();
     const history = useHistory()
     const userId = useSelector(state => state?.session.user?.id);
+
     // const tags = useSelector(state => state?.tags)
     // const tagsArr = Object.values(tags)
-
-
     const albums = useSelector(state => state.albums)
     const albumsArr = Object.values(albums)
-    console.log('albumsArr:', albumsArr)
 
     const [content, setContent] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [description, setDescription] = useState('');
     // const [tagId, setTagId] = useState('');
     const [albumId, setAlbumId] = useState('');
-    console.log('select albumId***', albumId)
-    // console.log('select tagId-------', tagId)
 
+    // console.log('select tagId-------', tagId)
     const [errors, setErrors] = useState([]);
+
 
     useEffect(() => {
         // dispatch(getAllTagsThunk())
@@ -36,16 +34,16 @@ function Upload() {
     }, [dispatch])
 
 
-
     let regexUrl = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|png)/;
-    let regex1 = /\.(jpg|jpeg|png|gif)$/
+    let regex1 = /\.(jpg|jpeg|png)$/
+
     const [image, setImage] = useState(null);
 
     useEffect(() => {
         const errors = [];
         console.log('image name', image?.name)
-        if (content.length < 2 || content.length > 60 || !(regex1.test(content))) errors.push('Content: content must be ad least 2 characters and less than 60 characters');
-        if (description.length < 2 || !(regex1.test(content)) || description.length > 500) errors.push('Description: description must be ad least 2 characters and less than 500 characters');
+        if (content.length < 2 || content.length > 60 || !(/[a-zA-Z0-9]/.test(content))) errors.push('Content: content must be ad least 2 characters and less than 60 characters');
+        if (description.length < 2 || !(/[a-zA-Z0-9]/.test(description)) || description.length > 500) errors.push('Description: description must be ad least 2 characters and less than 500 characters');
         // if (!tagId) errors.push('Please select a tag');
         if (!albumId) errors.push('Album: album must be selected');
         if (!(regex1.test(image?.name))) {
@@ -68,20 +66,14 @@ function Upload() {
             // image
             // tagId
         };
-
         const post = await dispatch(createImageThunk(payload))
         // console.log('post:', post)
         // .then(() => dispatch(getUserImages(userId)))
         if (post) history.push(`/explore`)
-
         // if (post) history.push('/')
     };
-
-
     // ------------ aws ------------------------------
-
     // const [image, setImage] = useState(null);
-
     const updateImage = (e) => {
         const file = e.target.files[0];
         setImage(file);
@@ -90,12 +82,9 @@ function Upload() {
 
 
     return (
-
         <form onSubmit={handleSubmit} className='uploadimgContainer'>
             <div className='uploadForm'>
-
                 <h3 className='uploadTitle'> Upload a new photo </h3>
-
                 <div>
                     <ul className="errors">
                         {errors.map(error => (
@@ -113,10 +102,10 @@ function Upload() {
                             value={content}
                             onChange={(e) => setContent(e.target.value)} />
                     </div>
-                    <div>
+                    <div className='uploadDescription'>
                         <label>Description: </label>
-                        <input
-                            className='uploadInput'
+                        <textarea
+                            className='uploadInput5'
                             type="text"
                             placeholder="Description"
                             value={description}
@@ -146,7 +135,6 @@ function Upload() {
                                 <option className='uploadInput1' value={album.id} key={album.id}>{album.title}</option>
                             )}
                         </select>
-
                     </div>
                     <div>
                         <input
@@ -169,30 +157,17 @@ function Upload() {
                 </div>
             </div>
         </form>)
-
 }
-
-
 export default Upload;
-
-
-
-
-
-
 // import React, { useState } from 'react';
 // import { Modal } from '../../context/Modal'
 // import UploadImageForm from './UploadImageForm';
 // import './Upload.css'
-
-
 // function UploadModal() {
 //   const [showModal, setShowModal] = useState(false);
-
 //   return (
 //     <>
 //     <button className='uploadBtn1' onClick={() => setShowModal(true)}><i class="fa-solid fa-arrow-up"></i></button>
-
 //       {showModal &&
 //         (<Modal onClose={() => setShowModal(false)}>
 //           <UploadImageForm closeModal={() => setShowModal(false)} />
@@ -201,5 +176,4 @@ export default Upload;
 //     </>
 //   );
 // }
-
 // export default UploadModal;
