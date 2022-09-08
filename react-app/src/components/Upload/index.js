@@ -44,8 +44,8 @@ function Upload() {
     useEffect(() => {
         const errors = [];
         console.log('image name', image?.name)
-        if (content.length < 2 || content.length > 60) errors.push('Content: content must be ad least 2 characters and less than 60 characters');
-        if (description.length < 2) errors.push('Description: description must be ad least 2 characters');
+        if (content.length < 2 || content.length > 60 || !(regex1.test(content))) errors.push('Content: content must be ad least 2 characters and less than 60 characters');
+        if (description.length < 2 || !(regex1.test(content)) || description.length > 500) errors.push('Description: description must be ad least 2 characters and less than 500 characters');
         // if (!tagId) errors.push('Please select a tag');
         if (!albumId) errors.push('Album: album must be selected');
         if (!(regex1.test(image?.name))) {
