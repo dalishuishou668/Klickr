@@ -147,7 +147,7 @@ h2#heading {
 .userPic1 {
     /* font-size: 23px; */
     /* border: 3px blue solid; */
-    width: 28%;
+    width: 30%;
 }
 
 .userPic1-3{
@@ -183,13 +183,13 @@ h2#heading {
 }
 
 .userPic1-2 {
-    border: 3px blue solid;
+    /* border: 3px blue solid; */
     margin-right:8rem;
     width: 70%;
     margin-left: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
-    ;
+
 
 }
 
@@ -395,6 +395,7 @@ h2#heading {
     border-bottom:black 1px solid;
     width: 72%;
     height:12rem;
+    margin-left:2rem;;
     /* margin-left:1.5rem; */
 }
 
@@ -560,6 +561,39 @@ h2#heading {
     overflow-y: auto;
 
 } */
+
+.descriptionContainer{
+    display: flex;
+    /* border: yellow solid 5px; */
+    word-wrap: break-word;
+    height:5rem;
+    overflow: auto;
+    overflow-x: auto;
+    /* height: 10rem; */
+    /* width:100%;
+    overflow: auto;
+    overflow-y: auto;
+    overflow-x: auto; */
+    /* overflow: auto; */
+    /* box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px; */
+}
+
+.descriptionContainer::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+}
+
+.descriptionContainer::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.descriptionContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.192);
+    border-radius: 4px;
+}
+
 .commentcontent{
     /* border: black solid 3px; */
     word-wrap: break-word;
