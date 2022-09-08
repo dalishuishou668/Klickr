@@ -1,45 +1,4 @@
 
-
-// import React, { useState } from 'react';
-// import { Modal } from '../../context/Modal'
-// import UploadImageForm from './UploadImageForm';
-// import './Upload.css'
-
-
-// function UploadModal() {
-//   const [showModal, setShowModal] = useState(false);
-
-//   return (
-//     <>
-//     <button className='uploadBtn1' onClick={() => setShowModal(true)}><i class="fa-solid fa-arrow-up"></i></button>
-
-//       {showModal &&
-//         (<Modal onClose={() => setShowModal(false)}>
-//           <UploadImageForm closeModal={() => setShowModal(false)} />
-//         </Modal>
-//         )}
-//     </>
-//   );
-// }
-
-// export default UploadModal;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from "react";
 import { NavLink, useHistory } from 'react-router-dom';
@@ -215,3 +174,35 @@ function Upload() {
 
 
 export default Upload;
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import { Modal } from '../../context/Modal'
+// import UploadImageForm from './UploadImageForm';
+// import './Upload.css'
+
+
+// function UploadModal() {
+//   const [showModal, setShowModal] = useState(false);
+
+//   return (
+//     <>
+//     <button className='uploadBtn1' onClick={() => setShowModal(true)}><i class="fa-solid fa-arrow-up"></i></button>
+
+//       {showModal &&
+//         (<Modal onClose={() => setShowModal(false)}>
+//           <UploadImageForm closeModal={() => setShowModal(false)} />
+//         </Modal>
+//         )}
+//     </>
+//   );
+// }
+
+// export default UploadModal;
+
+
+
