@@ -106,13 +106,12 @@ const NavBar = ({ loaded }) => {
           </div> */}
 
         <div className='loginNav1-right'>
-          <li className='loginNav1-2'>
+          {/* <li className='loginNav1-2'>
             <NavLink className='loginNavlink2' to='/search' exact={true}>
-              {/* Search */}
+
               <i class="fa-solid fa-magnifying-glass"></i>
             </NavLink>
-
-          </li>
+          </li> */}
           <li className='loginNav1-2'>
             {/* <UploadModal /> */}
             <NavLink className='loginNavlink2' to='/upload' exact={true} >
