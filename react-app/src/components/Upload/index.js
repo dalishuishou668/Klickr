@@ -122,8 +122,8 @@ function Upload() {
                             value={description}
                             onChange={(e) => setDescription(e.target.value)} />
                     </div>
-                    <div className='tagDropdown'>
-                        {/* <label for="tag-select">Choose a tag:</label>
+                    {/* <div className='tagDropdown'>
+                        <label for="tag-select">Choose a tag:</label>
                             <select
                                 onChange={(e) => setTagId(e.target.value)}
                                 value={tagId}
@@ -132,12 +132,12 @@ function Upload() {
                                 {tagsArr.map(tag =>
                                     <option value={tag.id} key={tag.id}>{tag.name}</option>
                                 )}
-                            </select> */}
-                    </div>
+                            </select>
+                    </div> */}
                     <div className='albumDropdown'>
                         <label for="album-select">Choose an album:</label>
                         <select
-                            className='uploadInput'
+                            className='uploadInput2'
                             onChange={(e) => setAlbumId(e.target.value)}
                             value={albumId}
                         >
@@ -203,6 +203,3 @@ export default Upload;
 // }
 
 // export default UploadModal;
-
-
-
