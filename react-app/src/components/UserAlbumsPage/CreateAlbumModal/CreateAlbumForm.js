@@ -26,13 +26,13 @@ function CreateAlbumForm({ setShowModal }) {
         setShowModal(false)
 
     }
-
+    let regex1 = /[a-zA-Z0-9]/
 
     useEffect(() => {
         let errors = [];
 
-        if (title.length < 3) {
-            errors.push('Please provide title with at least 3 chracters.')
+        if (title.length < 3 || !(regex1.test(title)) || title.length > 25) {
+            errors.push('Title: title must be at least 3 chracters and less than 25 characters.')
         }
         setErrors(errors);
 

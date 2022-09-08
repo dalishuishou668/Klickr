@@ -46,7 +46,7 @@ function ExplorePage() {
                         <figure class="hover-img" onClick={() => history.push(`/images/${image?.id}`)}>
                             <img src={image?.imageUrl} alt='image' className='singleImg'></img>
                             <figcaption>
-                                <p>{image?.content}</p>
+                                <p className='imageCreator1'>{image?.content}</p>
                                 <p>by {getUsername(image?.userId)}</p>
                             </figcaption>
                         </figure>
@@ -67,7 +67,7 @@ function ExplorePage() {
             </div>
 
 
-            
+
 
         </div>
     )

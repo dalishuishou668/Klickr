@@ -15,8 +15,8 @@ function AlbumImagesPage() {
     const albums = useSelector(state => state?.albums[albumId]?.images)
     const albumInfo = useSelector(state => state?.albums[albumId])
 
-    console.log("***********albums**********:", albums)
-    console.log("***********albums info**********:", albumInfo)
+    // console.log("***********albums**********:", albums)
+    // console.log("***********albums info**********:", albumInfo)
     // console.log('album images:', albums[albumId].images)
     // const albumImgArr = albums.?albumId?.images
 
@@ -42,6 +42,7 @@ function AlbumImagesPage() {
             title
         }
         await dispatch(editAlbumThunk(payload, albumId))
+        setShowEditAlbum(false)
     }
 
     const handleDeleteAlbum = async (e) => {
@@ -50,7 +51,7 @@ function AlbumImagesPage() {
         history.push('/yourpage')
     }
 
-
+    let regex1 = /[a-zA-Z0-9]/
 
     useEffect(() => {
         dispatch(getUserAlbumsThunk(userId))
@@ -60,8 +61,8 @@ function AlbumImagesPage() {
 
     useEffect(() => {
         let errors = [];
-        if (title.length < 3) {
-            errors.push('Please provide title with at least 3 chracters.')
+        if (title.length < 3|| !(regex1.test(title)) || title.length > 25) {
+            errors.push('Title: title must be at least 3 chracters and less than 25 characters.')
         }
         setErrors(errors);
 
@@ -72,7 +73,7 @@ function AlbumImagesPage() {
         <div className='albumImgContainer'>
             <div className='userProfileInfo'>
                 <div className='userpagepic'>
-                <img className='userlogopic' src='../../../../static/icons8-user3.png' alt='user_logo' />
+                    <img className='userlogopic' src='../../../../static/icons8-user3.png' alt='user_logo' />
                     {/* <img className='userlogopic' src='../../static/icons8-user-pic.png' alt='user_logo' /> */}
                 </div>
 
@@ -108,14 +109,19 @@ function AlbumImagesPage() {
                                 ))}
                             </ul>
                         </div>
-                        <input
-                            className='edtialbumInput1'
-                            type="text"
-                            placeholder="Update Title Here"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}>
-                        </input>
-                        <button className='edialbumConfirm' type="submit" disabled={!!errors.length}>SAVE</button>
+                        <div className='edit-title-container'>
+                            <div className='editTitle_2'>Title: </div>
+                            <input
+                                className='edtialbumInput1'
+                                type="text"
+                                placeholder="Update Title Here"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}>
+                            </input>
+                            <button className='edialbumConfirm' type="submit" disabled={!!errors.length}>SAVE</button>
+                            <button className='edialbumConfirm' onClick={() => setShowEditAlbum(false)}>BACK</button>
+                        </div>
+
                     </form>
                 </div>) : (<></>)}
 

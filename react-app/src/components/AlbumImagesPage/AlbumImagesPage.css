@@ -16,6 +16,17 @@
 
 } */
 
+.edit-title-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.editTitle_2{
+    font-family: 'Roboto', sans-serif;
+}
+
 .albumImgsContainer {
     height: 100%;
     width: 100%;

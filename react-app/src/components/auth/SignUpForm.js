@@ -16,12 +16,12 @@ const SignUpForm = () => {
 
 
 
-
+  let regex1 = /[a-zA-Z0-9]/
 
   useEffect(() => {
     let errors = [];
-    if (username.length < 3) {
-      errors.push('Username: username must be longer than 3 characters.')
+    if (username.length < 3 || !(regex1.test(username)) || username.length > 30){
+      errors.push('Username: username must be at least 3 characters and less than 30 characters.')
     }
     if (!(/[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}/.test(email))) {
       errors.push('Email: email must be in the format like example@gmail.com.')
