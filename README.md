@@ -1,70 +1,80 @@
-# Flask React Project
+# Klickr
 
-This is the starter for the Flask React project.
+Klickr is a clone of the popular photo sharing website - Flickr. The Klickr features you createing and sharing your images with others. In Klickr, you can manage your own images and albums, and you can also explore your interested images and share thoughts with other. The images are saved in the cloud using PostgreSQL and Amazon AWS.
 
-## Getting started
-1. Clone this repository (only this branch)
+Live site: https://klickrr.herokuapp.com/
+Documentation: https://github.com/dalishuishou668/Klickr/wiki 
+Feature List: https://github.com/dalishuishou668/Klickr/wiki/Features
+
+
+## Technologies used
+
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+
+## Preview
+### Landing Page
+<img width="1164" alt="7c1900aa05f8b42cfe9a426ad31a047" src="https://user-images.githubusercontent.com/92266749/189178779-a05e4b7b-9e47-4783-ae0d-aab10073d8e1.png">
+
+
+### Login Page
+<img width="1164" alt="cea20808f8d58f6aabce48220e6c8f7" src="https://user-images.githubusercontent.com/92266749/189178750-316302b8-4be0-46ae-bac7-4ba3a60d551c.png">
+
+### Explore Page
+<img width="1159" alt="4908d5280def826831c0c02382f054d" src="https://user-images.githubusercontent.com/92266749/189178803-cb91bcf1-f4c9-42a4-8e93-e5cee6157f4d.png">
+
+### Single Image Page
+<img width="1009" alt="b5d9b1a613744d34b26fa2095bb7530" src="https://user-images.githubusercontent.com/92266749/189178827-4824b524-2d12-4089-9e16-ffc06e12750e.png">
+
+### User profile Page
+<img width="1003" alt="7aae1d4e0e9a52568a0cec34585b857" src="https://user-images.githubusercontent.com/92266749/189178876-3d9e4e23-8156-483d-ac0b-36adda59514f.png">
+
+### Search Page
+<img width="1004" alt="9762e97b9986fee77c789e40932e28a" src="https://user-images.githubusercontent.com/92266749/189178894-5462b023-1360-4436-ae9c-3c40f495db85.png">
+
+
+## Run Locally
+
+### Clone the project
 
    ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
+   git clone https://github.com/dalishuishou668/Klickr.git
    ```
 
-2. Install dependencies
+### Install dependencies
 
       ```bash
       pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
       ```
+      
+### Create a .env file
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+      ```bash
+      FLASK_APP=app
+      FLASK_ENV=development
+      SECRET_KEY=
+      DATABASE_URL=
+      S3_BUCKET=<your bucket name>
+      S3_KEY=<Access key Id>
+      S3_SECRET=<Secret access key>
+      ```
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+### Setup your PostgreSQL user, password and database
 
-   ```bash
-   pipenv shell
-   ```
+       ```bash
+      CREATE USER <USERNAME> WITH PASSWORD 'password';
+      CREATE DATABASE <DATABASENAME> WITH ONWER <USERNAME>;
+      ```
 
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
-
-***
-
-
-*IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on alpine-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-### Dev Containers (OPTIONAL for M1 Users)
-The following instructions detail an *optional* development setup for M1 Mac users having issues with the `psycopg` package.
-
-1. Make sure you have the [Microsoft Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed. 
-2. Make sure you have [Docker](https://www.docker.com/products/docker-desktop/) installed on your computer. 
-3. Clone the repository (only this branch)
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
-4. Open the repo in VS Code. 
-5. Click "Open in Container" when VS Code prompts to open container in the bottom right hand corner. 
-6. **Be Patient!** The initial install will take a LONG time, it's building a container that has postgres preconfigured and even installing all your project dependencies. (For both flask and react!)
-
-   **Note:** This will take much less time on future starts because everything will be cached.
-
-7. Once everything is up, be sure to make a `.env` file based on `.env.example` in both the root directory and the *react-app* directory before running your app. You do not need a `DATABASE_URL` in the `.env` file if you are using this Docker setup for development - the URL is already set in the image (see `.devcontainer/Dockerfile` for the URL).
-
-8. Get into your pipenv, migrate your database, seed your database, and run your flask app
+### Get into your pipenv, migrate your database, seed your database, and run your flask app
 
    ```bash
    pipenv shell
@@ -82,48 +92,14 @@ The following instructions detail an *optional* development setup for M1 Mac use
    flask run
    ```
 
-9. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+### Run React App in development
 
-<br>
+   ```bash
+   cd react-app
+   ```
+   
+   ```bash
+   npm install
+   ```
 
-## Deploy to Heroku
-This repo comes configured with Github Actions. When you push to your main branch, Github will automatically pull your code, package and push it to Heroku, and then release the new image and run db migrations. 
 
-1. Write your Dockerfile. In order for the Github action to work effectively, it must have a configured Dockerfile. Follow the comments found in this [Dockerfile](./Dockerfile) to write your own!
-
-2. Create a new project on Heroku.
-
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres".
-
-4. Configure production environment variables. In your Heroku app settings -> config variables you should have two environment variables set:
-
-   |    Key          |    Value    |
-   | -------------   | ----------- |
-   | `DATABASE_URL`  | Autogenerated when adding postgres to Heroku app |
-   | `SECRET_KEY`    | Random string full of entropy |
-
-5. Generate a Heroku OAuth token for your Github Action. To do so, log in to Heroku via your command line with `heroku login`. Once you are logged in, run `heroku authorizations:create`. Copy the GUID value for the Token key.
-
-6. In your Github Actions Secrets you should have two environment variables set. You can set these variables via your Github repository settings -> secrets -> actions. Click "New respository secret" to create
-each of the following variables:
-
-   |    Key            |    Value    |
-   | -------------     | ----------- |
-   | `HEROKU_API_KEY`  | Heroku Oauth Token (from step 6)|
-   | `HEROKU_APP_NAME` | Heroku app name    |
-
-7. Push to your `main` branch! This will trigger the Github Action to build your Docker image and deploy your application to the Heroku container registry. Please note that the Github Action will automatically upgrade your production database with `flask db upgrade`. However, it will *not* automatically seed your database. You must manually seed your production database if/when you so choose (see step 8).
-
-8. *Attention!* Please run this command *only if you wish to seed your production database*: `heroku run -a HEROKU_APP_NAME flask seed all`
-
-## Helpful commands
-|    Command            |    Purpose    |
-| -------------         | ------------- |
-| `pipenv shell`        | Open your terminal in the virtual environment and be able to run flask commands without a prefix |
-| `pipenv run`          | Run a command from the context of the virtual environment without actually entering into it. You can use this as a prefix for flask commands  |
-| `flask db upgrade`    | Check in with the database and run any needed migrations  |
-| `flask db downgrade`  | Check in with the database and revert any needed migrations  |
-| `flask seed all`      | Just a helpful syntax to run queries against the db to seed data. See the **app/seeds** folder for reference and more details |
-| `heroku login -i`      | Authenticate your heroku-cli using the command line. Drop the -i to authenticate via the browser |
-| `heroku authorizations:create` | Once authenticated, use this to generate an Oauth token |
-| `heroku run -a <app name>` | Run a command from within the deployed container on Heroku |# python_solo
