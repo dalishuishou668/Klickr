@@ -600,10 +600,10 @@ h2#heading {
 }
 
 .commentcontent::-webkit-scrollbar {
-    display: none;
-    /* width: 8px;
+    /* display: none; */
+    width: 8px;
     height: 8px;
-    border-radius: 4px; */
+    border-radius: 4px;
 }
 
 .commentcontent::-webkit-scrollbar-track {
