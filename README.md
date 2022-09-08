@@ -3,7 +3,9 @@
 Klickr is a clone of the popular photo sharing website - Flickr. The Klickr features you createing and sharing your images with others. In Klickr, you can manage your own images and albums, and you can also explore your interested images and share thoughts with other. The images are saved in the cloud using PostgreSQL and Amazon AWS.
 
 Live site: https://klickrr.herokuapp.com/
+
 Documentation: https://github.com/dalishuishou668/Klickr/wiki 
+
 Feature List: https://github.com/dalishuishou668/Klickr/wiki/Features
 
 
@@ -24,7 +26,6 @@ Feature List: https://github.com/dalishuishou668/Klickr/wiki/Features
 ### Landing Page
 <img width="1164" alt="7c1900aa05f8b42cfe9a426ad31a047" src="https://user-images.githubusercontent.com/92266749/189178779-a05e4b7b-9e47-4783-ae0d-aab10073d8e1.png">
 
-
 ### Login Page
 <img width="1164" alt="cea20808f8d58f6aabce48220e6c8f7" src="https://user-images.githubusercontent.com/92266749/189178750-316302b8-4be0-46ae-bac7-4ba3a60d551c.png">
 
@@ -37,9 +38,6 @@ Feature List: https://github.com/dalishuishou668/Klickr/wiki/Features
 ### User profile Page
 <img width="1003" alt="7aae1d4e0e9a52568a0cec34585b857" src="https://user-images.githubusercontent.com/92266749/189178876-3d9e4e23-8156-483d-ac0b-36adda59514f.png">
 
-### Search Page
-<img width="1004" alt="9762e97b9986fee77c789e40932e28a" src="https://user-images.githubusercontent.com/92266749/189178894-5462b023-1360-4436-ae9c-3c40f495db85.png">
-
 
 ## Run Locally
 
@@ -51,28 +49,28 @@ Feature List: https://github.com/dalishuishou668/Klickr/wiki/Features
 
 ### Install dependencies
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+   ```bash
+   pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+   ```
       
 ### Create a .env file
 
-      ```bash
-      FLASK_APP=app
-      FLASK_ENV=development
-      SECRET_KEY=
-      DATABASE_URL=
-      S3_BUCKET=<your bucket name>
-      S3_KEY=<Access key Id>
-      S3_SECRET=<Secret access key>
-      ```
+   ```bash
+   FLASK_APP=app
+   FLASK_ENV=development
+   SECRET_KEY=
+   DATABASE_URL=
+   S3_BUCKET=<your bucket name>
+   S3_KEY=<Access key Id>
+   S3_SECRET=<Secret access key>
+   ```
 
 ### Setup your PostgreSQL user, password and database
 
-       ```bash
-      CREATE USER <USERNAME> WITH PASSWORD 'password';
-      CREATE DATABASE <DATABASENAME> WITH ONWER <USERNAME>;
-      ```
+   ```bash
+   CREATE USER <USERNAME> WITH PASSWORD 'password';
+   CREATE DATABASE <DATABASENAME> WITH ONWER <USERNAME>;
+   ```
 
 ### Get into your pipenv, migrate your database, seed your database, and run your flask app
 
