@@ -42,6 +42,7 @@ function AlbumImagesPage() {
             title
         }
         await dispatch(editAlbumThunk(payload, albumId))
+        setShowEditAlbum(false)
     }
 
     const handleDeleteAlbum = async (e) => {
