@@ -55,18 +55,18 @@ function App() {
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute> */}
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/explore' exact={true} >
           <ExplorePage />
         </ProtectedRoute>
         {/* <ProtectedRoute path='/home' exact={true} >
           <MainPage />
         </ProtectedRoute> */}
-        <ProtectedRoute path='/search' exact={true} >
+        {/* <ProtectedRoute path='/search' exact={true} >
           <Search />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/upload' exact={true} >
           <Upload />
         </ProtectedRoute>

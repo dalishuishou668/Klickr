@@ -42,12 +42,12 @@ function Upload() {
     useEffect(() => {
         const errors = [];
         console.log('image name', image?.name)
-        if (content.length < 2 || content.length > 60 || !(/[a-zA-Z0-9]/.test(content))) errors.push('Content: content must be ad least 2 characters and less than 60 characters');
-        if (description.length < 2 || !(/[a-zA-Z0-9]/.test(description)) || description.length > 500) errors.push('Description: description must be ad least 2 characters and less than 500 characters');
+        if (content.length < 2 || content.length > 60 || !(/[a-zA-Z0-9]/.test(content))) errors.push('Content must be at least 2 characters and less than 60 characters');
+        if (description.length < 2 || !(/[a-zA-Z0-9]/.test(description)) || description.length > 500) errors.push('Description must be at least 2 characters and less than 500 characters');
         // if (!tagId) errors.push('Please select a tag');
-        if (!albumId) errors.push('Album: album must be selected');
+        if (!albumId) errors.push('Album must be selected');
         if (!(regex1.test(image?.name))) {
-            errors.push("File: please select a valid image file(e.g. png/jpg/jpeg)")
+            errors.push("Please select a valid image file(e.g. png/jpg/jpeg)")
         }
         // if (!regexUrl.test(imageUrl)) {
         //     errors.push('Please provide imageurl starts with http and ends in jpg or png')

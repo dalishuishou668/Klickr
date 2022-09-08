@@ -17,10 +17,10 @@ const LoginForm = () => {
   useEffect(() => {
     let errors = [];
     if (!(/[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}/.test(email))) {
-      errors.push('Email: please provide a valid email.')
+      errors.push('Please provide a valid email.')
     }
     if (password.length < 4) {
-      errors.push('Password: please provide a valid password.')
+      errors.push('Please provide a valid password.')
     }
     setErrors(errors);
 

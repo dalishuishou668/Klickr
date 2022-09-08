@@ -62,7 +62,7 @@ function AlbumImagesPage() {
     useEffect(() => {
         let errors = [];
         if (title.length < 3|| !(regex1.test(title)) || title.length > 25) {
-            errors.push('Title: title must be at least 3 chracters and less than 25 characters.')
+            errors.push('Title must be at least 3 chracters and less than 25 characters.')
         }
         setErrors(errors);
 
