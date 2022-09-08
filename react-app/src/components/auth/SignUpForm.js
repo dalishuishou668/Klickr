@@ -21,16 +21,16 @@ const SignUpForm = () => {
   useEffect(() => {
     let errors = [];
     if (username.length < 3 || !(regex1.test(username)) || username.length > 30){
-      errors.push('Username: username must be at least 3 characters and less than 30 characters.')
+      errors.push('Username must be at least 3 characters and less than 30 characters.')
     }
     if (!(/[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}/.test(email))) {
-      errors.push('Email: email must be in the format like example@gmail.com.')
+      errors.push('Email must be in the format like example@gmail.com.')
     }
     if (password.length < 4) {
-      errors.push('Password: password must be at least 4 charaters or more.')
+      errors.push('Password must be at least 4 charaters or more.')
     }
     if (password !== repeatPassword) {
-      errors.push('Confirm password: repeat password must be the same as the password field.')
+      errors.push('Confirm Password must be the same as the password field.')
     }
     setErrors(errors);
 

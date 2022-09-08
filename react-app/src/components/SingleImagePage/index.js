@@ -132,7 +132,7 @@ function SingleImagePage() {
 
     useEffect(() => {
         const errors1 = [];
-        if (comment.length < 2 || !(regex1.test(comment))) errors1.push('Comment: comment must be at least 2 characters');
+        if (comment.length < 2 || !(regex1.test(comment))) errors1.push('Comment must be at least 2 characters');
 
         setErrors1(errors1);
     }, [comment])
@@ -163,7 +163,7 @@ function SingleImagePage() {
 
     useEffect(() => {
         const errors2 = [];
-        if (comment1.length < 1 || !(regex1.test(comment1))) errors2.push('Comment: comment must be at least 2 characters');
+        if (comment1.length < 1 || !(regex1.test(comment1))) errors2.push('Comment must be at least 2 characters');
         setErrors2(errors2);
     }, [comment1])
 
