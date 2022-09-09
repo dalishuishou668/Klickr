@@ -560,10 +560,10 @@ h2#heading {
 .descriptionContainer{
     display: flex;
     /* border: yellow solid 5px; */
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
     height:5rem;
-    overflow: auto;
-    overflow-x: auto;
+    /* overflow: auto;
+    overflow-x: auto; */
 
     overflow-wrap: break-word;
     overflow-y: scroll;
