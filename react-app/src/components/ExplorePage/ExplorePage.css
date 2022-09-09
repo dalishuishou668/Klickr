@@ -108,9 +108,13 @@
 
 figcaption {
   height: 300px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  word-break: break-all;
+  /* word-wrap: break-word;
   overflow: auto;
-  overflow-y: auto;
+  overflow-y: auto; */
 }
 
 figcaption::-webkit-scrollbar {
