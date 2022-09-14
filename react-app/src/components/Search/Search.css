@@ -41,7 +41,7 @@
     padding-top: 0;
 } */
 
-/* .searchResult{
+.searchResult{
     color:black;
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
@@ -144,4 +144,4 @@
     justify-content: center;
     align-items: center;
     height:30rem;
-} */
+}
