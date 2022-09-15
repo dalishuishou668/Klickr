@@ -48,7 +48,6 @@ function YourPage() {
                     }}
                 >Your Images</button>
                 <button className='userProfileBtn'
-                
                     onClick={() => {
                         setShowUserAlbums(true)
                         setShowUserFaves(false)
@@ -58,13 +57,14 @@ function YourPage() {
                     }}
                 >Your Albums</button>
 
-                {/* <button onClick={() => {
+                <button className='userProfileBtn'
+                    onClick={() => {
                     setShowUserFaves(true)
                     setShowUserImages(false)
                     setShowUserAlbums(false)
                     // setShowUserFollows(false)
                 }}
-                >Your Favorites</button> */}
+                >Your Favorites</button>
                 {/* <button onClick={() => {
                     setShowUserFollows(true)
                     setShowUserFaves(false)
@@ -88,13 +88,13 @@ function YourPage() {
                     </div>
                 ) : (<></>)}
             </div>
-            {/* <div className='yourFaves'>
+            <div className='yourFaves'>
                 {showUserFaves ? (
                     <div>
                         <UserFavesPage />
                     </div>
                 ) : (<></>)}
-            </div> */}
+            </div>
             {/* <div className='yourFollows'>
                 {showUserFollows ? (<div>
                     <UserFollowsPage />
