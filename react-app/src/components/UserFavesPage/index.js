@@ -13,9 +13,9 @@ function UserFavesPage() {
     const dispatch = useDispatch()
     const userId = useSelector(state => state?.session?.user?.id);
 
-    const allDbImages = useSelector(state => state?.images)
-    const imageArr = Object.values(allDbImages)
-    console.log('ImageArr', imageArr)
+    // const allDbImages = useSelector(state => state?.images)
+    // const imageArr = Object.values(allDbImages)
+    // console.log('ImageArr', imageArr)
 
     // let userfavesArr;
     // let displayUserFaveImages = [];
@@ -62,7 +62,7 @@ function UserFavesPage() {
 
                         </div>
                     ))}
-                </div>) : (<div>You have no favorite pictures</div>)}
+                </div>) : (<div></div>)}
             </div>
         </div>
     )

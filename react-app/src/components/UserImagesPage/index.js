@@ -12,9 +12,14 @@ function UserImagesPage() {
     console.log("sessionUser:", sessionUser)
     const userId = sessionUser.id
 
-    const allUserImages = useSelector(state => state.images)
-    console.log('allUserImages:', allUserImages)
-    const userImageArr = Object.values(allUserImages)
+    const allUserImages = useSelector(state => state?.images?.userImages);
+
+    let userImageArr;
+    if(allUserImages){
+        console.log('allUserImages:', allUserImages)
+        userImageArr = Object.values(allUserImages)
+    }
+
 
     useEffect(() => {
         dispatch(getUserImagesThunk(userId))
@@ -42,7 +47,7 @@ function UserImagesPage() {
                             {/* <p>{image.content}</p> */}
                         </NavLink>
                     </div>))}
-                </div>) : (<div>Start create your images</div>)}
+                </div>) : (<div></div>)}
             {/* </div> */}
         </div>
     )
