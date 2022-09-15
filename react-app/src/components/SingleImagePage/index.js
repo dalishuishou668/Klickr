@@ -262,7 +262,7 @@ function SingleImagePage() {
 
 
             <div className='imgInfoContainer'>
-                <div className='singleImgRight'>
+                
                     <div className='favesContainer'>
                             <div className='totalFave'>
                                 {favesArr && (<p>total faves: {favesArr?.length}</p>)}
@@ -325,7 +325,7 @@ function SingleImagePage() {
                                 <div></div>
                             )} */}
 
-                </div>
+
             </div>
             <div className='singleimghalf'>
                 <div className='singleimghalf-1'>
