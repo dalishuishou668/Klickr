@@ -3,7 +3,7 @@ import './Footer.css';
 
 function Footer() {
 
-    const techList = ['Python', 'Flask', 'React', 'Redux', 'SQLAlchemy', 'PostgreSQL', 'HTML5', 'CSS3'];
+    const techList = ['Python', 'Flask', 'React', 'Redux', 'SQLAlchemy', 'PostgreSQL', 'HTML5', 'CSS3', 'AWS'];
 
     return (
         <div className='footerContainer'>

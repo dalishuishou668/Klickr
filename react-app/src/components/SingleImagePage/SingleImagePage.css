@@ -620,3 +620,27 @@ h2#heading {
     background-color: rgba(0, 0, 0, 0.192);
     border-radius: 4px;
 }
+
+.imgInfoContainer {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: grey solid 0.3px;
+}
+
+
+.favesContainer {
+    /* border: blue 3px solid; */
+    width: 900px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.totalFave{
+    font-size: 18px;
+}
+
+.fa-heart{
+    margin-top: 16px;;
+}

@@ -201,9 +201,9 @@ const images = (state = initialState, action) => {
             // });
             return allImages;
         case GET_USER_IMAGES:
-            const userImages = {}
+            const userImages = {userImages:{}}
             action.images.userImages.forEach((image) => {
-                userImages[image.id] = image
+                userImages.userImages[image.id] = image
             })
             return userImages;
         case GET_SINGLE_IMAGE:

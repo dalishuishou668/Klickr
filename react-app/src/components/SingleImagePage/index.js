@@ -27,42 +27,42 @@ function SingleImagePage() {
 
 
     // ------------- FAVE -----------------
-    // let favesArr;
-    // let currentfaves;
-    // let currentFaveId;
+    let favesArr;
+    let currentfaves;
+    let currentFaveId;
 
-    // const faves = useSelector(state => state?.favorites?.imagefaves)
-    // console.log('useSelector imagefaves=========>>>', faves)
+    const faves = useSelector(state => state?.favorites?.imagefaves)
+    console.log('useSelector imagefaves=========>>>', faves)
 
-    // if (faves) {
-    //     favesArr = Object.values(faves)
-    //     console.log('all images favesArr==========>>>>>>>>>', favesArr)
-    //     currentfaves = favesArr.find((ele) => ele?.imageId === +imageId && ele?.userId === +userId)
-    //     currentFaveId = currentfaves?.id
-    //     console.log('++++++++++++++++currentfaves:', currentfaves)
+    if (faves) {
+        favesArr = Object.values(faves)
+        console.log('all images favesArr==========>>>>>>>>>', favesArr)
+        currentfaves = favesArr.find((ele) => ele?.imageId === +imageId && ele?.userId === +userId)
+        currentFaveId = currentfaves?.id
+        console.log('++++++++++++++++currentfaves:', currentfaves)
 
-    // }
+    }
 
-    // console.log('current fave id:-----------', currentFaveId)
+    console.log('current fave id:-----------', currentFaveId)
 
-    // const userfaves = useSelector(state => state?.favorites?.userfaves)
-    // // const userfaves = useSelector(state => state?.favorites)
-    // // console.log('useSelector userfaves`````````````', userfaves)
+    const userfaves = useSelector(state => state?.favorites?.userfaves)
+    // const userfaves = useSelector(state => state?.favorites)
+    // console.log('useSelector userfaves`````````````', userfaves)
 
-    // let displayUserFaves;
-    // // let displayCheckCurrentUserFaves;
+    let displayUserFaves;
+    // let displayCheckCurrentUserFaves;
 
 
-    // if (userfaves) {
-    //     const userfavesArr = Object.values(userfaves)
-    //     // console.log('userfavesArr in the component:', userfavesArr)
-    //     // displayCheckCurrentUserFaves =  userfavesArr.find((ele) => ele?.imageId === +imageId && ele?.userId === +userId )
-    //     displayUserFaves = userfavesArr.filter((ele) => ele.imageId === +imageId)
-    //     // currentFaveId = displayUserFaves[0]?.id
-    //     // console.log('current fave id:-----------', currentFaveId)
-    //     // console.log('++++++++++++++displayUserFaves+++++++++++++++++', displayUserFaves)
+    if (userfaves) {
+        const userfavesArr = Object.values(userfaves)
+        // console.log('userfavesArr in the component:', userfavesArr)
+        // displayCheckCurrentUserFaves =  userfavesArr.find((ele) => ele?.imageId === +imageId && ele?.userId === +userId )
+        displayUserFaves = userfavesArr.filter((ele) => ele.imageId === +imageId)
+        // currentFaveId = displayUserFaves[0]?.id
+        // console.log('current fave id:-----------', currentFaveId)
+        // console.log('++++++++++++++displayUserFaves+++++++++++++++++', displayUserFaves)
 
-    // }
+    }
 
 
 
@@ -72,9 +72,9 @@ function SingleImagePage() {
         dispatch(getSingleImageThunk(imageId))
         dispatch(getImageCommentsThunk(imageId))
         dispatch(getAllUsersThunk())
-        // dispatch(getImageFavesThunk(imageId)).then(() =>
-        //     dispatch(getUserFavesThunk(userId, imageId))
-        // )
+        dispatch(getImageFavesThunk(imageId))
+        dispatch(getUserFavesThunk(userId, imageId))
+
 
         // dispatch(getUserFavesThunk(userId, imageId)).then(() =>
         //     dispatch(getImageFavesThunk(imageId))
@@ -202,38 +202,38 @@ function SingleImagePage() {
 
     // add user fave
 
-    // const [showSolidHeart, setShowSolidHeart] = useState(false)
+    const [showSolidHeart, setShowSolidHeart] = useState(false)
 
-    // const addUserFaveSubmit = async (e) => {
-    //     e.preventDefault()
-    //     const payload = {
-    //         userId,
-    //         imageId
-    //     }
-    //     await dispatch(addUserFaveThunk(payload, imageId))
-    //     // await dispatch(getUserFavesThunk(imageId, userId))
-    //     await dispatch(getImageFavesThunk(imageId))
+    const addUserFaveSubmit = async (e) => {
+        e.preventDefault()
+        const payload = {
+            userId,
+            imageId
+        }
+        await dispatch(addUserFaveThunk(payload, imageId))
+        // await dispatch(getUserFavesThunk(imageId, userId))
+        await dispatch(getImageFavesThunk(imageId))
 
-    //     // setShowSolidHeart(true)
-    //     history.push(`/images/${imageId}`)
-
-
-    // }
-
-    // // delete user fave
+        // setShowSolidHeart(true)
+        history.push(`/images/${imageId}`)
 
 
+    }
+
+    // delete user fave
 
 
-    // const deleteUserFaveSubmit = async (e) => {
-    //     e.preventDefault()
 
-    //     // await dispatch(getImageFavesThunk(imageId))
-    //     await dispatch(deleteFaveThunk(imageId, currentFaveId))
-    //     await dispatch(getUserFavesThunk(userId))
-    //     await dispatch(getImageFavesThunk(imageId))
 
-    // }
+    const deleteUserFaveSubmit = async (e) => {
+        e.preventDefault()
+
+        // await dispatch(getImageFavesThunk(imageId))
+        await dispatch(deleteFaveThunk(imageId, currentFaveId))
+        await dispatch(getUserFavesThunk(userId))
+        await dispatch(getImageFavesThunk(imageId))
+
+    }
 
 
     return (
@@ -262,14 +262,14 @@ function SingleImagePage() {
 
 
             <div className='imgInfoContainer'>
-                <div className='singleImgRight'>
-                    {/* <div className='favesContainer'>
+                
+                    <div className='favesContainer'>
                             <div className='totalFave'>
                                 {favesArr && (<p>total faves: {favesArr?.length}</p>)}
                             </div>
                             <div className='faveSymbol'>
 
-                                {displayUserFaves && displayUserFaves.length < 1 ? (<div>
+                                {displayUserFaves && displayUserFaves?.length < 1 ? (<div>
                                     <div onClick={addUserFaveSubmit}><i class="fa-regular fa-heart"></i>
                                     </div>
                                 </div>) : (<div>
@@ -277,7 +277,7 @@ function SingleImagePage() {
 
                                 </div>)}
                             </div>
-                        </div> */}
+                        </div>
 
                     {/* <div>
                         {showEditForm ? (<EditImageModal imageId={imageId} setShowEditForm={setShowEditForm}/>):('')}
@@ -325,7 +325,7 @@ function SingleImagePage() {
                                 <div></div>
                             )} */}
 
-                </div>
+
             </div>
             <div className='singleimghalf'>
                 <div className='singleimghalf-1'>
