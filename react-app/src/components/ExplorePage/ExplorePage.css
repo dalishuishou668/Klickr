@@ -17,6 +17,19 @@
   justify-content: center;
   padding-top: 2.5rem;
   font-size: 38px;
+  position: relative;
+
+}
+
+.homepageContainer h1:before {
+  position: absolute;
+  width: 138px;
+  height: 1px;
+  background-color: white;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  content: '';
 }
 
 .allImgsContainer {

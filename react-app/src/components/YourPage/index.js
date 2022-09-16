@@ -39,7 +39,10 @@ function YourPage() {
 
             </div>
             <div className='userProfileNavbar'>
-                <button className='userProfileBtn'
+                <button
+                    className="button button-1"
+
+                    // className='userProfileBtn'
                     onClick={() => {
                         setShowUserImages(true)
                         setShowUserAlbums(false)
@@ -47,7 +50,9 @@ function YourPage() {
                         // setShowUserFollows(false)
                     }}
                 >Your Images</button>
-                <button className='userProfileBtn'
+                <button
+                    className="button button-1"
+                    // className='userProfileBtn'
                     onClick={() => {
                         setShowUserAlbums(true)
                         setShowUserFaves(false)
@@ -57,13 +62,15 @@ function YourPage() {
                     }}
                 >Your Albums</button>
 
-                <button className='userProfileBtn'
+                <button
+                className="button button-1"
+                // className='userProfileBtn'
                     onClick={() => {
-                    setShowUserFaves(true)
-                    setShowUserImages(false)
-                    setShowUserAlbums(false)
-                    // setShowUserFollows(false)
-                }}
+                        setShowUserFaves(true)
+                        setShowUserImages(false)
+                        setShowUserAlbums(false)
+                        // setShowUserFollows(false)
+                    }}
                 >Your Favorites</button>
                 {/* <button onClick={() => {
                     setShowUserFollows(true)

@@ -15,13 +15,13 @@ function About() {
 
                 <div className='aboutLinks'>
 
-                    <a href="https://github.com/dalishuishou668" target="popup">
+                    <a href="https://github.com/dalishuishou668" target="_blank">
                         <i className="fa-brands fa-github"></i>
                     </a>
 
                     <a
                         href="https://www.linkedin.com/in/qiaoyi-joyce-liu-623204241/"
-                        target="popup"
+                        target="_blank"
                     >
                         <i className="fa-brands fa-linkedin-in"></i>
                     </a>
