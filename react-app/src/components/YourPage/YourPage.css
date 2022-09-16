@@ -67,3 +67,36 @@
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(171,102,255,1) 0%, rgba(116,182,247,1) 90% );
 
 }
+
+
+.button {
+    width:15rem;
+    height:3.3rem;
+    font-size: 16px;;
+    margin:6px 0;
+    /* width: 170px; */
+
+    /* padding-top: 30px;
+    padding-bottom: 30px; */
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 550;
+    /* margin-left: 30px;
+    margin-bottom: 30px; */
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .button-1 {
+    background-color: transparent;
+    border: 2px solid #7367F0;
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: #7367F0;
+  }
+  .button-1:hover {
+    box-shadow: 0 0 10px 0 #7367F0 inset, 0 0 20px 2px #7367F0;
+    border: px solid #7367F0;
+  }
