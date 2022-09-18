@@ -24,19 +24,21 @@ Feature List: https://github.com/dalishuishou668/Klickr/wiki/Features
 
 ## Preview
 ### Landing Page
-<img width="1164" alt="7c1900aa05f8b42cfe9a426ad31a047" src="https://user-images.githubusercontent.com/92266749/189178779-a05e4b7b-9e47-4783-ae0d-aab10073d8e1.png">
+![screen_landing](https://user-images.githubusercontent.com/92266749/190917145-c73bbc68-c58f-42f0-b4a9-e0f2d9cd4aed.gif)
 
 ### Login Page
 <img width="1164" alt="cea20808f8d58f6aabce48220e6c8f7" src="https://user-images.githubusercontent.com/92266749/189178750-316302b8-4be0-46ae-bac7-4ba3a60d551c.png">
 
 ### Explore Page
-<img width="1159" alt="4908d5280def826831c0c02382f054d" src="https://user-images.githubusercontent.com/92266749/189178803-cb91bcf1-f4c9-42a4-8e93-e5cee6157f4d.png">
+![screen_explore](https://user-images.githubusercontent.com/92266749/190917134-663885c6-7e4c-41b6-8b48-32d6f4852727.gif)
 
 ### Single Image Page
-<img width="1009" alt="b5d9b1a613744d34b26fa2095bb7530" src="https://user-images.githubusercontent.com/92266749/189178827-4824b524-2d12-4089-9e16-ffc06e12750e.png">
+![sscreen_singlepage](https://user-images.githubusercontent.com/92266749/190917147-d467bef1-68e0-48d7-9945-fe1a20774462.gif)
+
 
 ### User profile Page
-<img width="1003" alt="7aae1d4e0e9a52568a0cec34585b857" src="https://user-images.githubusercontent.com/92266749/189178876-3d9e4e23-8156-483d-ac0b-36adda59514f.png">
+![screen_yourpage](https://user-images.githubusercontent.com/92266749/190917157-89a84abf-d720-4837-b7bb-35c7ee6a1409.gif)
+
 
 
 ## Run Locally
