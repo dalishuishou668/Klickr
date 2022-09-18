@@ -27,7 +27,7 @@ Feature List: https://github.com/dalishuishou668/Klickr/wiki/Features
 ![screen_landing](https://user-images.githubusercontent.com/92266749/190917145-c73bbc68-c58f-42f0-b4a9-e0f2d9cd4aed.gif)
 
 ### Login Page
-<img width="1164" alt="cea20808f8d58f6aabce48220e6c8f7" src="https://user-images.githubusercontent.com/92266749/189178750-316302b8-4be0-46ae-bac7-4ba3a60d551c.png">
+![screen_login](https://user-images.githubusercontent.com/92266749/190917631-036d9874-8255-4ced-8dfb-739053efb4ec.gif)
 
 ### Explore Page
 ![screen_explore](https://user-images.githubusercontent.com/92266749/190917134-663885c6-7e4c-41b6-8b48-32d6f4852727.gif)
@@ -35,10 +35,11 @@ Feature List: https://github.com/dalishuishou668/Klickr/wiki/Features
 ### Single Image Page
 ![sscreen_singlepage](https://user-images.githubusercontent.com/92266749/190917147-d467bef1-68e0-48d7-9945-fe1a20774462.gif)
 
-
 ### User profile Page
 ![screen_yourpage](https://user-images.githubusercontent.com/92266749/190917157-89a84abf-d720-4837-b7bb-35c7ee6a1409.gif)
 
+### Search Page
+![screen_search](https://user-images.githubusercontent.com/92266749/190917651-d85beb5a-b643-43c3-9ad8-03423eff5942.gif)
 
 
 ## Run Locally
