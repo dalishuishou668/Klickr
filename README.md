@@ -24,22 +24,22 @@ Feature List: https://github.com/dalishuishou668/Klickr/wiki/Features
 
 ## Preview
 ### Landing Page
-![screen_landing](https://user-images.githubusercontent.com/92266749/190917145-c73bbc68-c58f-42f0-b4a9-e0f2d9cd4aed.gif)
+![1352x1311_screen_landing](https://user-images.githubusercontent.com/92266749/190946660-09a13f4c-2a91-4a50-bdad-3a9dcd1d25b3.gif)
 
 ### Login Page
-![screen_login](https://user-images.githubusercontent.com/92266749/190917631-036d9874-8255-4ced-8dfb-739053efb4ec.gif)
+![output-20_41_54](https://user-images.githubusercontent.com/92266749/190946669-e9eb38fd-b387-4d1f-bb7f-5e9ebe8ad331.gif)
 
 ### Explore Page
-![screen_explore](https://user-images.githubusercontent.com/92266749/190917134-663885c6-7e4c-41b6-8b48-32d6f4852727.gif)
+![output-20_42_29](https://user-images.githubusercontent.com/92266749/190946693-8e10d420-2c02-430a-8179-57285c8216ac.gif)
 
 ### Single Image Page
-![sscreen_singlepage](https://user-images.githubusercontent.com/92266749/190917147-d467bef1-68e0-48d7-9945-fe1a20774462.gif)
+![output-20_46_0](https://user-images.githubusercontent.com/92266749/190946698-13f8505d-1a13-4660-82d3-47209ac85293.gif)
 
 ### User profile Page
-![screen_yourpage](https://user-images.githubusercontent.com/92266749/190917157-89a84abf-d720-4837-b7bb-35c7ee6a1409.gif)
+![output-20_44_59](https://user-images.githubusercontent.com/92266749/190946712-1047d290-ec8d-4bd7-9604-ff87662f1b65.gif)
 
 ### Search Page
-![screen_search](https://user-images.githubusercontent.com/92266749/190917651-d85beb5a-b643-43c3-9ad8-03423eff5942.gif)
+![output-20_39_17](https://user-images.githubusercontent.com/92266749/190946719-f5902184-4588-420d-9ea4-72d91a8fc130.gif)
 
 
 ## Run Locally
