@@ -262,7 +262,7 @@ function SingleImagePage() {
 
 
             <div className='imgInfoContainer'>
-                
+
                     <div className='favesContainer'>
                             <div className='totalFave'>
                                 {favesArr && (<p>total faves: {favesArr?.length}</p>)}
@@ -336,6 +336,7 @@ function SingleImagePage() {
                         </div>
                         <div className='userPic1-2'>
                             <h3>{getUsername(image?.userId)}</h3>
+                            <p>created by {image?.created_at.split(" ").splice(0,4).join(" ")}</p>
                             <div className='descriptionContainer'>{image?.description}</div>
                         </div>
                     </div>

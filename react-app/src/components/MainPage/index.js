@@ -116,23 +116,6 @@ function MainPage() {
     // }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // ---------------------------------------------
 
     // ------------------- test1 fail--------------------
@@ -158,6 +141,9 @@ function MainPage() {
         dispatch(getUserFollowsThunk(userId))
         // dispatch(getNotFollowsThunk(userId))
     }, [dispatch])
+
+    const [showUserFollows, setShowUserFollows] = useState(false)
+    const [showUserFans, setShowUserFans] = useState(false)
 
     return (
         <div className='mainPageOutContainer'>
@@ -187,35 +173,11 @@ function MainPage() {
 
                 </div> */}
 
-                        <div className='innertitle_1'>
-                            {/* <i class="fa-solid fa-chevrons-right"></i> */}
-                            <h3> >> People you followed</h3>
-                        </div>
 
 
 
-                    <div className='innerFollowBox'>
-                        {userFollowersArr && userFollowersArr.length > 0 && userFollowersArr.map(person => (
-                            <div className='personModal'>
-                                <NavLink className='link8' to={`/users/${person.id}`}>
-                                    <div className='modalHeadline'>
-                                        <div className='modalProfilePic'>
-                                            <i class="fa-solid fa-user"></i>
-                                        </div>
-                                        <p className='modalText'>{person.username}</p>
-                                    </div>
-
-                                    <div className='modalPic2'></div>
-                                </NavLink>
-
-                            </div>
-
-                        ))}
-                    </div>
-
-
-                    <div className='innertitle_1'>
-                        <h3> + People to follow</h3>
+                    <div className='innertitle_2'>
+                        <div> + People to follow</div>
                     </div>
                     <div className='innerFollowBox'>
                         {wantoFollow && wantoFollow.map(person => (
@@ -235,24 +197,56 @@ function MainPage() {
                     </div>
 
                     <div className='innertitle_1'>
-                        <h3> >> People who're intereted in your photos</h3>
+                        {/* <i class="fa-solid fa-chevrons-right"></i> */}
+                        <div onClick={() => setShowUserFollows(!showUserFollows)}> {showUserFollows ? '* People you followed' : '> People you followed'}</div>
                     </div>
 
-                    <div className='innerFollowBox'>
-                        {userFollowingArr && userFollowingArr.map(person => (
-                            <div className='personModal'>
-                                <NavLink className='link8' to={`/users/${person.id}`}>
-                                    <div className='modalHeadline'>
-                                        <div className='modalProfilePic'>
-                                            <i class="fa-solid fa-user"></i>
+                    {showUserFollows && (
+                        <div className='innerFollowBox'>
+                            {userFollowersArr && userFollowersArr.length > 0 && userFollowersArr.map(person => (
+                                <div className='personModal'>
+                                    <NavLink className='link8' to={`/users/${person.id}`}>
+                                        <div className='modalHeadline'>
+                                            <div className='modalProfilePic'>
+                                                <i class="fa-solid fa-user"></i>
+                                            </div>
+                                            <p className='modalText'>{person.username}</p>
                                         </div>
-                                        <p className='modalText'>{person.username}</p>
-                                    </div>
-                                    <div className='modalPic3'></div>
-                                </NavLink>
-                            </div>
-                        ))}
+
+                                        <div className='modalPic2'></div>
+                                    </NavLink>
+
+                                </div>
+
+                            ))}
+                        </div>
+                    )}
+
+
+
+                    <div className='innertitle_1'>
+                        <div onClick={() => setShowUserFans(!showUserFans)}> {showUserFans ? '* People who\'re intereted in your photos' : '> People who\'re intereted in your photos'}</div>
                     </div>
+
+                    {showUserFans && (
+                        <div className='innerFollowBox'>
+                            {userFollowingArr && userFollowingArr.map(person => (
+                                <div className='personModal'>
+                                    <NavLink className='link8' to={`/users/${person.id}`}>
+                                        <div className='modalHeadline'>
+                                            <div className='modalProfilePic'>
+                                                <i class="fa-solid fa-user"></i>
+                                            </div>
+                                            <p className='modalText'>{person.username}</p>
+                                        </div>
+                                        <div className='modalPic3'></div>
+                                    </NavLink>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+
                 </div>
             </div>
 
