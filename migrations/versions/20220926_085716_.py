@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 4d3858c46e29
+Revision ID: 2d5f6e4156a2
 Revises: 
-Create Date: 2022-09-05 15:27:09.863572
+Create Date: 2022-09-26 08:57:16.157800
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4d3858c46e29'
+revision = '2d5f6e4156a2'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -34,6 +34,14 @@ def upgrade():
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('follows',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('userId', sa.Integer(), nullable=False),
+    sa.Column('followerId', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['followerId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
     op.create_table('images',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
@@ -41,6 +49,7 @@ def upgrade():
     sa.Column('content', sa.Text(), nullable=False),
     sa.Column('description', sa.Text(), nullable=False),
     sa.Column('imageUrl', sa.String(), nullable=False),
+    sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.ForeignKeyConstraint(['albumId'], ['albums.id'], ),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -70,6 +79,7 @@ def downgrade():
     op.drop_table('favorites')
     op.drop_table('comments')
     op.drop_table('images')
+    op.drop_table('follows')
     op.drop_table('albums')
     op.drop_table('users')
     # ### end Alembic commands ###

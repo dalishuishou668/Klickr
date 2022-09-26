@@ -5,4 +5,4 @@ from .album import Album
 from .comment import Comment
 from .favorite import Favorite
 # from .tag import Tag
-# from .follow import Follow
+from .follow import Follow
