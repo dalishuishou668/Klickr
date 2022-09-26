@@ -46,12 +46,12 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/explore' />;
+    return <Redirect to='/home' />;
   }
 
   const demologin = async () => {
     await dispatch(sessionActions.login("demo@aa.io", "password"));
-    history.push('/explore');
+    history.push('/home');
   }
 
 
