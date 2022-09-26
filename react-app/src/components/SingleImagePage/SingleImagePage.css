@@ -598,7 +598,7 @@ h2#heading {
 .commentcontent{
     /* border: black solid 3px; */
     word-wrap: break-word;
-    width: 90%;
+    width: 95%;
     height:4.3rem;
     overflow: auto;
     overflow-y: auto;
