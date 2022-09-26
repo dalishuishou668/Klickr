@@ -41,16 +41,37 @@ function ExplorePage() {
             <NavBar />
             <h1>Explore</h1>
             <div className='allImgsContainer'>
-                {ImageArr && ImageArr.map((image) => (
-                    <div>
-                        <figure class="hover-img" onClick={() => history.push(`/images/${image?.id}`)}>
+                <div className='container-all'>
+
+                    {/* </div> */}
+                    {ImageArr && ImageArr.map((image) => (
+                        <div>
+
+
+
+                            {/* <div class="container-all"> */}
+                            <div class="container" onClick={() => history.push(`/images/${image?.id}`)}>
+                                <img src={image?.imageUrl} alt='image' className='singleImg img2'></img>
+                                <span class="title"> {image?.content}</span>
+                                <span class="text"> by {getUsername(image?.userId)}</span>
+
+                            </div>
+                            {/* </div> */}
+
+
+
+
+
+                            {/* <figure class="hover-img" onClick={() => history.push(`/images/${image?.id}`)}>
                             <img src={image?.imageUrl} alt='image' className='singleImg'></img>
                             <figcaption>
                                 <p className='imageCreator1'>{image?.content}</p>
                                 <p>by {getUsername(image?.userId)}</p>
                             </figcaption>
-                        </figure>
-                        {/* <figure className='photo-display' onClick={() => history.push(`/images/${image?.id}`)}>
+                        </figure> */}
+
+
+                            {/* <figure className='photo-display' onClick={() => history.push(`/images/${image?.id}`)}>
                             <img src={image?.imageUrl} alt='image' className='singleImg'></img>
                             <div className='photo-overlay'>
                                 <div className='photo-info'>
@@ -61,13 +82,13 @@ function ExplorePage() {
                         </figure> */}
 
 
-                    </div>
-                ))}
+                        </div>
+                    ))}
+
+                </div>
+
 
             </div>
-
-
-
 
         </div>
     )

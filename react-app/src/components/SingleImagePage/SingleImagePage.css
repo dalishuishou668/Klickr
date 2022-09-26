@@ -561,7 +561,7 @@ h2#heading {
     display: flex;
     /* border: yellow solid 5px; */
     /* word-wrap: break-word; */
-    height:5rem;
+    height:8rem;
     /* overflow: auto;
     overflow-x: auto; */
 
@@ -579,7 +579,8 @@ h2#heading {
 }
 
 .descriptionContainer::-webkit-scrollbar {
-    width: 8px;
+    display:none;
+    width: 4px;
     height: 8px;
     border-radius: 4px;
 }
@@ -597,16 +598,17 @@ h2#heading {
 .commentcontent{
     /* border: black solid 3px; */
     word-wrap: break-word;
-    width: 80%;
+    width: 95%;
     height:4.3rem;
     overflow: auto;
     overflow-y: auto;
+    text-align: justify;
 
 }
 
 .commentcontent::-webkit-scrollbar {
     /* display: none; */
-    width: 8px;
+    width: 4px;
     height: 8px;
     border-radius: 4px;
 }
@@ -643,4 +645,10 @@ h2#heading {
 
 .fa-heart{
     margin-top: 16px;;
+}
+
+.userPic1-2 p{
+    font-size: 15px;
+    margin-bottom: 1.5rem;
+    padding-left: 26rem;;
 }
