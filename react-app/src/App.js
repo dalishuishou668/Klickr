@@ -6,10 +6,10 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+import User from './components/User/User';
 import { authenticate } from './store/session';
 import LandingPage from "./components/LandingPage";
-// import MainPage from './components/MainPage';
+import MainPage from './components/MainPage';
 import Upload from './components/Upload';
 import ExplorePage from './components/ExplorePage';
 import Search from './components/Search';
@@ -55,15 +55,15 @@ function App() {
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute> */}
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute> */}
+        </ProtectedRoute>
         <ProtectedRoute path='/explore' exact={true} >
           <ExplorePage />
         </ProtectedRoute>
-        {/* <ProtectedRoute path='/home' exact={true} >
+        <ProtectedRoute path='/home' exact={true} >
           <MainPage />
-        </ProtectedRoute> */}
+        </ProtectedRoute>
         <ProtectedRoute path='/search' exact={true} >
           <Search />
         </ProtectedRoute>

@@ -58,6 +58,11 @@ const NavBar = ({ loaded }) => {
 
           </li>
           <li className='loginNav1-2'>
+            <NavLink className='loginNavlink2' to='/home' exact={true} >
+              Home
+            </NavLink>
+          </li>
+          <li className='loginNav1-2'>
             <NavLink className='loginNavlink2' to='/explore' exact={true} >
               Explore
             </NavLink>

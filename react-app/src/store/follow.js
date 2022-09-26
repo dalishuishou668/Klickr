@@ -15,7 +15,7 @@ export const getUserFollowsThunk = (userId) => async (dispatch) => {
 
     if (res.ok) {
         const allUserFollows = await res.json()
-        console.log('follows thunk:', allUserFollows)
+        console.log('follows thunk>>>>>>>>>>>:', allUserFollows)
         dispatch(getUserFollows(allUserFollows))
         return res;
     }
@@ -44,22 +44,62 @@ export const getNotFollowsThunk = (userId) => async (dispatch) => {
     }
 }
 
-// GET SINGLE IMAGE
-const GET_SINGLE_IMAGE = 'images/GET_SINGLE_IMAGE'
+// ADD FOLLOW
+const ADD_FOLLOW = 'follows/ADD_FOLLOW'
+
+const createFollow = (follow) => {
+    return{
+        type: ADD_FOLLOW,
+        follow
+    }
+}
+
+export const createFollowThunk = (userId, follow) => async(dispatch) => {
+    console.log('In the Create follow thunk**********')
+    console.log('userId before backend', userId)
+    console.log('data before goes to backend', follow)
+
+    const res = await fetch(`/api/users/${userId}/follows/create`,{
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(follow),
+    })
+
+    if(res.ok){
+        const newFollow = await res.json()
+        console.log('create Follow thunk  after:', newFollow)
+        dispatch(createFollow(newFollow))
+        return res;
+    }
+}
 
 
 
-// CREATE AN IMAGE
-const CREATE_IMAGE = 'images/CREATE_IMAGE'
+
+// UNFOLLOW
+const DELETE_FOLLOW = 'follows/DELETE_FOLLOW'
+
+const unFollow = (follow) => {
+    return {
+        type: DELETE_FOLLOW,
+        follow,
+    }
+}
+
+export const unFollowThunk = (userId, followId) =>async(dispatch) => {
+    console.log('in the delete thunk^^^^^^^^^^^^^^^^')
+    const res = await fetch(`/api/users/${userId}/follows/${followId}`,{
+        method: "DELETE",
+      })
 
 
-// EDIT AN IMAGE
-const EDIT_IMAGE = 'images/EDIT_IMAGE'
-
-
-
-// DELETE AN IMAGE
-const DELETE_IMAGE = 'images/DELETE_IMAGE'
+    if(res.ok){
+        // const follow = await res.json()
+        console.log('##########DELETE thunk:', res)
+        dispatch(unFollow(followId))
+        return res;
+    }
+}
 
 
 
@@ -71,23 +111,38 @@ const initialState = {};
 const follows = (state = initialState, action) => {
     switch (action.type) {
         case GET_USER_FOLLOWS:
-            const newState = {}
-            action.follows.follows.forEach((follow) => {
-                newState[follow.followingId] = follow;
-            });
-            action.follows.eachFollow.forEach((follow) => {
-                newState[follow.username] = follow;
-            });
+            let newState = {}
+            newState = action.follows;
             return newState;
-        case GET_NOT_FOLLOWS:
-            const newState1 = {}
-            action.notfollows.notfollows.forEach((notfollow) => {
-                newState1[notfollow.followingId] = notfollow;
-            });
-            action.notfollows.eachnotFollow.forEach((notfollow) => {
-                newState1[notfollow.username] = notfollow;
-            });
-            return newState1;
+        case ADD_FOLLOW:
+            let apple = {...state}
+            apple.following[action.follow.id] = action.follow.userId
+            return apple
+        case DELETE_FOLLOW:
+            const test = {...state};
+            // delete test.followers[action.follow];
+            // return test;
+            delete test.followers[action.followeId]
+            return test
+
+        // case GET_USER_FOLLOWS:
+        //     const newState = {}
+        //     action.follows.follows.forEach((follow) => {
+        //         newState[follow.followingId] = follow;
+        //     });
+        //     action.follows.eachFollow.forEach((follow) => {
+        //         newState[follow.username] = follow;
+        //     });
+        //     return newState;
+        // case GET_NOT_FOLLOWS:
+        //     const newState1 = {}
+        //     action.notfollows.notfollows.forEach((notfollow) => {
+        //         newState1[notfollow.followingId] = notfollow;
+        //     });
+        //     action.notfollows.eachnotFollow.forEach((notfollow) => {
+        //         newState1[notfollow.username] = notfollow;
+        //     });
+        //     return newState1;
 
 
         default:
@@ -97,3 +152,4 @@ const follows = (state = initialState, action) => {
 
 
 export default follows;
+
