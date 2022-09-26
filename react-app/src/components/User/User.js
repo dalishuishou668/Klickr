@@ -167,7 +167,7 @@ function User() {
           </div> */}
           <div>
             {isFollowExist.length > 0 ?
-              (<button onClick={handleUnfollow}>unFollow</button>) : (<button onClick={handleCreateFollow}>Follow</button>)}
+              (<button onClick={handleUnfollow} className='followBtn1'>unFollow</button>) : (<button onClick={handleCreateFollow} className='followBtn1'>Follow</button>)}
           </div>
           {/* <button className='addFollowBtn'>Follow</button> */}
 
