@@ -50,7 +50,7 @@ class User(db.Model, UserMixin):
             "albums": [album.id for album in self.albums],
             "comments": [comment.id for comment in self.comments],
             "favorites": [favorite.id for favorite in self.favorites],
-            "tags": [tag.id for tag in self.tags],
+            # "tags": [tag.id for tag in self.tags],
             "follows": [follow.id for follow in self.follows]
             # "follower": [followie.id for followie in self.user_followings],
             # "following": [follower.id for follower in self.user_followers]

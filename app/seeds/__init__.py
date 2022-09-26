@@ -4,7 +4,7 @@ from .images import seed_images, undo_images
 from .albums import seed_albums, undo_albums
 from .comments import seed_comments, undo_comments
 from .favorites import seed_favorites, undo_favorites
-# from .follows import seed_follows, undo_follows
+from .follows import seed_follows, undo_follows
 # from .tags import seed_tags, undo_tags
 
 # Creates a seed group to hold our commands
@@ -21,7 +21,7 @@ def seed():
     seed_images()
     seed_comments()
     seed_favorites()
-    # seed_follows()
+    seed_follows()
 
 
     # Add other seed functions here
@@ -36,6 +36,6 @@ def undo():
     undo_images()
     undo_comments()
     undo_favorites()
-    # undo_follows()
+    undo_follows()
 
     # Add other undo functions here

@@ -1,4 +1,5 @@
 from .db import db
+from sqlalchemy.sql import func
 
 
 class Image(db.Model):
@@ -11,6 +12,7 @@ class Image(db.Model):
     content = db.Column(db.Text, nullable = False)
     description = db.Column(db.Text, nullable = False)
     imageUrl = db.Column(db.String, nullable = False)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=True, server_default=func.now())
 
 
     # Relationships
@@ -28,6 +30,7 @@ class Image(db.Model):
             "content": self.content,
             "description": self.description,
             "imageUrl": self.imageUrl,
+            "created_at": self.created_at,
             # "tagId": self.tagId,
         }
 
@@ -39,7 +42,8 @@ class Image(db.Model):
             "content": self.content,
             "description": self.description,
             "imageUrl": self.imageUrl,
-            "comments": [comment.to_dict() for comment in self.comments]
+            "comments": [comment.to_dict() for comment in self.comments],
+            "created_at": self.created_at,
             # "tagId": self.tagId,
             # "favorites": [favorite.to_dict() for favorite in self.favorites]
             # "album": self.album,
