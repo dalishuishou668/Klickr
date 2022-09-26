@@ -1,109 +1,267 @@
-// import { useDispatch, useSelector } from "react-redux";
-// import { NavLink, useHistory } from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import { getImagesThunk } from "../../store/image";
-// import { getNotFollowsThunk, getUserFollowsThunk } from "../../store/follow";
-// import { getAllUsersThunk } from "../../store/user";
-// import './MainPage.css'
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getImagesThunk } from "../../store/image";
+import { getNotFollowsThunk, getUserFollowsThunk } from "../../store/follow";
+import { getAllUsersThunk } from "../../store/user";
+import Footer from '../Footer';
+import './MainPage.css'
 
-// function MainPage() {
+function MainPage() {
 
-//     const dispatch = useDispatch()
-//     const userId = useSelector(state => state?.session?.user?.id);
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const userId = useSelector(state => state?.session?.user?.id);
 
-//     const allDbImages = useSelector(state => state?.images)
-//     const ImageArr = Object.values(allDbImages).slice(0, 6)
+    const allDbImages = useSelector(state => state?.images)
+    const ImageArr = Object.values(allDbImages).slice(0, 8)
 
-//     const allUsers = useSelector(state => state.users)
-//     const usersArr = Object.values(allUsers)
-//     console.log('userARR^^^^^^^^^^:', usersArr)
+    const allUsers = useSelector(state => state.users)
+    const usersArr = Object.values(allUsers)
+    console.log('userARR^^^^^^^^^^:', usersArr)
 
-//     // ------------------ test 2 -----------------
-//     const followState = useSelector(state => state?.follows)
-//     // console.log('follows:', followState)
-//     const followsArr = (Object.values(followState))
-//     console.log('!!!!!!!!!!!followsArr:', followsArr)
+    // // ------------------ test 2 -----------------
+    // const followState = useSelector(state => state?.follows)
+    // // console.log('follows:', followState)
+    // const followsArr = (Object.values(followState))
+    // console.log('!!!!!!!!!!!followsArr:', followsArr)
 
-//     let followTestList = []
-//     if (followState) {
+    // let followTestList = []
+    // if (followState) {
 
-//         // const followsArr = (Object.values(followState))
-//         // console.log('!!!!!!!!!!!followsArr:', followsArr)
-//         followsArr.forEach(user => {
-//             if (user.username) {
-//                 followTestList.push(user)
-//             }
-//         })
-//     }
+    //     // const followsArr = (Object.values(followState))
+    //     // console.log('!!!!!!!!!!!followsArr:', followsArr)
+    //     followsArr.forEach(user => {
+    //         if (user.username) {
+    //             followTestList.push(user)
+    //         }
+    //     })
+    // }
 
-//     let resultArr = []
-//     if (followsArr) {
-//         for (let i = 0; i < usersArr.length; i++) {
-//             if (usersArr[i].id !== userId && usersArr[i].id !== followsArr[1]?.id)
-//                 resultArr.push(usersArr[i])
-//         }
-//         console.log("result@@@@@@@@@@@", resultArr)
+    // let resultArr = []
+    // if (followsArr) {
+    //     for (let i = 0; i < usersArr.length; i++) {
+    //         if (usersArr[i].id !== userId && usersArr[i].id !== followsArr[1]?.id)
+    //             resultArr.push(usersArr[i])
+    //     }
+    //     console.log("result@@@@@@@@@@@", resultArr)
 
-//     }
-
-
-//     // ---------------------------------------------
-
-//     // ------------------- test1 fail--------------------
-//     // const notfollowState = useSelector(state => state?.follows)
-//     // console.log('not follows:', notfollowState)
-
-//     // let followTestList2 = []
-//     // if (notfollowState) {
-
-//     //     const notfollowsArr = (Object.values(notfollowState))
-//     //     notfollowsArr.forEach(user => {
-//     //         if (user.username) {
-//     //             followTestList2.push(user)
-//     //         }
-//     //     })
-//     // }
-//     // ---------------------------------------------------
+    // }
 
 
-//     useEffect(() => {
-//         dispatch(getImagesThunk())
-//         dispatch(getAllUsersThunk())
-//         dispatch(getUserFollowsThunk(userId))
-//         // dispatch(getNotFollowsThunk(userId))
-//     }, [dispatch])
 
-//     return (
-//         <div className='mainPageContainer'>
-//             <h1>My Home Page</h1>
-//             <div className='recentPhoto'>
-//                 <h3>Explore recent images</h3>
-//                 <div className='recentImgContainer'>
-//                     {ImageArr && ImageArr.map((image) => (
-//                         <div>
-//                             <NavLink to={`/images/${image.id}`}>
-//                                 <img src={image.imageUrl} alt='image' className='singleImg'></img>
-//                                 <p>{image.content}</p>
-//                             </NavLink>
-//                         </div>
-//                     ))}
-//                 </div>
 
-//             </div>
-//             <div className='peopleToFollow'>
-//                 {/* <h3>people you may want to follow</h3>
-//                 <div>
-//                     {resultArr.length > 0 && resultArr.map(person => (
-//                         <li><NavLink to={`/users/${person.id}`}>{person.username}</NavLink></li>
-//                     ))}
-//                     {resultArr.length === 0 && <li>no more person to follow</li>}
+    // -------------------- test 3 -----------------------
 
-//                 </div> */}
+    const followdata = useSelector(state => state?.follows)
+    console.log('followData', followdata)
+    const userFollowers = useSelector(state => state?.follows?.followers)
 
-//             </div>
+    let idArr = []
+    let userFollowersArr;
+    if (userFollowers) {
+        console.log('userFollowers:', userFollowers)
+        userFollowersArr = Object.values(userFollowers)
+        for (let k = 0; k < userFollowersArr.length; k++) {
+            idArr.push(userFollowersArr[k].id)
+        }
 
-//         </div>
-//     )
-// }
+    }
 
-// export default MainPage;
+    console.log('idArr------', idArr)
+
+    let userFollowingArr;
+    const userFollowing = useSelector(state => state?.follows?.following)
+    if (userFollowing) {
+        console.log('userFollowing', userFollowing)
+        userFollowingArr = Object.values(userFollowing)
+    }
+
+    let wantoFollow = []
+    for (let i = 0; i < usersArr.length; i++) {
+        if (!idArr.includes(usersArr[i].id) && usersArr[i].id !== userId) {
+            wantoFollow.push(usersArr[i])
+        }
+
+    }
+
+    console.log("result@@@@@@@@@@@", wantoFollow)
+
+    // let wantoFollow = []
+    // if (userFollowersArr) {
+    //     for (let i = 0; i < usersArr.length; i++) {
+    //         for (let j = 0; j < userFollowersArr.length; j++) {
+
+    //             console.log('iiiiiiiiii', i)
+    //             console.log('jjjjjjj', j)
+    //             console.log('userId:::::', userId)
+    //             console.log('usersArr[i]?.id ------------>', usersArr[i], usersArr[i]?.id)
+    //             console.log('userFollowersArr[j]?.id------------>', userFollowersArr[j], userFollowersArr[j]?.id)
+    //             console.log('Equality**********111*********', usersArr[i].id !== userId)
+    //             console.log('Equality**********222*********', usersArr[i].id !== userFollowersArr[j]?.id)
+    //             console.log('Equality**********333*********', usersArr[i].id !== userId && usersArr[i].id !== userFollowersArr[j]?.id)
+
+    //             if (usersArr[i].id !== userId && usersArr[i].id !== userFollowersArr[j]?.id) {
+
+    //                 wantoFollow.push(usersArr[i])
+    //                 console.log("result@@@@@@@@@@@", wantoFollow)
+    //             }
+
+    //         }
+
+    //     }
+    //     console.log("result@@@@@@@@@@@", wantoFollow)
+    //     // return wantoFollow;
+
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // ---------------------------------------------
+
+    // ------------------- test1 fail--------------------
+    // const notfollowState = useSelector(state => state?.follows)
+    // console.log('not follows:', notfollowState)
+
+    // let followTestList2 = []
+    // if (notfollowState) {
+
+    //     const notfollowsArr = (Object.values(notfollowState))
+    //     notfollowsArr.forEach(user => {
+    //         if (user.username) {
+    //             followTestList2.push(user)
+    //         }
+    //     })
+    // }
+    // ---------------------------------------------------
+
+
+    useEffect(() => {
+        dispatch(getImagesThunk())
+        dispatch(getAllUsersThunk())
+        dispatch(getUserFollowsThunk(userId))
+        // dispatch(getNotFollowsThunk(userId))
+    }, [dispatch])
+
+    return (
+        <div className='mainPageOutContainer'>
+            {/* <h1>My Home Page</h1> */}
+            <div className='mainPageContainer'>
+                <div className='recentPhoto'>
+                    <h1 onClick={() => history.push('/explore')}>Explore popular images</h1>
+                    <div className='recentImgContainer'>
+                        {ImageArr && ImageArr.map((image) => (
+                            <div className='recentPhotoli'>
+                                <NavLink to={`/images/${image.id}`} className='galleryNavlink'>
+                                    <img src={image.imageUrl} alt='image' className='singleImg_1'></img>
+                                    {/* <p>{image.content}</p> */}
+                                </NavLink>
+                            </div>
+                        ))}
+                    </div>
+
+                </div>
+                <div className='followsContainer'>
+                    {/* <h3>people you may want to follow</h3>
+                <div>
+                    {resultArr.length > 0 && resultArr.map(person => (
+                        <li><NavLink to={`/users/${person.id}`}>{person.username}</NavLink></li>
+                    ))}
+                    {resultArr.length === 0 && <li>no more person to follow</li>}
+
+                </div> */}
+
+                        <div className='innertitle_1'>
+                            {/* <i class="fa-solid fa-chevrons-right"></i> */}
+                            <h3> >> People you followed</h3>
+                        </div>
+
+
+
+                    <div className='innerFollowBox'>
+                        {userFollowersArr && userFollowersArr.length > 0 && userFollowersArr.map(person => (
+                            <div className='personModal'>
+                                <NavLink className='link8' to={`/users/${person.id}`}>
+                                    <div className='modalHeadline'>
+                                        <div className='modalProfilePic'>
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+                                        <p className='modalText'>{person.username}</p>
+                                    </div>
+
+                                    <div className='modalPic2'></div>
+                                </NavLink>
+
+                            </div>
+
+                        ))}
+                    </div>
+
+
+                    <div className='innertitle_1'>
+                        <h3> + People to follow</h3>
+                    </div>
+                    <div className='innerFollowBox'>
+                        {wantoFollow && wantoFollow.map(person => (
+                            <div className='personModal'>
+                                <NavLink className='link8' to={`/users/${person.id}`}>
+                                    <div className='modalHeadline'>
+                                        <div className='modalProfilePic'>
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+                                        <p className='modalText'>{person.username}</p>
+                                    </div>
+                                    <div className='modalPic'></div>
+                                </NavLink>
+                            </div>
+
+                        ))}
+                    </div>
+
+                    <div className='innertitle_1'>
+                        <h3> >> People who're intereted in your photos</h3>
+                    </div>
+
+                    <div className='innerFollowBox'>
+                        {userFollowingArr && userFollowingArr.map(person => (
+                            <div className='personModal'>
+                                <NavLink className='link8' to={`/users/${person.id}`}>
+                                    <div className='modalHeadline'>
+                                        <div className='modalProfilePic'>
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+                                        <p className='modalText'>{person.username}</p>
+                                    </div>
+                                    <div className='modalPic3'></div>
+                                </NavLink>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className='footerbox'>
+                <Footer />
+            </div>
+
+        </div>
+    )
+}
+
+export default MainPage;
