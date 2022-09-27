@@ -150,7 +150,7 @@ function MainPage() {
             {/* <h1>My Home Page</h1> */}
             <div className='mainPageContainer'>
                 <div className='recentPhoto'>
-                    <h1 onClick={() => history.push('/explore')}>Recommend for you</h1>
+                    <h1 onClick={() => history.push('/explore')}>Explore popular photos</h1>
                     <div className='recentImgContainer'>
                         {ImageArr && ImageArr.map((image) => (
                             <div className='recentPhotoli'>
