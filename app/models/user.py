@@ -10,6 +10,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    background_pic = db.Column(db.Text, nullable=True, unique=False, default="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1826&q=80")
     # profile_pic = db.Column(db.Text, default="https://cdn-icons-png.flaticon.com/512/4675/4675250.png")
 
 
@@ -37,7 +38,8 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'background_pic': self.background_pic
             # 'profile_pic': self.profile_pic
         }
 
