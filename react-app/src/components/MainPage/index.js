@@ -150,7 +150,7 @@ function MainPage() {
             {/* <h1>My Home Page</h1> */}
             <div className='mainPageContainer'>
                 <div className='recentPhoto'>
-                    <h1 onClick={() => history.push('/explore')}>Explore popular images</h1>
+                    <h1 onClick={() => history.push('/explore')}>Recommend for you</h1>
                     <div className='recentImgContainer'>
                         {ImageArr && ImageArr.map((image) => (
                             <div className='recentPhotoli'>
@@ -189,7 +189,10 @@ function MainPage() {
                                         </div>
                                         <p className='modalText'>{person.username}</p>
                                     </div>
-                                    <div className='modalPic'></div>
+                                    {/* <div className='modalPic'></div> */}
+                                    <div>
+                                        <img src={person?.background_pic} className='modalPic4'></img>
+                                    </div>
                                 </NavLink>
                             </div>
 
@@ -213,7 +216,10 @@ function MainPage() {
                                             <p className='modalText'>{person.username}</p>
                                         </div>
 
-                                        <div className='modalPic2'></div>
+                                        {/* <div className='modalPic2'></div> */}
+                                        <div>
+                                            <img src={person?.background_pic} className='modalPic4'></img>
+                                        </div>
                                     </NavLink>
 
                                 </div>
@@ -239,7 +245,10 @@ function MainPage() {
                                             </div>
                                             <p className='modalText'>{person.username}</p>
                                         </div>
-                                        <div className='modalPic3'></div>
+                                        {/* <div className='modalPic3'></div> */}
+                                        <div>
+                                            <img src={person?.background_pic} className='modalPic4'></img>
+                                        </div>
                                     </NavLink>
                                 </div>
                             ))}
