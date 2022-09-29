@@ -24,22 +24,25 @@ Feature List: https://github.com/dalishuishou668/Klickr/wiki/Features
 
 ## Preview
 ### Landing Page
-![1352x1311_screen_landing](https://user-images.githubusercontent.com/92266749/190946660-09a13f4c-2a91-4a50-bdad-3a9dcd1d25b3.gif)
+![11](https://user-images.githubusercontent.com/92266749/192941255-fa0705ef-d171-488f-a345-a127880b73ca.gif)
 
 ### Login Page
 ![output-20_41_54](https://user-images.githubusercontent.com/92266749/190946669-e9eb38fd-b387-4d1f-bb7f-5e9ebe8ad331.gif)
 
+### Homepage
+![13](https://user-images.githubusercontent.com/92266749/192941312-57b382df-e533-4a1a-9234-30662153da59.gif)
+
 ### Explore Page
-![output-20_42_29](https://user-images.githubusercontent.com/92266749/190946693-8e10d420-2c02-430a-8179-57285c8216ac.gif)
+![14 (2)](https://user-images.githubusercontent.com/92266749/192941341-26389dfd-86ca-416e-ab2e-41a5e2955f0e.gif)
 
 ### Single Image Page
-![output-20_46_0](https://user-images.githubusercontent.com/92266749/190946698-13f8505d-1a13-4660-82d3-47209ac85293.gif)
+![15](https://user-images.githubusercontent.com/92266749/192941368-7523d263-2113-4399-9517-f19ee1e1ddcf.gif)
 
 ### User profile Page
-![output-20_44_59](https://user-images.githubusercontent.com/92266749/190946712-1047d290-ec8d-4bd7-9604-ff87662f1b65.gif)
+![16](https://user-images.githubusercontent.com/92266749/192941423-b600b8e8-8d17-43f6-bf94-657ac7c85266.gif)
 
 ### Search Page
-![output-20_39_17](https://user-images.githubusercontent.com/92266749/190946719-f5902184-4588-420d-9ea4-72d91a8fc130.gif)
+![17](https://user-images.githubusercontent.com/92266749/192941460-09dbd2cd-7b20-447d-bf75-30aaab63f6a4.gif)
 
 
 ## Run Locally
