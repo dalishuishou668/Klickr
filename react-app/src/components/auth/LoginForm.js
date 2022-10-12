@@ -12,6 +12,7 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory()
+  const [hasSubmitted, setHasSubmitted] = useState(false)
 
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
+    setHasSubmitted(true)
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
@@ -64,7 +66,7 @@ const LoginForm = () => {
         <h3 className='loginTitle'>Log in to Klickr</h3>
         <form onSubmit={onLogin} className='login-form'>
           <div className='loginErr'>
-            {errors.map((error, ind) => (
+            {hasSubmitted && errors.map((error, ind) => (
               <div key={ind}>* {error}</div>
             ))}
           </div>
@@ -122,7 +124,10 @@ const LoginForm = () => {
           <div>
             <button className='btn-hover color-3' onClick={demologin}>Log in as Demo User</button>
           </div>
-          <button className='btn-hover color-3' onClick={() => history.push('/')}>Back</button>
+          <button className='btn-hover color-3' onClick={() => {
+            setHasSubmitted(false)
+
+            history.push('/')}}>Back</button>
 
           {/* <button
           className="submit-btn"
