@@ -119,3 +119,12 @@
  input[type=file] {
      font-family: 'Roboto', sans-serif;
  }
+ .createAlbumLink{
+    text-decoration: none;
+    margin:15px 0px;
+    cursor: pointer;
+    color:#736EFE;
+ }
+ .createAlbumLink:hover{
+    text-decoration: underline;
+ }
