@@ -6,7 +6,7 @@ function About() {
         <div className='aboutOutContainer'>
             <div className='aboutSubcontainer'>
                 <div className='photoContainer'>
-                <img className='developerPhoto' src="https://media-exp1.licdn.com/dms/image/C4D03AQGk5rQvlCZ_yA/profile-displayphoto-shrink_400_400/0/1654710587613?e=1664409600&v=beta&t=ZDV4dpaekhMtnq8dTWBKs02sAcnUTE_frRgSbE8OI7o" alt='Joyce' />
+                <img className='developerPhoto' src="https://media-exp1.licdn.com/dms/image/C4D03AQGk5rQvlCZ_yA/profile-displayphoto-shrink_400_400/0/1654710587613?e=1671062400&v=beta&t=4MsOsSTAa5n5rCewaopNz-S9KOGBLOuilsGMUJUrIzM" alt='Joyce' />
                 </div>
 
                 <div>

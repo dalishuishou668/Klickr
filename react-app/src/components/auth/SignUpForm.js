@@ -13,6 +13,7 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory()
+  const [hasSubmitted, setHasSubmitted] = useState(false)
 
 
 
@@ -42,9 +43,11 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    setHasSubmitted(true);
     if (password === repeatPassword && !errors.length) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
+        setHasSubmitted(false)
         setErrors(data)
       }
     }
@@ -77,7 +80,7 @@ const SignUpForm = () => {
         <h3 className='loginTitle'>Sign up to Klickr</h3>
         <form onSubmit={onSignUp} className='login-form'>
           <div className='signupErr'>
-            {errors.map((error, ind) => (
+            {hasSubmitted && errors.map((error, ind) => (
               <div key={ind}>* {error}</div>
             ))}
           </div>

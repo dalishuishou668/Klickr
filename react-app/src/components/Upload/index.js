@@ -136,6 +136,9 @@ function Upload() {
                             )}
                         </select>
                     </div>
+                    <div >
+                        <NavLink className='createAlbumLink' to='/yourpage'>Or create a new album via your profile page</NavLink>
+                    </div>
                     <div>
                         <input
                             className='uploadInput'
