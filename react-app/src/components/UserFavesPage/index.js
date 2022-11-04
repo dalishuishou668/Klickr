@@ -25,7 +25,7 @@ function UserFavesPage() {
 
     if (eachFaveImage) {
         eachFaveImageArr = Object.values(eachFaveImage)
-        console.log('useSelector eachFaveImage`````````````', eachFaveImageArr)
+        // console.log('useSelector eachFaveImage`````````````', eachFaveImageArr)
         // for (let i = 0; i < userfavesArr.length; i++){
         //     for (let j = 0; j < imageArr.length; j++){
         //         console.log('***********************')
